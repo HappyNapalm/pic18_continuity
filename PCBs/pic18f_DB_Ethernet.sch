@@ -381,4 +381,132 @@ Wire Wire Line
 	1850 3600 2150 3600
 Wire Wire Line
 	2000 3300 2150 3300
+$Comp
+L Device:R_US R?
+U 1 1 5E534EAE
+P 2750 3450
+F 0 "R?" H 2818 3496 50  0000 L CNN
+F 1 "R_US" H 2818 3405 50  0000 L CNN
+F 2 "" V 2790 3440 50  0001 C CNN
+F 3 "~" H 2750 3450 50  0001 C CNN
+	1    2750 3450
+	1    0    0    -1  
+$EndComp
+Text GLabel 2450 3600 0    50   Input ~ 0
+GND
+Wire Wire Line
+	2450 3600 2750 3600
+Wire Wire Line
+	2750 3300 2750 3100
+Wire Wire Line
+	2750 3100 2000 3100
+Text GLabel 1300 4050 0    50   Input ~ 0
+3v3
+Wire Wire Line
+	1300 4050 1600 4050
+$Comp
+L Device:R_US R?
+U 1 1 5E5368E4
+P 2150 4300
+F 0 "R?" H 2218 4346 50  0000 L CNN
+F 1 "R_US" H 2218 4255 50  0000 L CNN
+F 2 "" V 2190 4290 50  0001 C CNN
+F 3 "~" H 2150 4300 50  0001 C CNN
+	1    2150 4300
+	1    0    0    -1  
+$EndComp
+Text GLabel 1850 4450 0    50   Input ~ 0
+GND
+Wire Wire Line
+	1850 4450 2150 4450
+Wire Wire Line
+	2000 4150 2150 4150
+$Comp
+L Device:R_US R?
+U 1 1 5E5368EE
+P 2750 4300
+F 0 "R?" H 2818 4346 50  0000 L CNN
+F 1 "R_US" H 2818 4255 50  0000 L CNN
+F 2 "" V 2790 4290 50  0001 C CNN
+F 3 "~" H 2750 4300 50  0001 C CNN
+	1    2750 4300
+	1    0    0    -1  
+$EndComp
+Text GLabel 2450 4450 0    50   Input ~ 0
+GND
+Wire Wire Line
+	2450 4450 2750 4450
+Wire Wire Line
+	2750 4150 2750 3950
+Wire Wire Line
+	2750 3950 2000 3950
+$Comp
+L Switch:SW_DPDT_x2 SW?
+U 2 1 5E537BD7
+P 1800 4050
+F 0 "SW?" H 1800 4335 50  0000 C CNN
+F 1 "SW_DPDT_x2" H 1800 4244 50  0000 C CNN
+F 2 "" H 1800 4050 50  0001 C CNN
+F 3 "" H 1800 4050 50  0001 C CNN
+	2    1800 4050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x05_Odd_Even J?
+U 1 1 5E53B6D7
+P 7350 2350
+F 0 "J?" V 7354 2630 50  0000 L CNN
+F 1 "Conn02x05OddEven" V 7445 2630 50  0000 L CNN
+F 2 "" H 7350 2350 50  0001 C CNN
+F 3 "~" H 7350 2350 50  0001 C CNN
+	1    7350 2350
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x05_Odd_Even J?
+U 1 1 5E53C70C
+P 7350 3550
+F 0 "J?" V 7354 3830 50  0000 L CNN
+F 1 "Conn02x05OddEven" V 7445 3830 50  0000 L CNN
+F 2 "" H 7350 3550 50  0001 C CNN
+F 3 "~" H 7350 3550 50  0001 C CNN
+	1    7350 3550
+	0    1    1    0   
+$EndComp
+$Comp
+L pspice:CAP C?
+U 1 1 5E53E1CC
+P 1800 4950
+F 0 "C?" H 1978 4996 50  0000 L CNN
+F 1 "CAP" H 1978 4905 50  0000 L CNN
+F 2 "" H 1800 4950 50  0001 C CNN
+F 3 "~" H 1800 4950 50  0001 C CNN
+	1    1800 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L pspice:CAP C?
+U 1 1 5E53E5BB
+P 2350 4950
+F 0 "C?" H 2528 4996 50  0000 L CNN
+F 1 "CAP" H 2528 4905 50  0000 L CNN
+F 2 "" H 2350 4950 50  0001 C CNN
+F 3 "~" H 2350 4950 50  0001 C CNN
+	1    2350 4950
+	1    0    0    -1  
+$EndComp
+Text GLabel 1300 4700 0    50   Input ~ 0
+3v3
+Text GLabel 1300 5200 0    50   Input ~ 0
+GND
+Wire Wire Line
+	1300 5200 1800 5200
+Connection ~ 1800 5200
+Wire Wire Line
+	1800 5200 2350 5200
+Wire Wire Line
+	1300 4700 1800 4700
+Connection ~ 1800 4700
+Wire Wire Line
+	1800 4700 2350 4700
 $EndSCHEMATC
