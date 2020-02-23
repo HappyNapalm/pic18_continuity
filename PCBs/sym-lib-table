@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name pic18f45k20)(type Legacy)(uri /home/church/PCBs/pic18_continuity/PCBs/pic18f45k20.lib)(options "")(descr ""))
+)
