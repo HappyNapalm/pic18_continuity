@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/church/PCBs/pic18_continuity/PCBs/pic18f_DB_Ethernet.sch)
-    (date "Mon 09 Mar 2020 20:24:30 PDT")
+    (date "Sun 15 Mar 2020 15:52:55 PDT")
     (tool "Eeschema 5.0.2-bee76a0~70~ubuntu16.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -17,7 +17,7 @@
   (components
     (comp (ref J8)
       (value RJ45)
-      (footprint Connector_RJ:RJ45_Amphenol_RJHSE5380)
+      (footprint Connector_RJ:RJ45_Amphenol_54602-x08_Horizontal)
       (datasheet ~)
       (libsource (lib Connector) (part RJ45) (description "RJ connector, 8P8C (8 positions 8 connected)"))
       (sheetpath (names /) (tstamps /))

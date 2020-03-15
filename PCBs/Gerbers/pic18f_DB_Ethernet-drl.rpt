@@ -1,0 +1,25 @@
+Drill report for /home/church/PCBs/pic18_continuity/PCBs/pic18f_DB_Ethernet.kicad_pcb
+Created on Sun 15 Mar 2020 16:04:10 PDT
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  B.Cu                      back
+
+
+Drill file 'pic18f_DB_Ethernet-PTH.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.40mm  0.016"  (117 holes)
+    T2  0.76mm  0.030"  (8 holes)
+    T3  1.00mm  0.039"  (26 holes)
+
+    Total plated holes count 151
+
+
+Drill file 'pic18f_DB_Ethernet-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+    T1  3.20mm  0.126"  (6 holes)
+
+    Total unplated holes count 6
