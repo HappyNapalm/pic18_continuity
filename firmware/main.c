@@ -20,6 +20,27 @@
 /** I N C L U D E S **************************************************/
 //#include "p18f45k20.h"
 /********************************************************************/
+//@about: Compares inputs and outputs, returns 0 False, 1 True, 2 err
+//@takes: unsigned char of the target bit to compare. Err iff > MAX_IO
+unsigned char b2_Compare (unsigned char ucTargetBit)
+{
+	b = 2;
+	{
+		if(ucTargetBit == MAX_IO)
+		{
+			//Ninth bit comparison on input and output
+		}
+		else
+		{
+			if(OUTPUTS == INPUTS)
+			{
+				//Verify Output is correct
+				b = ((OUTPUTS >> ucTargetBit) & 0x01);
+			}
+		}
+	}
+	return b;
+}
 
 void testing (unsigned char bModeSwitch)
 {
@@ -27,6 +48,7 @@ void testing (unsigned char bModeSwitch)
 	{
 		//wiggle 9th bit
 	}
+	b2_Compare(ucTargetBit);
 	
 }
 
