@@ -2,8 +2,12 @@
 Repo for testing continuity
 
 ## TODO
-* Verify RJ45
-* Order Alpha Run
+* Assemble boards to verify designs
+* Hammer out the firmware
+
+~Verify RJ45~
+
+~Order Alpha Run~
 
 ~Get dimensions for DB9 connectors~
 
