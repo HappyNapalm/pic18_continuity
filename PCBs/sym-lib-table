@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name pic18f45k20)(type Legacy)(uri /home/church/PCBs/pic18_continuity/PCBs/pic18f45k20.lib)(options "")(descr ""))
+  (lib (name pic18f_DB_Ethernet-rescue)(type Legacy)(uri ${KIPRJMOD}/pic18f_DB_Ethernet-rescue.lib)(options "")(descr ""))
 )
