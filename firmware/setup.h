@@ -25,13 +25,7 @@ extern "C" {
 #define LED7  LATB & 0b00001000
 #define LED8  LATB & 0b00010000
 
-#define Data_Output(PinMinus1) LATA & 1 << PinMinus1
-#define Data_Input(PinMinus1) LATD & 1 << PinMinus1
-
-#define MAX_IO 9
-
-unsigned char gauc_Inputs[MAX_IO];
-unsigned char gauc_Outputs[MAX_IO];
+#define MAX_IO 8
 
 //functions
 void IO_setup (void);

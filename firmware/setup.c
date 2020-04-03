@@ -4,12 +4,61 @@
 #include <htc.h>
 #include "setup.h"
 
+unsigned char gauc_Inputs[MAX_IO];
+unsigned char gauc_Outputs[MAX_IO];
+
 void IO_setup (void)
 {
   TRISA = 0x00;           //Outputs
   TRISC = 0x00;           //LEDS
   TRISB & 0x1F = 0b00001; //Misc
   TRISD = 0xFF;           //Inputs
+}
+
+inline void Set_Output (unsigned char ucPinMinus1, 
+                        unsigned char bOut)
+{
+  if (ucPinMinus1 == MAX_IO)
+  {
+    Out9 = bOut;
+  }
+  else
+  {
+    LATA |= LATA & bOut << ucPinMinus1;
+  }
+}
+
+inline void clr_Outputs (void)
+{
+  Out9 = LATA = 0;
+}
+
+inline unsigned char Get_Output (unsigned char ucPinMinus1)
+{
+  b = 2;
+  if(ucPinMinus1 == MAX_IO)
+  {
+    b = Out9;
+  }
+  else
+  {
+    b = (LATA >> ucPinMinus1) & 0x01;
+  }
+  return b;
+}
+
+inline unsigned char Get_Input (unsigned char ucPinMinus1)
+{
+  b = 2;
+  if(ucPinMinus1 == MAX_IO)
+  {
+    b = In9;
+  }
+  else
+  {
+    b = (LATD >> ucPinMinus1) & 0x01;
+  }
+  return b;
 }
 
 void clr_LEDs (void)
