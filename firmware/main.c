@@ -3,7 +3,7 @@
  * File:   main.c
  * Author: Church
  *
- * Created on February 22, 2019, 5:04 AM
+ * Created on April 2020
  */
 #include <stdio.h>
 //#include <stdlib.h>
@@ -24,25 +24,25 @@
 //@takes: unsigned char of the target bit to compare. Err iff > MAX_IO
 unsigned char b2_Compare (unsigned char ucTargetBit)
 {
-	b = 2;
-	{
-		if(ucTargetBit == MAX_IO)
-		{
-			//Ninth bit comparison on input and output
-		}
-		else
-		{
-			if(OUTPUTS == INPUTS)
-			{
-				//Verify Output is correct
-				b = ((OUTPUTS >> ucTargetBit) & 0x01);
-			}
-		}
-	}
+	unsigned char b = 2;
+//	{
+	//	if(ucTargetBit == MAX_IO)
+	//	{
+	//		//Ninth bit comparison on input and output
+	//	}
+	//	else
+	//	{
+	//		if(OUTPUTS == INPUTS)
+	//		{
+	//			//Verify Output is correct
+	//			b = ((OUTPUTS >> ucTargetBit) & 0x01);
+	//		}
+	//	}
+//	}
 	return b;
 }
 
-void testing (unsigned char bModeSwitch)
+void testing (unsigned char bModeSwitch, unsigned char ucTargetBit)
 {
 	if(bModeSwitch)
 	{
@@ -61,13 +61,11 @@ void dis_Results()
 void main (void)
 {
     setup();
-    flash();
+//    flash();
     clr_LEDs();
     //start_up();
-    while(1)
-    {
-        //gucAnimationState = 5;
-        //Animation_Loop_Timer();
-        LED_Pattern_Master(gucAnimationState);
-    }
+//    while(1)
+//    {
+//
+//    }
 }

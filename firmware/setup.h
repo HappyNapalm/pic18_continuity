@@ -19,11 +19,11 @@ extern "C" {
 }
 #endif
 //global variables
-#define In9   LATB & 0b00000001
-#define Out9  LATB & 0b00000010
-#define HB    LATB & 0b00000100
-#define LED7  LATB & 0b00001000
-#define LED8  LATB & 0b00010000
+#define In9   LATBbits.LB0
+#define Out9  LATBbits.LB1
+#define HB    LATBbits.LB2
+#define LED7  LATBbits.LB3
+#define LED8  LATBbits.LB4
 
 #define MAX_IO 8
 

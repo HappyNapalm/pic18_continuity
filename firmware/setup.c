@@ -11,7 +11,11 @@ void IO_setup (void)
 {
   TRISA = 0x00;           //Outputs
   TRISC = 0x00;           //LEDS
-  TRISB & 0x1F = 0b00001; //Misc
+  TRISBbits.RB0 = 1;      //Misc
+  TRISBbits.RB1 = 0;
+  TRISBbits.RB2 = 0;
+  TRISBbits.RB3 = 0;
+  TRISBbits.RB4 = 0;
   TRISD = 0xFF;           //Inputs
 }
 
@@ -20,7 +24,7 @@ inline void Set_Output (unsigned char ucPinMinus1,
 {
   if (ucPinMinus1 == MAX_IO)
   {
-    Out9 = bOut;
+    Out9 = bOut ? 1 : 0;
   }
   else
   {
@@ -35,7 +39,7 @@ inline void clr_Outputs (void)
 
 inline unsigned char Get_Output (unsigned char ucPinMinus1)
 {
-  b = 2;
+  unsigned char b = 2;
   if(ucPinMinus1 == MAX_IO)
   {
     b = Out9;
@@ -49,7 +53,7 @@ inline unsigned char Get_Output (unsigned char ucPinMinus1)
 
 inline unsigned char Get_Input (unsigned char ucPinMinus1)
 {
-  b = 2;
+  unsigned char b = 2;
   if(ucPinMinus1 == MAX_IO)
   {
     b = In9;

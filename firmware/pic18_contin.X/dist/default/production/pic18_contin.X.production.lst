@@ -1,0 +1,573 @@
+
+
+Microchip MPLAB XC8 Assembler V2.10 build 88905656 
+                                                                                               Sat Apr 04 20:16:02 2020
+
+Microchip MPLAB XC8 C Compiler v2.10 (Free license) build 20190730164152 Og1 
+     1                           	processor	18F45K20
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	flic
+     5                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     6                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	text0,global,reloc=2,class=CODE,delta=1
+     9                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    10                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    13                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    14                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    15  0000                     
+    16                           ; Version 2.10
+    17                           ; Generated 31/07/2019 GMT
+    18                           ; 
+    19                           ; Copyright © 2019, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    20                           ; All rights reserved.
+    21                           ; 
+    22                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    23                           ; 
+    24                           ; Redistribution and use in source and binary forms, with or without modification, are
+    25                           ; permitted provided that the following conditions are met:
+    26                           ; 
+    27                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    28                           ;        conditions and the following disclaimer.
+    29                           ; 
+    30                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    31                           ;        of conditions and the following disclaimer in the documentation and/or other
+    32                           ;        materials provided with the distribution.
+    33                           ; 
+    34                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    35                           ;        software without specific prior written permission.
+    36                           ; 
+    37                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    38                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    39                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    40                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    41                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    42                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    43                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    44                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    45                           ; 
+    46                           ; 
+    47                           ; Code-generator required, PIC18F45K20 Definitions
+    48                           ; 
+    49                           ; SFR Addresses
+    50  0000                     _ANSELH	set	3967
+    51  0000                     _ANSEL	set	3966
+    52  0000                     _T3CON	set	4017
+    53  0000                     _OSCCON	set	4051
+    54  0000                     _T0CON	set	4053
+    55  0000                     _LATC	set	3979
+    56  0000                     _LATD	set	3980
+    57  0000                     _LATA	set	3977
+    58  0000                     _LATBbits	set	3978
+    59  0000                     _TRISD	set	3989
+    60  0000                     _TRISBbits	set	3987
+    61  0000                     _TRISC	set	3988
+    62  0000                     _TRISA	set	3986
+    63                           
+    64                           ; #config settings
+    65  0000                     
+    66                           	psect	cinit
+    67  007FC2                     __pcinit:
+    68                           	opt callstack 0
+    69  007FC2                     start_initialization:
+    70                           	opt callstack 0
+    71  007FC2                     __initialization:
+    72                           	opt callstack 0
+    73                           
+    74                           ; Clear objects allocated to COMRAM (16 bytes)
+    75  007FC2  EE00  F001         	lfsr	0,__pbssCOMRAM
+    76  007FC6  0E10               	movlw	16
+    77  007FC8                     clear_0:
+    78  007FC8  6AEE               	clrf	postinc0,c
+    79  007FCA  06E8               	decf	wreg,f,c
+    80  007FCC  E1FD               	bnz	clear_0
+    81  007FCE                     end_of_initialization:
+    82                           	opt callstack 0
+    83  007FCE                     __end_of__initialization:
+    84                           	opt callstack 0
+    85  007FCE  0100               	movlb	0
+    86  007FD0  EFDB  F03F         	goto	_main	;jump to C main() function
+    87                           
+    88                           	psect	bssCOMRAM
+    89  000001                     __pbssCOMRAM:
+    90                           	opt callstack 0
+    91  000001                     _gauc_Outputs:
+    92                           	opt callstack 0
+    93  000001                     	ds	8
+    94  000009                     _gauc_Inputs:
+    95                           	opt callstack 0
+    96  000009                     	ds	8
+    97                           
+    98                           	psect	cstackCOMRAM
+    99  000000                     __pcstackCOMRAM:
+   100                           	opt callstack 0
+   101  000000                     
+   102                           ; 1 bytes @ 0x0
+   103 ;;
+   104 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   105 ;;
+   106 ;; *************** function _main *****************
+   107 ;; Defined at:
+   108 ;;		line 61 in file "../main.c"
+   109 ;; Parameters:    Size  Location     Type
+   110 ;;		None
+   111 ;; Auto vars:     Size  Location     Type
+   112 ;;		None
+   113 ;; Return value:  Size  Location     Type
+   114 ;;                  1    wreg      void 
+   115 ;; Registers used:
+   116 ;;		wreg, status,2, cstack
+   117 ;; Tracked objects:
+   118 ;;		On entry : 0/0
+   119 ;;		On exit  : 0/0
+   120 ;;		Unchanged: 0/0
+   121 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   122 ;;      Params:         0       0       0       0       0       0       0
+   123 ;;      Locals:         0       0       0       0       0       0       0
+   124 ;;      Temps:          0       0       0       0       0       0       0
+   125 ;;      Totals:         0       0       0       0       0       0       0
+   126 ;;Total ram usage:        0 bytes
+   127 ;; Hardware stack levels required when called:    2
+   128 ;; This function calls:
+   129 ;;		_clr_LEDs
+   130 ;;		_setup
+   131 ;; This function is called by:
+   132 ;;		Startup code after reset
+   133 ;; This function uses a non-reentrant model
+   134 ;;
+   135                           
+   136                           	psect	text0
+   137  007FB6                     __ptext0:
+   138                           	opt callstack 0
+   139  007FB6                     _main:
+   140                           	opt callstack 29
+   141  007FB6                     
+   142                           ;../main.c: 63:     setup();
+   143  007FB6  ECD6  F03F         	call	_setup	;wreg free
+   144                           
+   145                           ;../main.c: 65:     clr_LEDs();
+   146  007FBA  ECD1  F03F         	call	_clr_LEDs	;wreg free
+   147  007FBE  EF00  F000         	goto	start
+   148  007FC2                     __end_of_main:
+   149                           	opt callstack 0
+   150                           
+   151 ;; *************** function _setup *****************
+   152 ;; Defined at:
+   153 ;;		line 91 in file "../setup.c"
+   154 ;; Parameters:    Size  Location     Type
+   155 ;;		None
+   156 ;; Auto vars:     Size  Location     Type
+   157 ;;		None
+   158 ;; Return value:  Size  Location     Type
+   159 ;;                  1    wreg      void 
+   160 ;; Registers used:
+   161 ;;		wreg, status,2, cstack
+   162 ;; Tracked objects:
+   163 ;;		On entry : 0/0
+   164 ;;		On exit  : 0/0
+   165 ;;		Unchanged: 0/0
+   166 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   167 ;;      Params:         0       0       0       0       0       0       0
+   168 ;;      Locals:         0       0       0       0       0       0       0
+   169 ;;      Temps:          0       0       0       0       0       0       0
+   170 ;;      Totals:         0       0       0       0       0       0       0
+   171 ;;Total ram usage:        0 bytes
+   172 ;; Hardware stack levels used:    1
+   173 ;; Hardware stack levels required when called:    1
+   174 ;; This function calls:
+   175 ;;		_IO_setup
+   176 ;;		_Timer_and_Interrupt_setup
+   177 ;; This function is called by:
+   178 ;;		_main
+   179 ;; This function uses a non-reentrant model
+   180 ;;
+   181                           
+   182                           	psect	text1
+   183  007FAC                     __ptext1:
+   184                           	opt callstack 0
+   185  007FAC                     _setup:
+   186                           	opt callstack 29
+   187  007FAC                     
+   188                           ;../setup.c: 94:     IO_setup();
+   189  007FAC  ECEA  F03F         	call	_IO_setup	;wreg free
+   190                           
+   191                           ;../setup.c: 95:     Timer_and_Interrupt_setup();
+   192  007FB0  ECF5  F03F         	call	_Timer_and_Interrupt_setup	;wreg free
+   193  007FB4  0012               	return		;funcret
+   194  007FB6                     __end_of_setup:
+   195                           	opt callstack 0
+   196                           
+   197 ;; *************** function _Timer_and_Interrupt_setup *****************
+   198 ;; Defined at:
+   199 ;;		line 75 in file "../setup.c"
+   200 ;; Parameters:    Size  Location     Type
+   201 ;;		None
+   202 ;; Auto vars:     Size  Location     Type
+   203 ;;		None
+   204 ;; Return value:  Size  Location     Type
+   205 ;;                  1    wreg      void 
+   206 ;; Registers used:
+   207 ;;		wreg, status,2
+   208 ;; Tracked objects:
+   209 ;;		On entry : 0/0
+   210 ;;		On exit  : 0/0
+   211 ;;		Unchanged: 0/0
+   212 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   213 ;;      Params:         0       0       0       0       0       0       0
+   214 ;;      Locals:         0       0       0       0       0       0       0
+   215 ;;      Temps:          0       0       0       0       0       0       0
+   216 ;;      Totals:         0       0       0       0       0       0       0
+   217 ;;Total ram usage:        0 bytes
+   218 ;; Hardware stack levels used:    1
+   219 ;; This function calls:
+   220 ;;		Nothing
+   221 ;; This function is called by:
+   222 ;;		_setup
+   223 ;; This function uses a non-reentrant model
+   224 ;;
+   225                           
+   226                           	psect	text2
+   227  007FEA                     __ptext2:
+   228                           	opt callstack 0
+   229  007FEA                     _Timer_and_Interrupt_setup:
+   230                           	opt callstack 29
+   231  007FEA                     
+   232                           ;../setup.c: 79:     T0CON = 0b10010101;
+   233  007FEA  0E95               	movlw	149
+   234  007FEC  6ED5               	movwf	213,c	;volatile
+   235                           
+   236                           ;../setup.c: 81:     OSCCON = 0b01100111;
+   237  007FEE  0E67               	movlw	103
+   238  007FF0  6ED3               	movwf	211,c	;volatile
+   239                           
+   240                           ;../setup.c: 85:     T3CON = 0b10110101;
+   241  007FF2  0EB5               	movlw	181
+   242  007FF4  6EB1               	movwf	177,c	;volatile
+   243                           
+   244                           ;../setup.c: 87:     ANSEL = 0x00;
+   245  007FF6  0E00               	movlw	0
+   246  007FF8  6E7E               	movwf	126,c	;volatile
+   247                           
+   248                           ;../setup.c: 88:     ANSELH = 0x00;
+   249  007FFA  0E00               	movlw	0
+   250  007FFC  6E7F               	movwf	127,c	;volatile
+   251  007FFE  0012               	return		;funcret
+   252  008000                     __end_of_Timer_and_Interrupt_setup:
+   253                           	opt callstack 0
+   254                           
+   255 ;; *************** function _IO_setup *****************
+   256 ;; Defined at:
+   257 ;;		line 10 in file "../setup.c"
+   258 ;; Parameters:    Size  Location     Type
+   259 ;;		None
+   260 ;; Auto vars:     Size  Location     Type
+   261 ;;		None
+   262 ;; Return value:  Size  Location     Type
+   263 ;;                  1    wreg      void 
+   264 ;; Registers used:
+   265 ;;		wreg, status,2
+   266 ;; Tracked objects:
+   267 ;;		On entry : 0/0
+   268 ;;		On exit  : 0/0
+   269 ;;		Unchanged: 0/0
+   270 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   271 ;;      Params:         0       0       0       0       0       0       0
+   272 ;;      Locals:         0       0       0       0       0       0       0
+   273 ;;      Temps:          0       0       0       0       0       0       0
+   274 ;;      Totals:         0       0       0       0       0       0       0
+   275 ;;Total ram usage:        0 bytes
+   276 ;; Hardware stack levels used:    1
+   277 ;; This function calls:
+   278 ;;		Nothing
+   279 ;; This function is called by:
+   280 ;;		_setup
+   281 ;; This function uses a non-reentrant model
+   282 ;;
+   283                           
+   284                           	psect	text3
+   285  007FD4                     __ptext3:
+   286                           	opt callstack 0
+   287  007FD4                     _IO_setup:
+   288                           	opt callstack 29
+   289  007FD4                     
+   290                           ;../setup.c: 12:   TRISA = 0x00;
+   291  007FD4  0E00               	movlw	0
+   292  007FD6  6E92               	movwf	146,c	;volatile
+   293                           
+   294                           ;../setup.c: 13:   TRISC = 0x00;
+   295  007FD8  0E00               	movlw	0
+   296  007FDA  6E94               	movwf	148,c	;volatile
+   297  007FDC                     
+   298                           ;../setup.c: 14:   TRISBbits.RB0 = 1;
+   299  007FDC  8093               	bsf	147,0,c	;volatile
+   300  007FDE                     
+   301                           ;../setup.c: 15:   TRISBbits.RB1 = 0;
+   302  007FDE  9293               	bcf	147,1,c	;volatile
+   303  007FE0                     
+   304                           ;../setup.c: 16:   TRISBbits.RB2 = 0;
+   305  007FE0  9493               	bcf	147,2,c	;volatile
+   306  007FE2                     
+   307                           ;../setup.c: 17:   TRISBbits.RB3 = 0;
+   308  007FE2  9693               	bcf	147,3,c	;volatile
+   309  007FE4                     
+   310                           ;../setup.c: 18:   TRISBbits.RB4 = 0;
+   311  007FE4  9893               	bcf	147,4,c	;volatile
+   312  007FE6                     
+   313                           ;../setup.c: 19:   TRISD = 0xFF;
+   314  007FE6  6895               	setf	149,c	;volatile
+   315  007FE8  0012               	return		;funcret
+   316  007FEA                     __end_of_IO_setup:
+   317                           	opt callstack 0
+   318                           
+   319 ;; *************** function _clr_LEDs *****************
+   320 ;; Defined at:
+   321 ;;		line 68 in file "../setup.c"
+   322 ;; Parameters:    Size  Location     Type
+   323 ;;		None
+   324 ;; Auto vars:     Size  Location     Type
+   325 ;;		None
+   326 ;; Return value:  Size  Location     Type
+   327 ;;                  1    wreg      void 
+   328 ;; Registers used:
+   329 ;;		wreg, status,2
+   330 ;; Tracked objects:
+   331 ;;		On entry : 0/0
+   332 ;;		On exit  : 0/0
+   333 ;;		Unchanged: 0/0
+   334 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
+   335 ;;      Params:         0       0       0       0       0       0       0
+   336 ;;      Locals:         0       0       0       0       0       0       0
+   337 ;;      Temps:          0       0       0       0       0       0       0
+   338 ;;      Totals:         0       0       0       0       0       0       0
+   339 ;;Total ram usage:        0 bytes
+   340 ;; Hardware stack levels used:    1
+   341 ;; This function calls:
+   342 ;;		Nothing
+   343 ;; This function is called by:
+   344 ;;		_main
+   345 ;; This function uses a non-reentrant model
+   346 ;;
+   347                           
+   348                           	psect	text4
+   349  007FA2                     __ptext4:
+   350                           	opt callstack 0
+   351  007FA2                     _clr_LEDs:
+   352                           	opt callstack 30
+   353  007FA2                     
+   354                           ;../setup.c: 70:   LATC = 0x00;
+   355  007FA2  0E00               	movlw	0
+   356  007FA4  6E8B               	movwf	139,c	;volatile
+   357  007FA6                     
+   358                           ;../setup.c: 71:   LATBbits.LB3 = 0;
+   359  007FA6  968A               	bcf	138,3,c	;volatile
+   360  007FA8                     
+   361                           ;../setup.c: 72:   LATBbits.LB4 = 0;
+   362  007FA8  988A               	bcf	138,4,c	;volatile
+   363  007FAA  0012               	return		;funcret
+   364  007FAC                     __end_of_clr_LEDs:
+   365                           	opt callstack 0
+   366  0000                     
+   367                           	psect	rparam
+   368  0000                     tosu	equ	0xFFF
+   369                           tosh	equ	0xFFE
+   370                           tosl	equ	0xFFD
+   371                           stkptr	equ	0xFFC
+   372                           pclatu	equ	0xFFB
+   373                           pclath	equ	0xFFA
+   374                           pcl	equ	0xFF9
+   375                           tblptru	equ	0xFF8
+   376                           tblptrh	equ	0xFF7
+   377                           tblptrl	equ	0xFF6
+   378                           tablat	equ	0xFF5
+   379                           prodh	equ	0xFF4
+   380                           prodl	equ	0xFF3
+   381                           indf0	equ	0xFEF
+   382                           postinc0	equ	0xFEE
+   383                           postdec0	equ	0xFED
+   384                           preinc0	equ	0xFEC
+   385                           plusw0	equ	0xFEB
+   386                           fsr0h	equ	0xFEA
+   387                           fsr0l	equ	0xFE9
+   388                           wreg	equ	0xFE8
+   389                           indf1	equ	0xFE7
+   390                           postinc1	equ	0xFE6
+   391                           postdec1	equ	0xFE5
+   392                           preinc1	equ	0xFE4
+   393                           plusw1	equ	0xFE3
+   394                           fsr1h	equ	0xFE2
+   395                           fsr1l	equ	0xFE1
+   396                           bsr	equ	0xFE0
+   397                           indf2	equ	0xFDF
+   398                           postinc2	equ	0xFDE
+   399                           postdec2	equ	0xFDD
+   400                           preinc2	equ	0xFDC
+   401                           plusw2	equ	0xFDB
+   402                           fsr2h	equ	0xFDA
+   403                           fsr2l	equ	0xFD9
+   404                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        0
+    BSS         16
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           95      0      16
+    BANK0           160      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+
+Pointer List with Targets:
+
+    None.
+
+Critical Paths under _main in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0       0
+                           _clr_LEDs
+                              _setup
+ ---------------------------------------------------------------------------------
+ (1) _setup                                                0     0      0       0
+                           _IO_setup
+          _Timer_and_Interrupt_setup
+ ---------------------------------------------------------------------------------
+ (2) _Timer_and_Interrupt_setup                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _IO_setup                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _clr_LEDs                                             0     0      0       0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 2
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _clr_LEDs
+   _setup
+     _IO_setup
+     _Timer_and_Interrupt_setup
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             5FF      0       0      17        0.0%
+EEDATA             100      0       0       0        0.0%
+BITBANK5           100      0       0      16        0.0%
+BANK5              100      0       0      14        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0      0       0       5        0.0%
+BITCOMRAM           5F      0       0       0        0.0%
+COMRAM              5F      0      10       1       16.8%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      10      15        0.0%
+DATA                 0      0      10       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V2.10 build 88905656 
+Symbol Table                                                                                   Sat Apr 04 20:16:02 2020
+
+                                l19 7FBE                                  l52 7FE8  
+                                l73 7FAA                                  l76 7FFE  
+                                l79 7FB4                                 l761 7FE0  
+                               l763 7FE2                                 l755 7FD4  
+                               l781 7FA8                                 l765 7FE4  
+                               l757 7FDC                                 l767 7FE6  
+                               l759 7FDE                                 l775 7FAC  
+                               l777 7FA2                                 l769 7FEA  
+                               l779 7FA6                                 l787 7FB6  
+                               wreg 000FE8                        __CFG_LVP$OFF 000000  
+                              _LATA 000F89                                _LATC 000F8B  
+                              _LATD 000F8C                                _main 7FB6  
+                              start 0000                        ___param_bank 000000  
+                             ?_main 0000                               _ANSEL 000F7E  
+                             _T0CON 000FD5                               _T3CON 000FB1  
+                             _TRISA 000F92                               _TRISC 000F94  
+                             _TRISD 000F95                               _setup 7FAC  
+                  __end_of_IO_setup 7FEA                     __initialization 7FC2  
+                      __end_of_main 7FC2                              ??_main 0000  
+                     __activetblptr 000000         ??_Timer_and_Interrupt_setup 0000  
+                            ?_setup 0000                              _ANSELH 000F7F  
+                    __CFG_WDTEN$OFF 000000                              _OSCCON 000FD3  
+                  __end_of_clr_LEDs 7FAC                              clear_0 7FC8  
+                        __accesstop 0060             __end_of__initialization 7FCE  
+                     ___rparam_used 000001           _Timer_and_Interrupt_setup 7FEA  
+                    __pcstackCOMRAM 0000                       __end_of_setup 7FB6  
+                         ?_IO_setup 0000                             ??_setup 0000  
+                        ??_IO_setup 0000                           ?_clr_LEDs 0000  
+                      _gauc_Outputs 0001                             __Hparam 0000  
+                           __Lparam 0000                             __pcinit 7FC2  
+                           __ramtop 0600                             __ptext0 7FB6  
+                           __ptext1 7FAC                             __ptext2 7FEA  
+                           __ptext3 7FD4                             __ptext4 7FA2  
+                        ??_clr_LEDs 0000                end_of_initialization 7FCE  
+                           postinc0 000FEE  __size_of_Timer_and_Interrupt_setup 0016  
+                         _TRISBbits 000F93                   __size_of_IO_setup 0016  
+               start_initialization 7FC2                         __pbssCOMRAM 0001  
+                 __size_of_clr_LEDs 000A                         _gauc_Inputs 0009  
+                    __size_of_setup 000A                            _LATBbits 000F8A  
+                          _IO_setup 7FD4                            __Hrparam 0000  
+                          __Lrparam 0000                            _clr_LEDs 7FA2  
+                     __size_of_main 000C          ?_Timer_and_Interrupt_setup 0000  
+ __end_of_Timer_and_Interrupt_setup 8000                   __CFG_FOSC$INTIO67 000000  
