@@ -1,10 +1,25 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"1986 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1986:     struct {
+[s S83 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S83 . LATE0 LATE1 LATE2 ]
+"1991
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1991:     struct {
+[s S84 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S84 . LE0 LE1 LE2 ]
+"1985
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1985: typedef union {
+[u S82 `S83 1 `S84 1 ]
+[n S82 . . . ]
+"1997
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1997: extern volatile LATEbits_t LATEbits __attribute__((address(0xF8D)));
+[v _LATEbits `VS82 ~T0 @X0 0 e@3981 ]
 [p mainexit ]
-"34 ../setup.h
-[; ;../setup.h: 34: void setup (void);
+"39 ../setup.h
+[; ;../setup.h: 39: void setup (void);
 [v _setup `(v ~T0 @X0 0 ef ]
-"32
-[; ;../setup.h: 32: void clr_LEDs (void);
+"37
+[; ;../setup.h: 37: void clr_LEDs (void);
 [v _clr_LEDs `(v ~T0 @X0 0 ef ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
@@ -468,65 +483,100 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 43: }
 [e :UE 303 ]
 }
-"45
-[; ;../main.c: 45: void testing (unsigned char bModeSwitch, unsigned char ucTargetBit)
-[v _testing `(v ~T0 @X0 1 ef2`uc`uc ]
-"46
-[; ;../main.c: 46: {
-{
-[e :U _testing ]
-"45
-[; ;../main.c: 45: void testing (unsigned char bModeSwitch, unsigned char ucTargetBit)
-[v _bModeSwitch `uc ~T0 @X0 1 r1 ]
-[v _ucTargetBit `uc ~T0 @X0 1 r2 ]
-"46
-[; ;../main.c: 46: {
-[f ]
-"47
-[; ;../main.c: 47:  if(bModeSwitch)
-[e $ ! != -> _bModeSwitch `i -> 0 `i 305  ]
 "48
-[; ;../main.c: 48:  {
+[; ;../main.c: 48: unsigned char GetModeSwitch (void)
+[v _GetModeSwitch `(uc ~T0 @X0 1 ef ]
+"49
+[; ;../main.c: 49: {
 {
+[e :U _GetModeSwitch ]
+[f ]
 "50
-[; ;../main.c: 50:  }
-}
-[e :U 305 ]
+[; ;../main.c: 50:     return LATEbits.LE1 | (LATEbits.LE2 << 1);
+[e ) -> | -> . . _LATEbits 1 1 `i << -> . . _LATEbits 1 2 `i -> 1 `i `uc ]
+[e $UE 304  ]
 "51
-[; ;../main.c: 51:  b2_Compare(ucTargetBit);
-[e ( _b2_Compare (1 _ucTargetBit ]
-"53
-[; ;../main.c: 53: }
+[; ;../main.c: 51: }
 [e :UE 304 ]
 }
+"53
+[; ;../main.c: 53: void testing (unsigned char ModeSwitch, unsigned char ucTargetBit)
+[v _testing `(v ~T0 @X0 1 ef2`uc`uc ]
+"54
+[; ;../main.c: 54: {
+{
+[e :U _testing ]
+"53
+[; ;../main.c: 53: void testing (unsigned char ModeSwitch, unsigned char ucTargetBit)
+[v _ModeSwitch `uc ~T0 @X0 1 r1 ]
+[v _ucTargetBit `uc ~T0 @X0 1 r2 ]
+"54
+[; ;../main.c: 54: {
+[f ]
 "55
-[; ;../main.c: 55: void dis_Results()
-[v _dis_Results `(v ~T0 @X0 1 ef ]
+[; ;../main.c: 55:  if(ModeSwitch)
+[e $ ! != -> _ModeSwitch `i -> 0 `i 306  ]
 "56
-[; ;../main.c: 56: {
+[; ;../main.c: 56:  {
+{
+"58
+[; ;../main.c: 58:  }
+}
+[e :U 306 ]
+"59
+[; ;../main.c: 59:     if (ModeSwitch)
+[e $ ! != -> _ModeSwitch `i -> 0 `i 307  ]
+"60
+[; ;../main.c: 60:  b2_Compare(ucTargetBit);
+[e ( _b2_Compare (1 _ucTargetBit ]
+[e :U 307 ]
+"62
+[; ;../main.c: 62: }
+[e :UE 305 ]
+}
+"64
+[; ;../main.c: 64: void dis_Results()
+[v _dis_Results `(v ~T0 @X0 1 ef ]
+"65
+[; ;../main.c: 65: {
 {
 [e :U _dis_Results ]
 [f ]
-"58
-[; ;../main.c: 58: }
-[e :UE 306 ]
+"67
+[; ;../main.c: 67: }
+[e :UE 308 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"61
-[; ;../main.c: 61: void main (void)
+"70
+[; ;../main.c: 70: void main (void)
 [v _main `(v ~T0 @X0 1 ef ]
-"62
-[; ;../main.c: 62: {
+"71
+[; ;../main.c: 71: {
 {
 [e :U _main ]
 [f ]
-"63
-[; ;../main.c: 63:     setup();
+"72
+[; ;../main.c: 72:     setup();
 [e ( _setup ..  ]
-"65
-[; ;../main.c: 65:     clr_LEDs();
+"74
+[; ;../main.c: 74:     clr_LEDs();
 [e ( _clr_LEDs ..  ]
-"71
-[; ;../main.c: 71: }
-[e :UE 307 ]
+"76
+[; ;../main.c: 76:     while(1)
+[e :U 311 ]
+"77
+[; ;../main.c: 77:    {
+{
+"78
+[; ;../main.c: 78:         testing(GetModeSwitch,0);
+[e ( _testing (2 , -> &U _GetModeSwitch `uc -> -> 0 `i `uc ]
+"79
+[; ;../main.c: 79:    }
+}
+[e :U 310 ]
+[e $U 311  ]
+[e :U 312 ]
+"80
+[; ;../main.c: 80: }
+[e :UE 309 ]
 }

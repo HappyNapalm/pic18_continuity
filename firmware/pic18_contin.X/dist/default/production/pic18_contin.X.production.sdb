@@ -5,15 +5,19 @@
 [d frameptr 4065 ]
 "25 D:\Work_Stuff\pic18_continuity\firmware/main.c
 [v _b2_Compare b2_Compare `(uc  1 e 1 0 ]
-"61
+"48
+[v _GetModeSwitch GetModeSwitch `(uc  1 e 1 0 ]
+"53
+[v _testing testing `(v  1 e 1 0 ]
+"70
 [v _main main `(v  1 e 1 0 ]
 "10 D:\Work_Stuff\pic18_continuity\firmware/setup.c
 [v _IO_setup IO_setup `(v  1 e 1 0 ]
-"68
+"71
 [v _clr_LEDs clr_LEDs `(v  1 e 1 0 ]
-"75
+"76
 [v _Timer_and_Interrupt_setup Timer_and_Interrupt_setup `(v  1 e 1 0 ]
-"91
+"92
 [v _setup setup `(v  1 e 1 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -45,7 +49,7 @@
 [v _ANSELH ANSELH `VEuc  1 e 1 @3967 ]
 "1532
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
-[s S88 . 1 `uc 1 LATB0 1 0 :1:0 
+[s S143 . 1 `uc 1 LATB0 1 0 :1:0 
 `uc 1 LATB1 1 0 :1:1 
 `uc 1 LATB2 1 0 :1:2 
 `uc 1 LATB3 1 0 :1:3 
@@ -55,7 +59,7 @@
 `uc 1 LATB7 1 0 :1:7 
 ]
 "1671
-[s S97 . 1 `uc 1 LB0 1 0 :1:0 
+[s S152 . 1 `uc 1 LB0 1 0 :1:0 
 `uc 1 LB1 1 0 :1:1 
 `uc 1 LB2 1 0 :1:2 
 `uc 1 LB3 1 0 :1:3 
@@ -64,15 +68,26 @@
 `uc 1 LB6 1 0 :1:6 
 `uc 1 LB7 1 0 :1:7 
 ]
-[u S106 . 1 `S88 1 . 1 0 `S97 1 . 1 0 ]
-[v _LATBbits LATBbits `VES106  1 e 1 @3978 ]
+[u S161 . 1 `S143 1 . 1 0 `S152 1 . 1 0 ]
+[v _LATBbits LATBbits `VES161  1 e 1 @3978 ]
 "1756
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "1868
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
+[s S24 . 1 `uc 1 LATE0 1 0 :1:0 
+`uc 1 LATE1 1 0 :1:1 
+`uc 1 LATE2 1 0 :1:2 
+]
+"1997
+[s S28 . 1 `uc 1 LE0 1 0 :1:0 
+`uc 1 LE1 1 0 :1:1 
+`uc 1 LE2 1 0 :1:2 
+]
+[u S32 . 1 `S24 1 . 1 0 `S28 1 . 1 0 ]
+[v _LATEbits LATEbits `VES32  1 e 1 @3981 ]
 "2032
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
-[s S47 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S72 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -82,7 +97,7 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "2286
-[s S56 . 1 `uc 1 RB0 1 0 :1:0 
+[s S81 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -91,40 +106,70 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S65 . 1 `S47 1 . 1 0 `S56 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES65  1 e 1 @3987 ]
+[u S90 . 1 `S72 1 . 1 0 `S81 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES90  1 e 1 @3987 ]
 "2476
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "2698
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S113 . 1 `uc 1 TRISE0 1 0 :1:0 
+`uc 1 TRISE1 1 0 :1:1 
+`uc 1 TRISE2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 PSPMODE 1 0 :1:4 
+`uc 1 IBOV 1 0 :1:5 
+`uc 1 OBF 1 0 :1:6 
+`uc 1 IBF 1 0 :1:7 
+]
+"2947
+[s S122 . 1 `uc 1 RE0 1 0 :1:0 
+`uc 1 RE1 1 0 :1:1 
+`uc 1 RE2 1 0 :1:2 
+]
+[u S126 . 1 `S113 1 . 1 0 `S122 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES126  1 e 1 @3990 ]
 "4264
 [v _T3CON T3CON `VEuc  1 e 1 @4017 ]
 "6429
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
 "6506
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
-"61 D:\Work_Stuff\pic18_continuity\firmware/main.c
+"70 D:\Work_Stuff\pic18_continuity\firmware/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"71
+"80
 } 0
-"91 D:\Work_Stuff\pic18_continuity\firmware/setup.c
+"53
+[v _testing testing `(v  1 e 1 0 ]
+{
+[v testing@ModeSwitch ModeSwitch `uc  1 a 1 wreg ]
+[v testing@ModeSwitch ModeSwitch `uc  1 a 1 wreg ]
+[v testing@ucTargetBit ucTargetBit `uc  1 p 1 1 ]
+[v testing@ModeSwitch ModeSwitch `uc  1 a 1 2 ]
+"62
+} 0
+"25
+[v _b2_Compare b2_Compare `(uc  1 e 1 0 ]
+{
+"43
+} 0
+"92 D:\Work_Stuff\pic18_continuity\firmware/setup.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"97
+"98
 } 0
-"75
+"76
 [v _Timer_and_Interrupt_setup Timer_and_Interrupt_setup `(v  1 e 1 0 ]
 {
-"89
+"90
 } 0
 "10
 [v _IO_setup IO_setup `(v  1 e 1 0 ]
 {
-"20
+"23
 } 0
-"68
+"71
 [v _clr_LEDs clr_LEDs `(v  1 e 1 0 ]
 {
-"73
+"74
 } 0

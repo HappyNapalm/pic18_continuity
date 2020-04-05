@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../main.c ../setup.c
+SOURCEFILES_QUOTED_IF_SPACED=../main.c ../setup.c ../leds.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/setup.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/main.p1.d ${OBJECTDIR}/_ext/1472/setup.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/setup.p1 ${OBJECTDIR}/_ext/1472/leds.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/main.p1.d ${OBJECTDIR}/_ext/1472/setup.p1.d ${OBJECTDIR}/_ext/1472/leds.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/setup.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1472/main.p1 ${OBJECTDIR}/_ext/1472/setup.p1 ${OBJECTDIR}/_ext/1472/leds.p1
 
 # Source Files
-SOURCEFILES=../main.c ../setup.c
+SOURCEFILES=../main.c ../setup.c ../leds.c
 
 
 
@@ -110,6 +110,14 @@ ${OBJECTDIR}/_ext/1472/setup.p1: ../setup.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/_ext/1472/setup.d ${OBJECTDIR}/_ext/1472/setup.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/setup.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/_ext/1472/leds.p1: ../leds.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/leds.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/leds.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/leds.p1 ../leds.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/leds.d ${OBJECTDIR}/_ext/1472/leds.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/leds.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/_ext/1472/main.p1: ../main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
@@ -126,6 +134,14 @@ ${OBJECTDIR}/_ext/1472/setup.p1: ../setup.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/setup.p1 ../setup.c 
 	@-${MV} ${OBJECTDIR}/_ext/1472/setup.d ${OBJECTDIR}/_ext/1472/setup.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/setup.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/_ext/1472/leds.p1: ../leds.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
+	@${RM} ${OBJECTDIR}/_ext/1472/leds.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/leds.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c    -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/_ext/1472/leds.p1 ../leds.c 
+	@-${MV} ${OBJECTDIR}/_ext/1472/leds.d ${OBJECTDIR}/_ext/1472/leds.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1472/leds.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

@@ -42,12 +42,21 @@ unsigned char b2_Compare (unsigned char ucTargetBit)
 	return b;
 }
 
-void testing (unsigned char bModeSwitch, unsigned char ucTargetBit)
+//Returns state of mode switch as 2 bits.
+//ETHernet -> 0b01
+//DB9      -> 0b10
+unsigned char GetModeSwitch (void)
 {
-	if(bModeSwitch)
+    return ETH | (DB9 << 1);
+}
+
+void testing (unsigned char ModeSwitch, unsigned char ucTargetBit)
+{
+	if(ModeSwitch)
 	{
 		//wiggle 9th bit
 	}
+    if (ModeSwitch)
 	b2_Compare(ucTargetBit);
 	
 }
@@ -64,8 +73,8 @@ void main (void)
 //    flash();
     clr_LEDs();
     //start_up();
-//    while(1)
-//    {
-//
-//    }
+    while(1)
+   {
+        testing(GetModeSwitch,0);
+   }
 }

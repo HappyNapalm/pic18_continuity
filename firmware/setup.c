@@ -3,20 +3,24 @@
 #include <xc.h>
 #include <htc.h>
 #include "setup.h"
+#include "leds.h"
 
-unsigned char gauc_Inputs[MAX_IO];
-unsigned char gauc_Outputs[MAX_IO];
+//unsigned char gauc_Inputs[MAX_IO];
+//unsigned char gauc_Outputs[MAX_IO];
 
 void IO_setup (void)
 {
   TRISA = 0x00;           //Outputs
   TRISC = 0x00;           //LEDS
-  TRISBbits.RB0 = 1;      //Misc
-  TRISBbits.RB1 = 0;
-  TRISBbits.RB2 = 0;
-  TRISBbits.RB3 = 0;
-  TRISBbits.RB4 = 0;
+  TRISBbits.RB0 = 1;      //In9
+  TRISBbits.RB1 = 0;      //Out9
+  TRISBbits.RB2 = 0;      //HB
+  TRISBbits.RB3 = 0;      //LED7
+  TRISBbits.RB4 = 0;      //LED8
   TRISD = 0xFF;           //Inputs
+  TRISEbits.RE0 = 0;      //LED9
+  TRISEbits.RE1 = 1;      //Switch 1A
+  TRISEbits.RE2 = 1;      //Switch 1B
 }
 
 inline void Set_Output (unsigned char ucPinMinus1, 
@@ -65,13 +69,9 @@ inline unsigned char Get_Input (unsigned char ucPinMinus1)
   return b;
 }
 
-void clr_LEDs (void)
-{
-  LATC = 0x00;
-  LED7 = 0;
-  LED8 = 0;
-}
 
+
+//TODO review the timers. Create a ms timer.
 void Timer_and_Interrupt_setup (void)
 {
     //Let this timer run as a free running timer
@@ -88,11 +88,21 @@ void Timer_and_Interrupt_setup (void)
     ANSELH = 0x00;
 }
 
+void flash_LEDs(void)
+{
+    unsigned char uc = 0;
+    while(uc < MAX_BLINKS)
+    {
+        
+    }
+}
+
 void setup(void)
 {
     //INTCONbits.GIE = 0;
     IO_setup();
     Timer_and_Interrupt_setup();
+    flash_LEDs();
     //INTCONbits.GIE = 1;
 }
 

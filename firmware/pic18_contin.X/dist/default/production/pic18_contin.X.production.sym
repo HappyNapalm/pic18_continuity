@@ -1,15 +1,16 @@
-_clr_LEDs 7FA2 0 CODE 0
+_clr_LEDs 7FDC 0 CODE 0
 __S0 30000E 0 ABS 0
-__S1 11 0 ABS 0
+__S1 14 0 ABS 0
 __S2 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 _LATA F89 0 ABS 0
 _LATC F8B 0 ABS 0
 _LATD F8C 0 ABS 0
-_main 7FB6 0 CODE 0
+_main 7FA6 0 CODE 0
 ___sp 0 0 STACK 2
 start 0 0 CODE 0
+testing@ModeSwitch 13 0 COMRAM 1
 _TRISA F92 0 ABS 0
 _TRISC F94 0 ABS 0
 _TRISD F95 0 ABS 0
@@ -22,7 +23,7 @@ _T0CON FD5 0 ABS 0
 _T3CON FB1 0 ABS 0
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
-__end_of_clr_LEDs 7FAC 0 CODE 0
+__end_of_clr_LEDs 8000 0 CODE 0
 __CFG_FOSC$INTIO67 0 0 ABS 0
 __Hbigram 0 0 ABS 0
 __Lbigram 0 0 ABS 0
@@ -39,11 +40,13 @@ __Lbss 0 0 RAM 1
 ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
-_setup 7FAC 0 CODE 0
+_setup 7F5A 0 CODE 0
+__end_of_testing 7FA6 0 CODE 0
 __Heeprom_data 0 0 EEDATA 0
 __Leeprom_data 0 0 EEDATA 0
 _LATBbits F8A 0 ABS 0
 __Hintsave_regs 0 0 BIGRAM 1
+_LATEbits F8D 0 ABS 0
 __Lintsave_regs 0 0 BIGRAM 1
 __Hbigbss 0 0 BIGRAM 1
 __Lbigbss 0 0 BIGRAM 1
@@ -67,7 +70,8 @@ __Lfardata 0 0 FARRAM 0
 _OSCCON FD3 0 ABS 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
-_IO_setup 7FD4 0 CODE 0
+_IO_setup 7FC0 0 CODE 0
+testing@ucTargetBit 12 0 COMRAM 1
 __HnvFARRAM 0 0 FARRAM 0
 __LnvFARRAM 0 0 FARRAM 0
 __Hdata 0 0 ABS 0
@@ -79,18 +83,20 @@ stacklo 60 0 ABS 0
 __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
 __Hinit 4 0 CODE 0
-__end_of_IO_setup 7FEA 0 CODE 0
+__end_of_IO_setup 7FDC 0 CODE 0
 __Linit 0 0 CODE 0
 __Hintcodelo 0 0 CODE 0
 __Lintcodelo 0 0 CODE 0
+__size_of_b2_Compare 0 0 ABS 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main 7FC2 0 CODE 0
+__end_of_main 7FC0 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
-end_of_initialization 7FCE 0 CODE 0
+end_of_initialization 7F70 0 CODE 0
 _TRISBbits F93 0 ABS 0
-_Timer_and_Interrupt_setup 7FEA 0 CODE 0
+_TRISEbits F96 0 ABS 0
+_Timer_and_Interrupt_setup 7F76 0 CODE 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -113,23 +119,30 @@ __Htext0 0 0 ABS 0
 __Ltext0 0 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 7FB6 0 CODE 0
+__ptext0 7FA6 0 CODE 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
-__ptext1 7FAC 0 CODE 0
+__ptext1 7F8C 0 CODE 0
 __Htext3 0 0 ABS 0
 __Ltext3 0 0 ABS 0
-__ptext2 7FEA 0 CODE 0
+__ptext2 7F58 0 CODE 0
 __Htext4 0 0 ABS 0
 __Ltext4 0 0 ABS 0
-__ptext3 7FD4 0 CODE 0
-__ptext4 7FA2 0 CODE 0
+__ptext3 7F5A 0 CODE 0
+__Htext5 0 0 ABS 0
+__Ltext5 0 0 ABS 0
+__ptext4 7F76 0 CODE 0
+__Htext6 0 0 ABS 0
+__Ltext6 0 0 ABS 0
+__ptext5 7FC0 0 CODE 0
+__ptext6 7FDC 0 CODE 0
 __HbssCOMRAM 0 0 ABS 0
 __LbssCOMRAM 0 0 ABS 0
 __pbssCOMRAM 1 0 COMRAM 1
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
-__end_of__initialization 7FCE 0 CODE 0
+_b2_Compare 7F58 0 CODE 0
+__end_of__initialization 7F70 0 CODE 0
 ___rparam_used 1 0 ABS 0
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
@@ -145,8 +158,9 @@ __Hspace_0 30000E 0 ABS 0
 __HcstackCOMRAM 0 0 ABS 0
 __Lspace_0 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
-__pcstackCOMRAM 0 0 COMRAM 1
-__Hspace_1 11 0 ABS 0
+__pcstackCOMRAM 11 0 COMRAM 1
+_testing 7F8C 0 CODE 0
+__Hspace_1 14 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __size_of_setup 0 0 ABS 0
 __Hsmallconst 0 0 SMALLCONST 0
@@ -157,19 +171,21 @@ __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-__pcinit 7FC2 0 CODE 0
+__pcinit 7F64 0 CODE 0
 __ramtop 600 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
 __size_of_main 0 0 ABS 0
 __Hconst 0 0 CONST 0
 __Lconst 0 0 CONST 0
 __size_of_IO_setup 0 0 ABS 0
+__size_of_testing 0 0 ABS 0
 __size_of_clr_LEDs 0 0 ABS 0
+__end_of_b2_Compare 7F5A 0 CODE 0
 ___inthi_sp 0 0 STACK 2
 __CFG_WDTEN$OFF 0 0 ABS 0
 ___intlo_sp 0 0 STACK 2
 _gauc_Outputs 1 0 COMRAM 1
-__end_of_setup 7FB6 0 CODE 0
+__end_of_setup 7F64 0 CODE 0
 __smallconst 0 0 SMALLCONST 0
 __Hreset_vec 0 0 CODE 0
 __Lreset_vec 0 0 CODE 0
@@ -182,70 +198,85 @@ intlevel1 0 0 CODE 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
 __size_of_Timer_and_Interrupt_setup 0 0 ABS 0
-start_initialization 7FC2 0 CODE 0
-__initialization 7FC2 0 CODE 0
+start_initialization 7F64 0 CODE 0
+_GetModeSwitch 0 0 ABS 0
+__initialization 7F64 0 CODE 0
 __activetblptr 0 0 ABS 0
-__end_of_Timer_and_Interrupt_setup 8000 0 CODE 0
+__end_of_Timer_and_Interrupt_setup 7F8C 0 CODE 0
 __CFG_LVP$OFF 0 0 ABS 0
 %segments
 reset_vec 0 3 CODE 0 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
-bssCOMRAM 1 10 COMRAM 1 1
-text2 7FEA 7FFF CODE 7FEA 0
-text3 7FD4 7FE9 CODE 7FD4 0
-cinit 7FC2 7FD3 CODE 7FC2 0
-text0 7FB6 7FC1 CODE 7FB6 0
-text1 7FAC 7FB5 CODE 7FAC 0
-text4 7FA2 7FAB CODE 7FA2 0
+bssCOMRAM 1 13 COMRAM 1 1
+text6 7FDC 7FFF CODE 7FDC 0
+text5 7FC0 7FDB CODE 7FC0 0
+text0 7FA6 7FBF CODE 7FA6 0
+text1 7F8C 7FA5 CODE 7F8C 0
+text4 7F76 7F8B CODE 7F76 0
+cinit 7F64 7F75 CODE 7F64 0
+text3 7F5A 7F63 CODE 7F5A 0
+text2 7F58 7F59 CODE 7F58 0
 %locals
 dist/default/production\pic18_contin.X.production.o
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
-C:\Users\churc\AppData\Local\Temp\scmo.s
-734 7FC2 0 CODE 0
-736 7FC2 0 CODE 0
-739 7FC2 0 CODE 0
-756 7FC2 0 CODE 0
-757 7FC6 0 CODE 0
-758 7FC8 0 CODE 0
-759 7FC8 0 CODE 0
-760 7FCA 0 CODE 0
-761 7FCC 0 CODE 0
-767 7FCE 0 CODE 0
-769 7FCE 0 CODE 0
-770 7FD0 0 CODE 0
+C:\Users\churc\AppData\Local\Temp\sfe8.s
+743 7F64 0 CODE 0
+745 7F64 0 CODE 0
+748 7F64 0 CODE 0
+765 7F64 0 CODE 0
+766 7F68 0 CODE 0
+767 7F6A 0 CODE 0
+768 7F6A 0 CODE 0
+769 7F6C 0 CODE 0
+770 7F6E 0 CODE 0
+776 7F70 0 CODE 0
+778 7F70 0 CODE 0
+779 7F72 0 CODE 0
 ../main.c
-61 7FB6 0 CODE 0
-63 7FB6 0 CODE 0
-65 7FBA 0 CODE 0
-71 7FBE 0 CODE 0
+70 7FA6 0 CODE 0
+72 7FA6 0 CODE 0
+74 7FAA 0 CODE 0
+76 7FAE 0 CODE 0
+78 7FAE 0 CODE 0
+../main.c
+53 7F8C 0 CODE 0
+55 7F8E 0 CODE 0
+59 7F8E 0 CODE 0
+60 7F9E 0 CODE 0
+62 7FA4 0 CODE 0
+../main.c
+25 7F58 0 CODE 0
+27 7F58 0 CODE 0
+43 7F58 0 CODE 0
 ../setup.c
-91 7FAC 0 CODE 0
-94 7FAC 0 CODE 0
-95 7FB0 0 CODE 0
-97 7FB4 0 CODE 0
+92 7F5A 0 CODE 0
+95 7F5A 0 CODE 0
+96 7F5E 0 CODE 0
+98 7F62 0 CODE 0
 ../setup.c
-75 7FEA 0 CODE 0
-79 7FEA 0 CODE 0
-81 7FEE 0 CODE 0
-85 7FF2 0 CODE 0
-87 7FF6 0 CODE 0
-88 7FFA 0 CODE 0
-89 7FFE 0 CODE 0
+76 7F76 0 CODE 0
+80 7F76 0 CODE 0
+82 7F7A 0 CODE 0
+86 7F7E 0 CODE 0
+88 7F82 0 CODE 0
+89 7F86 0 CODE 0
+90 7F8A 0 CODE 0
 ../setup.c
-10 7FD4 0 CODE 0
-12 7FD4 0 CODE 0
-13 7FD8 0 CODE 0
-14 7FDC 0 CODE 0
-15 7FDE 0 CODE 0
-16 7FE0 0 CODE 0
-17 7FE2 0 CODE 0
-18 7FE4 0 CODE 0
-19 7FE6 0 CODE 0
-20 7FE8 0 CODE 0
+10 7FC0 0 CODE 0
+12 7FC0 0 CODE 0
+13 7FC4 0 CODE 0
+14 7FC8 0 CODE 0
+15 7FCA 0 CODE 0
+16 7FCC 0 CODE 0
+17 7FCE 0 CODE 0
+18 7FD0 0 CODE 0
+19 7FD2 0 CODE 0
+20 7FD4 0 CODE 0
+21 7FD6 0 CODE 0
+22 7FD8 0 CODE 0
+23 7FDA 0 CODE 0
 ../setup.c
-68 7FA2 0 CODE 0
-70 7FA2 0 CODE 0
-71 7FA6 0 CODE 0
-72 7FA8 0 CODE 0
-73 7FAA 0 CODE 0
+71 7FDC 0 CODE 0
+73 7FDC 0 CODE 0
+74 7FFE 0 CODE 0

@@ -4951,11 +4951,18 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "../setup.h" 1
-# 31 "../setup.h"
+# 36 "../setup.h"
 void IO_setup (void);
 void clr_LEDs (void);
 void Timer_and_Interrupt_setup (void);
 void setup (void);
+
+void Set_Output (unsigned char ucPinMinus1,
+                        unsigned char bOut);
+
+void clr_Outputs (void);
+unsigned char Get_Output (unsigned char ucPinMinus1);
+unsigned char Get_Input (unsigned char ucPinMinus1);
 # 5 "../setup.c" 2
 
 
@@ -4972,6 +4979,9 @@ void IO_setup (void)
   TRISBbits.RB3 = 0;
   TRISBbits.RB4 = 0;
   TRISD = 0xFF;
+  TRISEbits.RE0 = 0;
+  TRISEbits.RE1 = 1;
+  TRISEbits.RE2 = 1;
 }
 
 __attribute__((inline)) void Set_Output (unsigned char ucPinMinus1,
@@ -5022,9 +5032,7 @@ __attribute__((inline)) unsigned char Get_Input (unsigned char ucPinMinus1)
 
 void clr_LEDs (void)
 {
-  LATC = 0x00;
-  LATBbits.LB3 = 0;
-  LATBbits.LB4 = 0;
+  LATBbits.LB3 = LATBbits.LB4 = LATEbits.LE0 = LATC = 0x00;
 }
 
 void Timer_and_Interrupt_setup (void)
