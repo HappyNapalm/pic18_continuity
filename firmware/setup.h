@@ -28,7 +28,7 @@ extern "C" {
 #define ETH   LATEbits.LE1
 #define DB9   LATEbits.LE2
 
-#define MAX_IO 8
+#define MAX_IO 9
 
 //functions
 void IO_setup (void);

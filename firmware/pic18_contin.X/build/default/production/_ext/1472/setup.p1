@@ -1,5 +1,12 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"2032 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
+"10 ../setup.c
+[; ;../setup.c: 10: const struct stGPIO{
+[s S303 `*Vuc 1 `uc 1 ]
+[n S303 stGPIO port pin ]
+"1868 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1868: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
+"2032
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2032: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
 "2476
@@ -56,27 +63,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1532
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1532: extern volatile unsigned char LATA __attribute__((address(0xF89)));
 [v _LATA `Vuc ~T0 @X0 0 e@3977 ]
-"1868
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1868: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
-[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
-"1986
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1986:     struct {
-[s S83 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S83 . LATE0 LATE1 LATE2 ]
-"1991
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1991:     struct {
-[s S84 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S84 . LE0 LE1 LE2 ]
-"1985
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1985: typedef union {
-[u S82 `S83 1 `S84 1 ]
-[n S82 . . . ]
-"1997
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1997: extern volatile LATEbits_t LATEbits __attribute__((address(0xF8D)));
-[v _LATEbits `VS82 ~T0 @X0 0 e@3981 ]
-"1756
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1756: extern volatile unsigned char LATC __attribute__((address(0xF8B)));
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 "6506
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 6506: extern volatile unsigned char T0CON __attribute__((address(0xFD5)));
 [v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
@@ -530,281 +516,305 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"7 ../setup.c
-[; ;../setup.c: 7: unsigned char gauc_Inputs[8];
-[v _gauc_Inputs `uc ~T0 @X0 -> 8 `i e ]
-"8
-[; ;../setup.c: 8: unsigned char gauc_Outputs[8];
-[v _gauc_Outputs `uc ~T0 @X0 -> 8 `i e ]
-"10
-[; ;../setup.c: 10: void IO_setup (void)
+"15 ../setup.c
+[; ;../setup.c: 15: struct stGPIO stInputs[] = {
+[v _stInputs `S303 ~T0 @X0 -> -> 1 `i `ux e ]
+[i _stInputs
+:U ..
+:U ..
+&U _LATD
+-> -> 0 `i `uc
+..
+..
+]
+"19
+[; ;../setup.c: 19: void IO_setup (void)
 [v _IO_setup `(v ~T0 @X0 1 ef ]
-"11
-[; ;../setup.c: 11: {
+"20
+[; ;../setup.c: 20: {
 {
 [e :U _IO_setup ]
 [f ]
-"12
-[; ;../setup.c: 12:   TRISA = 0x00;
-[e = _TRISA -> -> 0 `i `uc ]
-"13
-[; ;../setup.c: 13:   TRISC = 0x00;
-[e = _TRISC -> -> 0 `i `uc ]
-"14
-[; ;../setup.c: 14:   TRISBbits.RB0 = 1;
-[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
-"15
-[; ;../setup.c: 15:   TRISBbits.RB1 = 0;
-[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
-"16
-[; ;../setup.c: 16:   TRISBbits.RB2 = 0;
-[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
-"17
-[; ;../setup.c: 17:   TRISBbits.RB3 = 0;
-[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
-"18
-[; ;../setup.c: 18:   TRISBbits.RB4 = 0;
-[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
-"19
-[; ;../setup.c: 19:   TRISD = 0xFF;
-[e = _TRISD -> -> 255 `i `uc ]
-"20
-[; ;../setup.c: 20:   TRISEbits.RE0 = 0;
-[e = . . _TRISEbits 1 0 -> -> 0 `i `uc ]
 "21
-[; ;../setup.c: 21:   TRISEbits.RE1 = 1;
-[e = . . _TRISEbits 1 1 -> -> 1 `i `uc ]
+[; ;../setup.c: 21:   TRISA = 0x00;
+[e = _TRISA -> -> 0 `i `uc ]
 "22
-[; ;../setup.c: 22:   TRISEbits.RE2 = 1;
-[e = . . _TRISEbits 1 2 -> -> 1 `i `uc ]
+[; ;../setup.c: 22:   TRISC = 0x00;
+[e = _TRISC -> -> 0 `i `uc ]
 "23
-[; ;../setup.c: 23: }
-[e :UE 303 ]
-}
-[v F3005 `(v ~T0 @X0 1 tf2`uc`uc ]
+[; ;../setup.c: 23:   TRISBbits.RB0 = 1;
+[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+"24
+[; ;../setup.c: 24:   TRISBbits.RB1 = 0;
+[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
 "25
-[; ;../setup.c: 25: __attribute__((inline)) void Set_Output (unsigned char ucPinMinus1,
-[v _Set_Output `TF3005 ~T0 @X0 1 e ]
-"27
-[; ;../setup.c: 27: {
-{
-[e :U _Set_Output ]
-"25
-[; ;../setup.c: 25: __attribute__((inline)) void Set_Output (unsigned char ucPinMinus1,
-[v _ucPinMinus1 `uc ~T0 @X0 1 r1 ]
+[; ;../setup.c: 25:   TRISBbits.RB2 = 0;
+[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
 "26
-[; ;../setup.c: 26:                         unsigned char bOut)
-[v _bOut `uc ~T0 @X0 1 r2 ]
+[; ;../setup.c: 26:   TRISBbits.RB3 = 0;
+[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
 "27
-[; ;../setup.c: 27: {
-[f ]
+[; ;../setup.c: 27:   TRISBbits.RB4 = 0;
+[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
 "28
-[; ;../setup.c: 28:   if (ucPinMinus1 == 8)
-[e $ ! == -> _ucPinMinus1 `i -> 8 `i 305  ]
+[; ;../setup.c: 28:   TRISD = 0xFF;
+[e = _TRISD -> -> 255 `i `uc ]
 "29
-[; ;../setup.c: 29:   {
-{
+[; ;../setup.c: 29:   TRISEbits.RE0 = 0;
+[e = . . _TRISEbits 1 0 -> -> 0 `i `uc ]
 "30
-[; ;../setup.c: 30:     LATBbits.LB1 = bOut ? 1 : 0;
-[e = . . _LATBbits 1 1 -> ? != -> _bOut `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
+[; ;../setup.c: 30:   TRISEbits.RE1 = 1;
+[e = . . _TRISEbits 1 1 -> -> 1 `i `uc ]
 "31
-[; ;../setup.c: 31:   }
-}
-[e $U 306  ]
+[; ;../setup.c: 31:   TRISEbits.RE2 = 1;
+[e = . . _TRISEbits 1 2 -> -> 1 `i `uc ]
 "32
-[; ;../setup.c: 32:   else
-[e :U 305 ]
-"33
-[; ;../setup.c: 33:   {
-{
-"34
-[; ;../setup.c: 34:     LATA |= LATA & bOut << ucPinMinus1;
-[e =| _LATA -> & -> _LATA `i << -> _bOut `i -> _ucPinMinus1 `i `Vuc ]
-"35
-[; ;../setup.c: 35:   }
-}
-[e :U 306 ]
-"36
-[; ;../setup.c: 36: }
+[; ;../setup.c: 32: }
 [e :UE 304 ]
 }
-[v F3009 `(v ~T0 @X0 1 tf ]
+[v F3009 `(v ~T0 @X0 1 tf2`uc`uc ]
+"34
+[; ;../setup.c: 34: __attribute__((inline)) void Set_Output (unsigned char ucPinMinus1,
+[v _Set_Output `TF3009 ~T0 @X0 1 e ]
+"36
+[; ;../setup.c: 36: {
+{
+[e :U _Set_Output ]
+"34
+[; ;../setup.c: 34: __attribute__((inline)) void Set_Output (unsigned char ucPinMinus1,
+[v _ucPinMinus1 `uc ~T0 @X0 1 r1 ]
+"35
+[; ;../setup.c: 35:                         unsigned char bOut)
+[v _bOut `uc ~T0 @X0 1 r2 ]
+"36
+[; ;../setup.c: 36: {
+[f ]
+"37
+[; ;../setup.c: 37:   if (ucPinMinus1 == 9)
+[e $ ! == -> _ucPinMinus1 `i -> 9 `i 306  ]
 "38
-[; ;../setup.c: 38: __attribute__((inline)) void clr_Outputs (void)
-[v _clr_Outputs `TF3009 ~T0 @X0 1 e ]
+[; ;../setup.c: 38:   {
+{
 "39
-[; ;../setup.c: 39: {
+[; ;../setup.c: 39:     LATBbits.LB1 = bOut ? 1 : 0;
+[e = . . _LATBbits 1 1 -> ? != -> _bOut `i -> 0 `i : -> 1 `i -> 0 `i `uc ]
+"40
+[; ;../setup.c: 40:   }
+}
+[e $U 307  ]
+"41
+[; ;../setup.c: 41:   else
+[e :U 306 ]
+"42
+[; ;../setup.c: 42:   {
+{
+"43
+[; ;../setup.c: 43:     LATA |= LATA & bOut << ucPinMinus1;
+[e =| _LATA -> & -> _LATA `i << -> _bOut `i -> _ucPinMinus1 `i `Vuc ]
+"44
+[; ;../setup.c: 44:   }
+}
+[e :U 307 ]
+"45
+[; ;../setup.c: 45: }
+[e :UE 305 ]
+}
+[v F3013 `(v ~T0 @X0 1 tf ]
+"47
+[; ;../setup.c: 47: __attribute__((inline)) void clr_Outputs (void)
+[v _clr_Outputs `TF3013 ~T0 @X0 1 e ]
+"48
+[; ;../setup.c: 48: {
 {
 [e :U _clr_Outputs ]
 [f ]
-"40
-[; ;../setup.c: 40:   LATBbits.LB1 = LATA = 0;
-[e = . . _LATBbits 1 1 = _LATA -> -> 0 `i `uc ]
-"41
-[; ;../setup.c: 41: }
-[e :UE 307 ]
-}
-[v F3011 `(uc ~T0 @X0 1 tf1`uc ]
-"43
-[; ;../setup.c: 43: __attribute__((inline)) unsigned char Get_Output (unsigned char ucPinMinus1)
-[v _Get_Output `TF3011 ~T0 @X0 1 e ]
-"44
-[; ;../setup.c: 44: {
-{
-[e :U _Get_Output ]
-"43
-[; ;../setup.c: 43: __attribute__((inline)) unsigned char Get_Output (unsigned char ucPinMinus1)
-[v _ucPinMinus1 `uc ~T0 @X0 1 r1 ]
-"44
-[; ;../setup.c: 44: {
-[f ]
-"45
-[; ;../setup.c: 45:   unsigned char b = 2;
-[v _b `uc ~T0 @X0 1 a ]
-[e = _b -> -> 2 `i `uc ]
-"46
-[; ;../setup.c: 46:   if(ucPinMinus1 == 8)
-[e $ ! == -> _ucPinMinus1 `i -> 8 `i 309  ]
-"47
-[; ;../setup.c: 47:   {
-{
-"48
-[; ;../setup.c: 48:     b = LATBbits.LB1;
-[e = _b . . _LATBbits 1 1 ]
 "49
-[; ;../setup.c: 49:   }
-}
-[e $U 310  ]
+[; ;../setup.c: 49:   LATBbits.LB1 = LATA = 0;
+[e = . . _LATBbits 1 1 = _LATA -> -> 0 `i `uc ]
 "50
-[; ;../setup.c: 50:   else
-[e :U 309 ]
-"51
-[; ;../setup.c: 51:   {
-{
-"52
-[; ;../setup.c: 52:     b = (LATA >> ucPinMinus1) & 0x01;
-[e = _b -> & >> -> _LATA `i -> _ucPinMinus1 `i -> 1 `i `uc ]
-"53
-[; ;../setup.c: 53:   }
-}
-[e :U 310 ]
-"54
-[; ;../setup.c: 54:   return b;
-[e ) _b ]
-[e $UE 308  ]
-"55
-[; ;../setup.c: 55: }
+[; ;../setup.c: 50: }
 [e :UE 308 ]
 }
 [v F3015 `(uc ~T0 @X0 1 tf1`uc ]
-"57
-[; ;../setup.c: 57: __attribute__((inline)) unsigned char Get_Input (unsigned char ucPinMinus1)
-[v _Get_Input `TF3015 ~T0 @X0 1 e ]
-"58
-[; ;../setup.c: 58: {
+"52
+[; ;../setup.c: 52: __attribute__((inline)) unsigned char Get_Output (unsigned char ucPinMinus1)
+[v _Get_Output `TF3015 ~T0 @X0 1 e ]
+"53
+[; ;../setup.c: 53: {
 {
-[e :U _Get_Input ]
-"57
-[; ;../setup.c: 57: __attribute__((inline)) unsigned char Get_Input (unsigned char ucPinMinus1)
+[e :U _Get_Output ]
+"52
+[; ;../setup.c: 52: __attribute__((inline)) unsigned char Get_Output (unsigned char ucPinMinus1)
 [v _ucPinMinus1 `uc ~T0 @X0 1 r1 ]
-"58
-[; ;../setup.c: 58: {
+"53
+[; ;../setup.c: 53: {
 [f ]
-"59
-[; ;../setup.c: 59:   unsigned char b = 2;
+"54
+[; ;../setup.c: 54:   unsigned char b = 2;
 [v _b `uc ~T0 @X0 1 a ]
 [e = _b -> -> 2 `i `uc ]
+"55
+[; ;../setup.c: 55:   if(ucPinMinus1 == 9)
+[e $ ! == -> _ucPinMinus1 `i -> 9 `i 310  ]
+"56
+[; ;../setup.c: 56:   {
+{
+"57
+[; ;../setup.c: 57:     b = LATBbits.LB1;
+[e = _b . . _LATBbits 1 1 ]
+"58
+[; ;../setup.c: 58:   }
+}
+[e $U 311  ]
+"59
+[; ;../setup.c: 59:   else
+[e :U 310 ]
 "60
-[; ;../setup.c: 60:   if(ucPinMinus1 == 8)
-[e $ ! == -> _ucPinMinus1 `i -> 8 `i 312  ]
+[; ;../setup.c: 60:   {
+{
 "61
-[; ;../setup.c: 61:   {
-{
+[; ;../setup.c: 61:     b = (LATA >> ucPinMinus1) & 0x01;
+[e = _b -> & >> -> _LATA `i -> _ucPinMinus1 `i -> 1 `i `uc ]
 "62
-[; ;../setup.c: 62:     b = LATBbits.LB0;
-[e = _b . . _LATBbits 1 0 ]
+[; ;../setup.c: 62:   }
+}
+[e :U 311 ]
 "63
-[; ;../setup.c: 63:   }
-}
-[e $U 313  ]
-"64
-[; ;../setup.c: 64:   else
-[e :U 312 ]
-"65
-[; ;../setup.c: 65:   {
-{
-"66
-[; ;../setup.c: 66:     b = (LATD >> ucPinMinus1) & 0x01;
-[e = _b -> & >> -> _LATD `i -> _ucPinMinus1 `i -> 1 `i `uc ]
-"67
-[; ;../setup.c: 67:   }
-}
-[e :U 313 ]
-"68
-[; ;../setup.c: 68:   return b;
+[; ;../setup.c: 63:   return b;
 [e ) _b ]
-[e $UE 311  ]
-"69
-[; ;../setup.c: 69: }
-[e :UE 311 ]
+[e $UE 309  ]
+"64
+[; ;../setup.c: 64: }
+[e :UE 309 ]
 }
-"71
-[; ;../setup.c: 71: void clr_LEDs (void)
-[v _clr_LEDs `(v ~T0 @X0 1 ef ]
-"72
-[; ;../setup.c: 72: {
+[v F3019 `(uc ~T0 @X0 1 tf1`uc ]
+"66
+[; ;../setup.c: 66: __attribute__((inline)) unsigned char Get_Input (unsigned char ucPinMinus1)
+[v _Get_Input `TF3019 ~T0 @X0 1 e ]
+"67
+[; ;../setup.c: 67: {
 {
-[e :U _clr_LEDs ]
+[e :U _Get_Input ]
+"66
+[; ;../setup.c: 66: __attribute__((inline)) unsigned char Get_Input (unsigned char ucPinMinus1)
+[v _ucPinMinus1 `uc ~T0 @X0 1 r1 ]
+"67
+[; ;../setup.c: 67: {
 [f ]
-"73
-[; ;../setup.c: 73:   LATBbits.LB3 = LATBbits.LB4 = LATEbits.LE0 = LATC = 0x00;
-[e = . . _LATBbits 1 3 = . . _LATBbits 1 4 = . . _LATEbits 1 0 = _LATC -> -> 0 `i `uc ]
-"74
-[; ;../setup.c: 74: }
-[e :UE 314 ]
+"68
+[; ;../setup.c: 68:   unsigned char b = 2;
+[v _b `uc ~T0 @X0 1 a ]
+[e = _b -> -> 2 `i `uc ]
+"69
+[; ;../setup.c: 69:   if(ucPinMinus1 == 9)
+[e $ ! == -> _ucPinMinus1 `i -> 9 `i 313  ]
+"70
+[; ;../setup.c: 70:   {
+{
+"71
+[; ;../setup.c: 71:     b = LATBbits.LB0;
+[e = _b . . _LATBbits 1 0 ]
+"72
+[; ;../setup.c: 72:   }
 }
+[e $U 314  ]
+"73
+[; ;../setup.c: 73:   else
+[e :U 313 ]
+"74
+[; ;../setup.c: 74:   {
+{
+"75
+[; ;../setup.c: 75:     b = (LATD >> ucPinMinus1) & 0x01;
+[e = _b -> & >> -> _LATD `i -> _ucPinMinus1 `i -> 1 `i `uc ]
 "76
-[; ;../setup.c: 76: void Timer_and_Interrupt_setup (void)
-[v _Timer_and_Interrupt_setup `(v ~T0 @X0 1 ef ]
+[; ;../setup.c: 76:   }
+}
+[e :U 314 ]
 "77
-[; ;../setup.c: 77: {
+[; ;../setup.c: 77:   return b;
+[e ) _b ]
+[e $UE 312  ]
+"78
+[; ;../setup.c: 78: }
+[e :UE 312 ]
+}
+"83
+[; ;../setup.c: 83: void Timer_and_Interrupt_setup (void)
+[v _Timer_and_Interrupt_setup `(v ~T0 @X0 1 ef ]
+"84
+[; ;../setup.c: 84: {
 {
 [e :U _Timer_and_Interrupt_setup ]
 [f ]
-"80
-[; ;../setup.c: 80:     T0CON = 0b10010101;
+"87
+[; ;../setup.c: 87:     T0CON = 0b10010101;
 [e = _T0CON -> -> 149 `i `uc ]
-"82
-[; ;../setup.c: 82:     OSCCON = 0b01100111;
-[e = _OSCCON -> -> 103 `i `uc ]
-"86
-[; ;../setup.c: 86:     T3CON = 0b10110101;
-[e = _T3CON -> -> 181 `i `uc ]
-"88
-[; ;../setup.c: 88:     ANSEL = 0x00;
-[e = _ANSEL -> -> 0 `i `uc ]
 "89
-[; ;../setup.c: 89:     ANSELH = 0x00;
+[; ;../setup.c: 89:     OSCCON = 0b01100111;
+[e = _OSCCON -> -> 103 `i `uc ]
+"93
+[; ;../setup.c: 93:     T3CON = 0b10110101;
+[e = _T3CON -> -> 181 `i `uc ]
+"95
+[; ;../setup.c: 95:     ANSEL = 0x00;
+[e = _ANSEL -> -> 0 `i `uc ]
+"96
+[; ;../setup.c: 96:     ANSELH = 0x00;
 [e = _ANSELH -> -> 0 `i `uc ]
-"90
-[; ;../setup.c: 90: }
+"97
+[; ;../setup.c: 97: }
 [e :UE 315 ]
 }
-"92
-[; ;../setup.c: 92: void setup(void)
+"100
+[; ;../setup.c: 100: void flash_LEDs(void)
+[v _flash_LEDs `(v ~T0 @X0 1 ef ]
+"101
+[; ;../setup.c: 101: {
+{
+[e :U _flash_LEDs ]
+[f ]
+"102
+[; ;../setup.c: 102:     unsigned char uc = 0;
+[v _uc `uc ~T0 @X0 1 a ]
+[e = _uc -> -> 0 `i `uc ]
+"103
+[; ;../setup.c: 103:     while(uc < 1)
+[e $U 317  ]
+[e :U 318 ]
+"104
+[; ;../setup.c: 104:     {
+{
+"106
+[; ;../setup.c: 106:     }
+}
+[e :U 317 ]
+"103
+[; ;../setup.c: 103:     while(uc < 1)
+[e $ < -> _uc `i -> 1 `i 318  ]
+[e :U 319 ]
+"107
+[; ;../setup.c: 107: }
+[e :UE 316 ]
+}
+"109
+[; ;../setup.c: 109: void setup(void)
 [v _setup `(v ~T0 @X0 1 ef ]
-"93
-[; ;../setup.c: 93: {
+"110
+[; ;../setup.c: 110: {
 {
 [e :U _setup ]
 [f ]
-"95
-[; ;../setup.c: 95:     IO_setup();
+"112
+[; ;../setup.c: 112:     IO_setup();
 [e ( _IO_setup ..  ]
-"96
-[; ;../setup.c: 96:     Timer_and_Interrupt_setup();
+"113
+[; ;../setup.c: 113:     Timer_and_Interrupt_setup();
 [e ( _Timer_and_Interrupt_setup ..  ]
-"98
-[; ;../setup.c: 98: }
-[e :UE 316 ]
+"114
+[; ;../setup.c: 114:     flash_LEDs();
+[e ( _flash_LEDs ..  ]
+"116
+[; ;../setup.c: 116: }
+[e :UE 320 ]
 }

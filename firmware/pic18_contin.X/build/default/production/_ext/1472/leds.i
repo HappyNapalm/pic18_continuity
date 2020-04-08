@@ -1,4 +1,4 @@
-# 1 "../setup.c"
+# 1 "../leds.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "../setup.c" 2
+# 1 "../leds.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\c99\\stdio.h" 1 3
 
 
@@ -164,7 +164,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 1 "../setup.c" 2
+# 1 "../leds.c" 2
 
 
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 1 3
@@ -4947,7 +4947,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.10\\pic\\include\\xc.h" 2 3
-# 3 "../setup.c" 2
+# 3 "../leds.c" 2
 
 
 # 1 "../setup.h" 1
@@ -4963,122 +4963,65 @@ void Set_Output (unsigned char ucPinMinus1,
 void clr_Outputs (void);
 unsigned char Get_Output (unsigned char ucPinMinus1);
 unsigned char Get_Input (unsigned char ucPinMinus1);
-# 5 "../setup.c" 2
+# 5 "../leds.c" 2
 
 # 1 "../leds.h" 1
 # 38 "../leds.h"
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
 extern void get_LEDs (void);
-# 6 "../setup.c" 2
+# 6 "../leds.c" 2
 
 
 
 
-const struct stGPIO{
+const struct{
     volatile unsigned char *port;
     unsigned char pin;
+} gstLEDs[] = {
+    { &LATC, 0 },
+    { &LATC, 2 },
+    { &LATC, 1 },
+    { &LATC, 5 },
+    { &LATC, 6 },
+    { &LATC, 7 },
+    { &LATB, 3 },
+    { &LATB, 4 },
+    { &LATE, 0 },
 };
 
-struct stGPIO stInputs[] = {
-    {&LATD, 0}
-};
 
-void IO_setup (void)
+void clr_LEDs (void)
 {
-  TRISA = 0x00;
-  TRISC = 0x00;
-  TRISBbits.RB0 = 1;
-  TRISBbits.RB1 = 0;
-  TRISBbits.RB2 = 0;
-  TRISBbits.RB3 = 0;
-  TRISBbits.RB4 = 0;
-  TRISD = 0xFF;
-  TRISEbits.RE0 = 0;
-  TRISEbits.RE1 = 1;
-  TRISEbits.RE2 = 1;
-}
-
-__attribute__((inline)) void Set_Output (unsigned char ucPinMinus1,
-                        unsigned char bOut)
-{
-  if (ucPinMinus1 == 9)
-  {
-    LATBbits.LB1 = bOut ? 1 : 0;
-  }
-  else
-  {
-    LATA |= LATA & bOut << ucPinMinus1;
-  }
-}
-
-__attribute__((inline)) void clr_Outputs (void)
-{
-  LATBbits.LB1 = LATA = 0;
-}
-
-__attribute__((inline)) unsigned char Get_Output (unsigned char ucPinMinus1)
-{
-  unsigned char b = 2;
-  if(ucPinMinus1 == 9)
-  {
-    b = LATBbits.LB1;
-  }
-  else
-  {
-    b = (LATA >> ucPinMinus1) & 0x01;
-  }
-  return b;
-}
-
-__attribute__((inline)) unsigned char Get_Input (unsigned char ucPinMinus1)
-{
-  unsigned char b = 2;
-  if(ucPinMinus1 == 9)
-  {
-    b = LATBbits.LB0;
-  }
-  else
-  {
-    b = (LATD >> ucPinMinus1) & 0x01;
-  }
-  return b;
-}
-
-
-
-
-void Timer_and_Interrupt_setup (void)
-{
-
-
-    T0CON = 0b10010101;
-
-    OSCCON = 0b01100111;
-
-
-
-    T3CON = 0b10110101;
-
-    ANSEL = 0x00;
-    ANSELH = 0x00;
-}
-
-
-void flash_LEDs(void)
-{
-    unsigned char uc = 0;
-    while(uc < 1)
+    for (unsigned char uc = 0; uc < 9; uc++)
     {
+        unsigned char ucLocal;
+        ucLocal = *gstLEDs[uc].port;
+        ucLocal &= ~(1 << gstLEDs[uc].pin);
+        *gstLEDs[uc].port = ucLocal;
 
     }
 }
 
-void setup(void)
+void all_LEDs (void)
 {
 
-    IO_setup();
-    Timer_and_Interrupt_setup();
-    flash_LEDs();
+    for (unsigned char uc = 0; uc < 9; uc++)
+    {
+        unsigned char ucLocal;
+        ucLocal = *gstLEDs[uc].port;
+        ucLocal |= (1 << gstLEDs[uc].pin);
+        *gstLEDs[uc].port = ucLocal;
+
+    }
+}
+
+void get_LEDs (void)
+{
+
+}
+
+void set_LED (unsigned char ucPin, unsigned char bValue)
+{
 
 }

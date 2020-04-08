@@ -11,6 +11,7 @@
 #include <htc.h>
 
 #include "setup.h"
+#include "leds.h"
 
 /** C O N F I G U R A T I O N   B I T S ******************************/
 #pragma config FOSC = INTIO67
@@ -71,10 +72,11 @@ void main (void)
 {
     setup();
 //    flash();
-    clr_LEDs();
+    //clr_LEDs();
     //start_up();
     while(1)
    {
-        testing(GetModeSwitch,0);
+        //testing(GetModeSwitch,0);
+        all_LEDs();
    }
 }

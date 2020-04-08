@@ -20,15 +20,23 @@ extern "C" {
 #endif
 
 //Macros
+#define LED1  LATCbits.LC0
+#define LED2  LATCbits.LC2
+#define LED3  LATCbits.LC1
+#define LED4  LATCbits.LC5
+#define LED5  LATCbits.LC6
+#define LED6  LATCbits.LC7
 #define LED7  LATBbits.LB3
 #define LED8  LATBbits.LB4
 #define LED9  LATEbits.LE0
 
+
 //Global Vars
+//extern const struct gstLEDs;
 
 //Functions
-void clr_LEDs (void);
-void all_LEDs (void);
-void get_LEDs (void);
+extern void clr_LEDs (void);
+extern void all_LEDs (void);
+extern void get_LEDs (void);
 
 #endif	/* SETUP_H */

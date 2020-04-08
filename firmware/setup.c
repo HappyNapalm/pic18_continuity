@@ -5,8 +5,35 @@
 #include "setup.h"
 #include "leds.h"
 
-//unsigned char gauc_Inputs[MAX_IO];
-//unsigned char gauc_Outputs[MAX_IO];
+
+const struct stGPIO{
+    volatile unsigned char *port;
+    unsigned char pin;
+};
+
+struct stGPIO astInputs[] = {
+    {&LATD, 0},
+    {&LATD, 1},
+    {&LATD, 2},
+    {&LATD, 3},
+    {&LATD, 4},
+    {&LATD, 5},
+    {&LATD, 6},
+    {&LATD, 7},
+    {&LATB, 0},
+};
+
+struct stGPIO astOutputs[] = {
+    {&LATA, 0},
+    {&LATA, 1},
+    {&LATA, 2},
+    {&LATA, 3},
+    {&LATA, 4},
+    {&LATA, 5},
+    {&LATA, 6},
+    {&LATA, 7},
+    {&LATB, 1},
+};
 
 void IO_setup (void)
 {
@@ -88,6 +115,7 @@ void Timer_and_Interrupt_setup (void)
     ANSELH = 0x00;
 }
 
+#define MAX_BLINKS 1
 void flash_LEDs(void)
 {
     unsigned char uc = 0;

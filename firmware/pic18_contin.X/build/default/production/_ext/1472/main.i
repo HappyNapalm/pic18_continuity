@@ -4959,9 +4959,9 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "../setup.h" 1
-# 36 "../setup.h"
+# 34 "../setup.h"
 void IO_setup (void);
-void clr_LEDs (void);
+
 void Timer_and_Interrupt_setup (void);
 void setup (void);
 
@@ -4972,6 +4972,13 @@ void clr_Outputs (void);
 unsigned char Get_Output (unsigned char ucPinMinus1);
 unsigned char Get_Input (unsigned char ucPinMinus1);
 # 13 "../main.c" 2
+
+# 1 "../leds.h" 1
+# 38 "../leds.h"
+extern void clr_LEDs (void);
+extern void all_LEDs (void);
+extern void get_LEDs (void);
+# 14 "../main.c" 2
 
 
 
@@ -4987,7 +4994,7 @@ unsigned char Get_Input (unsigned char ucPinMinus1);
 unsigned char b2_Compare (unsigned char ucTargetBit)
 {
  unsigned char b = 2;
-# 42 "../main.c"
+# 43 "../main.c"
  return b;
 }
 
@@ -5020,10 +5027,11 @@ void main (void)
 {
     setup();
 
-    clr_LEDs();
+
 
     while(1)
    {
-        testing(GetModeSwitch,0);
+
+        all_LEDs();
    }
 }

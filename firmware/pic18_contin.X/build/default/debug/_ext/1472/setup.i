@@ -4966,23 +4966,15 @@ unsigned char Get_Input (unsigned char ucPinMinus1);
 # 5 "../setup.c" 2
 
 # 1 "../leds.h" 1
-# 38 "../leds.h"
+# 30 "../leds.h"
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
-extern void get_LEDs (void);
+extern __attribute__((inline)) void get_LEDs (void);
 # 6 "../setup.c" 2
 
 
 
 
-const struct stGPIO{
-    volatile unsigned char *port;
-    unsigned char pin;
-};
-
-struct stGPIO stInputs[] = {
-    {&LATD, 0}
-};
 
 void IO_setup (void)
 {
@@ -5002,7 +4994,7 @@ void IO_setup (void)
 __attribute__((inline)) void Set_Output (unsigned char ucPinMinus1,
                         unsigned char bOut)
 {
-  if (ucPinMinus1 == 9)
+  if (ucPinMinus1 == 8)
   {
     LATBbits.LB1 = bOut ? 1 : 0;
   }
@@ -5020,7 +5012,7 @@ __attribute__((inline)) void clr_Outputs (void)
 __attribute__((inline)) unsigned char Get_Output (unsigned char ucPinMinus1)
 {
   unsigned char b = 2;
-  if(ucPinMinus1 == 9)
+  if(ucPinMinus1 == 8)
   {
     b = LATBbits.LB1;
   }
@@ -5034,7 +5026,7 @@ __attribute__((inline)) unsigned char Get_Output (unsigned char ucPinMinus1)
 __attribute__((inline)) unsigned char Get_Input (unsigned char ucPinMinus1)
 {
   unsigned char b = 2;
-  if(ucPinMinus1 == 9)
+  if(ucPinMinus1 == 8)
   {
     b = LATBbits.LB0;
   }
