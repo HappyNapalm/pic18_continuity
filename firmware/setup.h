@@ -19,8 +19,18 @@ extern "C" {
 }
 #endif
 //global variables
-#define In9   LATBbits.LB0
-#define Out9  LATBbits.LB1
+
+//@About: Allows for IO tables to be made
+struct gstGPIO{
+    volatile unsigned char *port;
+    unsigned char pin;
+};
+
+void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
+
+
+//#define In9   LATBbits.LB0
+//#define Out9  LATBbits.LB1
 
 #define HB    LATBbits.LB2
 
@@ -28,7 +38,7 @@ extern "C" {
 #define ETH   LATEbits.LE1
 #define DB9   LATEbits.LE2
 
-#define MAX_IO 9
+#define MAX_IO 9            //Defines IO to test. 1 LED per IO pair.
 
 //functions
 void IO_setup (void);

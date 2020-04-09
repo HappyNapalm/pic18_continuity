@@ -4951,7 +4951,14 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "../setup.h" 1
-# 34 "../setup.h"
+# 24 "../setup.h"
+struct gstGPIO{
+    volatile unsigned char *port;
+    unsigned char pin;
+};
+
+void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
+# 44 "../setup.h"
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
@@ -4969,16 +4976,13 @@ unsigned char Get_Input (unsigned char ucPinMinus1);
 # 38 "../leds.h"
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
-extern void get_LEDs (void);
+extern unsigned short get_LEDs (void);
 # 6 "../leds.c" 2
 
 
 
 
-const struct{
-    volatile unsigned char *port;
-    unsigned char pin;
-} gstLEDs[] = {
+struct gstGPIO astLEDs[9] = {
     { &LATC, 0 },
     { &LATC, 2 },
     { &LATC, 1 },
@@ -4995,11 +4999,7 @@ void clr_LEDs (void)
 {
     for (unsigned char uc = 0; uc < 9; uc++)
     {
-        unsigned char ucLocal;
-        ucLocal = *gstLEDs[uc].port;
-        ucLocal &= ~(1 << gstLEDs[uc].pin);
-        *gstLEDs[uc].port = ucLocal;
-
+        set_IO(astLEDs, uc, 0);
     }
 }
 
@@ -5008,20 +5008,6 @@ void all_LEDs (void)
 
     for (unsigned char uc = 0; uc < 9; uc++)
     {
-        unsigned char ucLocal;
-        ucLocal = *gstLEDs[uc].port;
-        ucLocal |= (1 << gstLEDs[uc].pin);
-        *gstLEDs[uc].port = ucLocal;
-
+        set_IO(astLEDs, uc, 1);
     }
-}
-
-void get_LEDs (void)
-{
-
-}
-
-void set_LED (unsigned char ucPin, unsigned char bValue)
-{
-
 }

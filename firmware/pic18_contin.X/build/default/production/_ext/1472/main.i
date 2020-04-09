@@ -4959,7 +4959,14 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "../setup.h" 1
-# 34 "../setup.h"
+# 24 "../setup.h"
+struct gstGPIO{
+    volatile unsigned char *port;
+    unsigned char pin;
+};
+
+void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
+# 44 "../setup.h"
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
@@ -4977,7 +4984,7 @@ unsigned char Get_Input (unsigned char ucPinMinus1);
 # 38 "../leds.h"
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
-extern void get_LEDs (void);
+extern unsigned short get_LEDs (void);
 # 14 "../main.c" 2
 
 

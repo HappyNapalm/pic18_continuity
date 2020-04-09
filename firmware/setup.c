@@ -5,13 +5,29 @@
 #include "setup.h"
 #include "leds.h"
 
+//@About set GPIO table item to boolean
+void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue)
+{
+    volatile unsigned char **ucLocal;
+    ucLocal = &IO[item].port;
+    if (bValue)
+    {
+        ucLocal |= (1 << IO[item].pin);
+    }
+    else
+    {
+        ucLocal &= ~(1 << IO[item].pin);
+    }
+    *IO[item].port = ucLocal;
+}
 
-const struct stGPIO{
-    volatile unsigned char *port;
-    unsigned char pin;
-};
+//@About get the state of an item from a GPIO table
+unsigned char get_IO (struct gstGPIO *IO, unsigned char item)
+{
+    return (unsigned char)((*IO[item].port >> IO[item].pin) & 0x01);
+}
 
-struct stGPIO astInputs[] = {
+struct gstGPIO astInputs[] = {
     {&LATD, 0},
     {&LATD, 1},
     {&LATD, 2},
@@ -23,7 +39,7 @@ struct stGPIO astInputs[] = {
     {&LATB, 0},
 };
 
-struct stGPIO astOutputs[] = {
+struct gstGPIO astOutputs[] = {
     {&LATA, 0},
     {&LATA, 1},
     {&LATA, 2},
@@ -49,54 +65,6 @@ void IO_setup (void)
   TRISEbits.RE1 = 1;      //Switch 1A
   TRISEbits.RE2 = 1;      //Switch 1B
 }
-
-inline void Set_Output (unsigned char ucPinMinus1, 
-                        unsigned char bOut)
-{
-  if (ucPinMinus1 == MAX_IO)
-  {
-    Out9 = bOut ? 1 : 0;
-  }
-  else
-  {
-    LATA |= LATA & bOut << ucPinMinus1;
-  }
-}
-
-inline void clr_Outputs (void)
-{
-  Out9 = LATA = 0;
-}
-
-inline unsigned char Get_Output (unsigned char ucPinMinus1)
-{
-  unsigned char b = 2;
-  if(ucPinMinus1 == MAX_IO)
-  {
-    b = Out9;
-  }
-  else
-  {
-    b = (LATA >> ucPinMinus1) & 0x01;
-  }
-  return b;
-}
-
-inline unsigned char Get_Input (unsigned char ucPinMinus1)
-{
-  unsigned char b = 2;
-  if(ucPinMinus1 == MAX_IO)
-  {
-    b = In9;
-  }
-  else
-  {
-    b = (LATD >> ucPinMinus1) & 0x01;
-  }
-  return b;
-}
-
-
 
 //TODO review the timers. Create a ms timer.
 void Timer_and_Interrupt_setup (void)

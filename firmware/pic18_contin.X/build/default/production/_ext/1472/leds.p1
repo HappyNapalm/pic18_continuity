@@ -1,8 +1,8 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"10 ../leds.c
-[; ;../leds.c: 10: const struct{
+"24 ../setup.h
+[; ;../setup.h: 24: struct gstGPIO{
 [s S303 `*Vuc 1 `uc 1 ]
-[n S303 . port pin ]
+[n S303 gstGPIO port pin ]
 "1756 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1756: extern volatile unsigned char LATC __attribute__((address(0xF8B)));
 [v _LATC `Vuc ~T0 @X0 0 e@3979 ]
@@ -12,6 +12,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1980
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1980: extern volatile unsigned char LATE __attribute__((address(0xF8D)));
 [v _LATE `Vuc ~T0 @X0 0 e@3981 ]
+"29 ../setup.h
+[; ;../setup.h: 29: void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
+[v _set_IO `(v ~T0 @X0 0 ef3`*S303`uc`uc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -450,10 +453,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"13 ../leds.c
-[; ;../leds.c: 13: } gstLEDs[] = {
-[v _gstLEDs `CS303 ~T0 @X0 -> 9 `i e ]
-[i _gstLEDs
+"10 ../leds.c
+[; ;../leds.c: 10: struct gstGPIO astLEDs[9] = {
+[v _astLEDs `S303 ~T0 @X0 -> 9 `i e ]
+[i _astLEDs
 :U ..
 :U ..
 &U _LATC
@@ -493,117 +496,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"26
-[; ;../leds.c: 26: void clr_LEDs (void)
+"23
+[; ;../leds.c: 23: void clr_LEDs (void)
 [v _clr_LEDs `(v ~T0 @X0 1 ef ]
-"27
-[; ;../leds.c: 27: {
+"24
+[; ;../leds.c: 24: {
 {
 [e :U _clr_LEDs ]
 [f ]
-"28
-[; ;../leds.c: 28:     for (unsigned char uc = 0; uc < 9; uc++)
+"25
+[; ;../leds.c: 25:     for (unsigned char uc = 0; uc < 9; uc++)
 {
 [v _uc `uc ~T0 @X0 1 a ]
 [e = _uc -> -> 0 `i `uc ]
 [e $ < -> _uc `i -> 9 `i 305  ]
 [e $U 306  ]
 [e :U 305 ]
-"29
-[; ;../leds.c: 29:     {
+"26
+[; ;../leds.c: 26:     {
 {
-"30
-[; ;../leds.c: 30:         unsigned char ucLocal;
-[v _ucLocal `uc ~T0 @X0 1 a ]
-"31
-[; ;../leds.c: 31:         ucLocal = *gstLEDs[uc].port;
-[e = _ucLocal *U . *U + &U _gstLEDs * -> _uc `ux -> -> # *U &U _gstLEDs `ui `ux 0 ]
-"32
-[; ;../leds.c: 32:         ucLocal &= ~(1 << gstLEDs[uc].pin);
-[e =& _ucLocal -> ~ << -> 1 `i -> . *U + &U _gstLEDs * -> _uc `ux -> -> # *U &U _gstLEDs `ui `ux 1 `i `uc ]
-"33
-[; ;../leds.c: 33:         *gstLEDs[uc].port = ucLocal;
-[e = *U . *U + &U _gstLEDs * -> _uc `ux -> -> # *U &U _gstLEDs `ui `ux 0 _ucLocal ]
-"35
-[; ;../leds.c: 35:     }
+"27
+[; ;../leds.c: 27:         set_IO(astLEDs, uc, 0);
+[e ( _set_IO (3 , , &U _astLEDs _uc -> -> 0 `i `uc ]
+"28
+[; ;../leds.c: 28:     }
 }
 [e ++ _uc -> -> 1 `i `uc ]
 [e $ < -> _uc `i -> 9 `i 305  ]
 [e :U 306 ]
 }
-"36
-[; ;../leds.c: 36: }
+"29
+[; ;../leds.c: 29: }
 [e :UE 304 ]
 }
-"38
-[; ;../leds.c: 38: void all_LEDs (void)
+"31
+[; ;../leds.c: 31: void all_LEDs (void)
 [v _all_LEDs `(v ~T0 @X0 1 ef ]
-"39
-[; ;../leds.c: 39: {
+"32
+[; ;../leds.c: 32: {
 {
 [e :U _all_LEDs ]
 [f ]
-"41
-[; ;../leds.c: 41:     for (unsigned char uc = 0; uc < 9; uc++)
+"34
+[; ;../leds.c: 34:     for (unsigned char uc = 0; uc < 9; uc++)
 {
 [v _uc `uc ~T0 @X0 1 a ]
 [e = _uc -> -> 0 `i `uc ]
 [e $ < -> _uc `i -> 9 `i 309  ]
 [e $U 310  ]
 [e :U 309 ]
-"42
-[; ;../leds.c: 42:     {
+"35
+[; ;../leds.c: 35:     {
 {
-"43
-[; ;../leds.c: 43:         unsigned char ucLocal;
-[v _ucLocal `uc ~T0 @X0 1 a ]
-"44
-[; ;../leds.c: 44:         ucLocal = *gstLEDs[uc].port;
-[e = _ucLocal *U . *U + &U _gstLEDs * -> _uc `ux -> -> # *U &U _gstLEDs `ui `ux 0 ]
-"45
-[; ;../leds.c: 45:         ucLocal |= (1 << gstLEDs[uc].pin);
-[e =| _ucLocal -> << -> 1 `i -> . *U + &U _gstLEDs * -> _uc `ux -> -> # *U &U _gstLEDs `ui `ux 1 `i `uc ]
-"46
-[; ;../leds.c: 46:         *gstLEDs[uc].port = ucLocal;
-[e = *U . *U + &U _gstLEDs * -> _uc `ux -> -> # *U &U _gstLEDs `ui `ux 0 _ucLocal ]
-"48
-[; ;../leds.c: 48:     }
+"36
+[; ;../leds.c: 36:         set_IO(astLEDs, uc, 1);
+[e ( _set_IO (3 , , &U _astLEDs _uc -> -> 1 `i `uc ]
+"37
+[; ;../leds.c: 37:     }
 }
 [e ++ _uc -> -> 1 `i `uc ]
 [e $ < -> _uc `i -> 9 `i 309  ]
 [e :U 310 ]
 }
-"49
-[; ;../leds.c: 49: }
+"38
+[; ;../leds.c: 38: }
 [e :UE 308 ]
-}
-"51
-[; ;../leds.c: 51: void get_LEDs (void)
-[v _get_LEDs `(v ~T0 @X0 1 ef ]
-"52
-[; ;../leds.c: 52: {
-{
-[e :U _get_LEDs ]
-[f ]
-"54
-[; ;../leds.c: 54: }
-[e :UE 312 ]
-}
-"56
-[; ;../leds.c: 56: void set_LED (unsigned char ucPin, unsigned char bValue)
-[v _set_LED `(v ~T0 @X0 1 ef2`uc`uc ]
-"57
-[; ;../leds.c: 57: {
-{
-[e :U _set_LED ]
-"56
-[; ;../leds.c: 56: void set_LED (unsigned char ucPin, unsigned char bValue)
-[v _ucPin `uc ~T0 @X0 1 r1 ]
-[v _bValue `uc ~T0 @X0 1 r2 ]
-"57
-[; ;../leds.c: 57: {
-[f ]
-"59
-[; ;../leds.c: 59: }
-[e :UE 313 ]
 }

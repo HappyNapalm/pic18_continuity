@@ -37,6 +37,6 @@ extern "C" {
 //Functions
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
-extern void get_LEDs (void);
+extern unsigned short get_LEDs (void);
 
 #endif	/* SETUP_H */

@@ -4951,7 +4951,14 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "../setup.h" 1
-# 34 "../setup.h"
+# 24 "../setup.h"
+struct gstGPIO{
+    volatile unsigned char *port;
+    unsigned char pin;
+};
+
+void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
+# 44 "../setup.h"
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
@@ -4969,19 +4976,54 @@ unsigned char Get_Input (unsigned char ucPinMinus1);
 # 38 "../leds.h"
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
-extern void get_LEDs (void);
+extern unsigned short get_LEDs (void);
 # 6 "../setup.c" 2
 
 
 
+void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue)
+{
+    volatile unsigned char **ucLocal;
+    ucLocal = &IO[item].port;
+    if (bValue)
+    {
+        ucLocal |= (1 << IO[item].pin);
+    }
+    else
+    {
+        ucLocal &= ~(1 << IO[item].pin);
+    }
+    *IO[item].port = ucLocal;
+}
 
-const struct stGPIO{
-    volatile unsigned char *port;
-    unsigned char pin;
+
+unsigned char get_IO (struct gstGPIO *IO, unsigned char item)
+{
+    return (unsigned char)((*IO[item].port >> IO[item].pin) & 0x01);
+}
+
+struct gstGPIO astInputs[] = {
+    {&LATD, 0},
+    {&LATD, 1},
+    {&LATD, 2},
+    {&LATD, 3},
+    {&LATD, 4},
+    {&LATD, 5},
+    {&LATD, 6},
+    {&LATD, 7},
+    {&LATB, 0},
 };
 
-struct stGPIO stInputs[] = {
-    {&LATD, 0}
+struct gstGPIO astOutputs[] = {
+    {&LATA, 0},
+    {&LATA, 1},
+    {&LATA, 2},
+    {&LATA, 3},
+    {&LATA, 4},
+    {&LATA, 5},
+    {&LATA, 6},
+    {&LATA, 7},
+    {&LATB, 1},
 };
 
 void IO_setup (void)
@@ -4998,54 +5040,6 @@ void IO_setup (void)
   TRISEbits.RE1 = 1;
   TRISEbits.RE2 = 1;
 }
-
-__attribute__((inline)) void Set_Output (unsigned char ucPinMinus1,
-                        unsigned char bOut)
-{
-  if (ucPinMinus1 == 9)
-  {
-    LATBbits.LB1 = bOut ? 1 : 0;
-  }
-  else
-  {
-    LATA |= LATA & bOut << ucPinMinus1;
-  }
-}
-
-__attribute__((inline)) void clr_Outputs (void)
-{
-  LATBbits.LB1 = LATA = 0;
-}
-
-__attribute__((inline)) unsigned char Get_Output (unsigned char ucPinMinus1)
-{
-  unsigned char b = 2;
-  if(ucPinMinus1 == 9)
-  {
-    b = LATBbits.LB1;
-  }
-  else
-  {
-    b = (LATA >> ucPinMinus1) & 0x01;
-  }
-  return b;
-}
-
-__attribute__((inline)) unsigned char Get_Input (unsigned char ucPinMinus1)
-{
-  unsigned char b = 2;
-  if(ucPinMinus1 == 9)
-  {
-    b = LATBbits.LB0;
-  }
-  else
-  {
-    b = (LATD >> ucPinMinus1) & 0x01;
-  }
-  return b;
-}
-
-
 
 
 void Timer_and_Interrupt_setup (void)

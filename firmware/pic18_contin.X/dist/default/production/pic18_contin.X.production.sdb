@@ -3,19 +3,21 @@
 [d edition pro ]
 [d chip 18F45K20 ]
 [d frameptr 4065 ]
-"38 D:\git_proj\pic18_continuity\firmware/leds.c
+"31 D:\git_proj\pic18_continuity\firmware/leds.c
 [v _all_LEDs all_LEDs `(v  1 e 1 0 ]
 "26 D:\git_proj\pic18_continuity\firmware/main.c
 [v _b2_Compare b2_Compare `(uc  1 e 1 0 ]
 "71
 [v _main main `(v  1 e 1 0 ]
-"19 D:\git_proj\pic18_continuity\firmware/setup.c
+"9 D:\git_proj\pic18_continuity\firmware/setup.c
+[v _set_IO set_IO `(v  1 e 1 0 ]
+"54
 [v _IO_setup IO_setup `(v  1 e 1 0 ]
-"83
+"70
 [v _Timer_and_Interrupt_setup Timer_and_Interrupt_setup `(v  1 e 1 0 ]
-"100
+"87
 [v _flash_LEDs flash_LEDs `(v  1 e 1 0 ]
-"109
+"96
 [v _setup setup `(v  1 e 1 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -41,9 +43,9 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-[s S236 . 3 `*.39VEuc 1 port 2 0 `uc 1 pin 1 2 ]
-"13 D:\git_proj\pic18_continuity\firmware/leds.c
-[v _gstLEDs gstLEDs `C[9]S236  1 e 27 0 ]
+[s S69 gstGPIO 3 `*.39VEuc 1 port 2 0 `uc 1 pin 1 2 ]
+"10 D:\git_proj\pic18_continuity\firmware/leds.c
+[v _astLEDs astLEDs `[9]S69  1 e 27 0 ]
 "446 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
 [v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
 "508
@@ -52,27 +54,6 @@
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "1644
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
-[s S146 . 1 `uc 1 LATB0 1 0 :1:0 
-`uc 1 LATB1 1 0 :1:1 
-`uc 1 LATB2 1 0 :1:2 
-`uc 1 LATB3 1 0 :1:3 
-`uc 1 LATB4 1 0 :1:4 
-`uc 1 LATB5 1 0 :1:5 
-`uc 1 LATB6 1 0 :1:6 
-`uc 1 LATB7 1 0 :1:7 
-]
-"1671
-[s S155 . 1 `uc 1 LB0 1 0 :1:0 
-`uc 1 LB1 1 0 :1:1 
-`uc 1 LB2 1 0 :1:2 
-`uc 1 LB3 1 0 :1:3 
-`uc 1 LB4 1 0 :1:4 
-`uc 1 LB5 1 0 :1:5 
-`uc 1 LB6 1 0 :1:6 
-`uc 1 LB7 1 0 :1:7 
-]
-[u S164 . 1 `S146 1 . 1 0 `S155 1 . 1 0 ]
-[v _LATBbits LATBbits `VES164  1 e 1 @3978 ]
 "1756
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "1868
@@ -92,7 +73,7 @@
 [v _LATEbits LATEbits `VES32  1 e 1 @3981 ]
 "2032
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
-[s S75 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S77 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -102,7 +83,7 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "2286
-[s S84 . 1 `uc 1 RB0 1 0 :1:0 
+[s S86 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -111,13 +92,13 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S93 . 1 `S75 1 . 1 0 `S84 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES93  1 e 1 @3987 ]
+[u S95 . 1 `S77 1 . 1 0 `S86 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES95  1 e 1 @3987 ]
 "2476
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "2698
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S116 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S118 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -127,12 +108,12 @@
 `uc 1 IBF 1 0 :1:7 
 ]
 "2947
-[s S125 . 1 `uc 1 RE0 1 0 :1:0 
+[s S127 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 ]
-[u S129 . 1 `S116 1 . 1 0 `S125 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES129  1 e 1 @3990 ]
+[u S131 . 1 `S118 1 . 1 0 `S127 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES131  1 e 1 @3990 ]
 "4264
 [v _T3CON T3CON `VEuc  1 e 1 @4017 ]
 "6429
@@ -144,32 +125,42 @@
 {
 "82
 } 0
-"109 D:\git_proj\pic18_continuity\firmware/setup.c
+"96 D:\git_proj\pic18_continuity\firmware/setup.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"116
+"103
 } 0
-"100
+"87
 [v _flash_LEDs flash_LEDs `(v  1 e 1 0 ]
 {
-"107
+"94
 } 0
-"83
+"70
 [v _Timer_and_Interrupt_setup Timer_and_Interrupt_setup `(v  1 e 1 0 ]
 {
-"97
+"84
 } 0
-"19
+"54
 [v _IO_setup IO_setup `(v  1 e 1 0 ]
 {
-"32
+"67
 } 0
-"38 D:\git_proj\pic18_continuity\firmware/leds.c
+"31 D:\git_proj\pic18_continuity\firmware/leds.c
 [v _all_LEDs all_LEDs `(v  1 e 1 0 ]
 {
-"43
-[v all_LEDs@ucLocal ucLocal `uc  1 a 1 2 ]
-"41
-[v all_LEDs@uc uc `uc  1 a 1 3 ]
-"49
+"34
+[v all_LEDs@uc uc `uc  1 a 1 9 ]
+"38
+} 0
+"9 D:\git_proj\pic18_continuity\firmware/setup.c
+[v _set_IO set_IO `(v  1 e 1 0 ]
+{
+"11
+[v set_IO@ucLocal ucLocal `VEuc  1 a 1 8 ]
+[s S69 gstGPIO 3 `*.39VEuc 1 port 2 0 `uc 1 pin 1 2 ]
+"9
+[v set_IO@IO IO `*.39S69  1 p 2 0 ]
+[v set_IO@item item `uc  1 p 1 2 ]
+[v set_IO@bValue bValue `uc  1 p 1 3 ]
+"22
 } 0
