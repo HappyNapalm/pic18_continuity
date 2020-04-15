@@ -74,9 +74,9 @@ void main (void)
 //    flash();
     //clr_LEDs();
     //start_up();
-    while(1)
-   {
+    //while(1)
+   //{
         //testing(GetModeSwitch,0);
         all_LEDs();
-   }
+   //}
 }

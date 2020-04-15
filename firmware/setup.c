@@ -8,17 +8,16 @@
 //@About set GPIO table item to boolean
 void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue)
 {
-    volatile unsigned char **ucLocal;
-    ucLocal = &IO[item].port;
+    volatile unsigned char *ucLocal;
+    ucLocal = IO[item].port;
     if (bValue)
     {
-        ucLocal |= (1 << IO[item].pin);
+        *ucLocal |= (1 << IO[item].pin);
     }
     else
     {
-        ucLocal &= ~(1 << IO[item].pin);
+        *ucLocal &= ~(1 << IO[item].pin);
     }
-    *IO[item].port = ucLocal;
 }
 
 //@About get the state of an item from a GPIO table
@@ -67,39 +66,37 @@ void IO_setup (void)
 }
 
 //TODO review the timers. Create a ms timer.
+//Make this setup more modular
 void Timer_and_Interrupt_setup (void)
 {
     //Let this timer run as a free running timer
-    //make this a 16 bit timer?
+    
+    //16 bits. 1:64 prescaler. Internal. 1 tick is 8us
     T0CON = 0b10010101;
     //INTCONbits.TMR0IE = 1;
+    
+    //8Mhz timer. Internal
     OSCCON = 0b01100111;
-    //8Mhz clock. Let's keep this slow Base all timing off of this
-    //read up on how to make free running timer
     
-    T3CON = 0b10110101;
     
-    ANSEL = 0x00;
-    ANSELH = 0x00;
+    //T3CON = 0b10110101;
 }
 
-#define MAX_BLINKS 1
-void flash_LEDs(void)
+
+void clr_Timer (void)
 {
-    unsigned char uc = 0;
-    while(uc < MAX_BLINKS)
-    {
-        
-    }
+    TMR0H = 0;
+    TMR0L = 0;
 }
 
 void setup(void)
 {
-    //INTCONbits.GIE = 0;
+    INTCONbits.GIE = 0;
     IO_setup();
+    clr_Timer();
     Timer_and_Interrupt_setup();
+    INTCONbits.GIE = 1;
     flash_LEDs();
-    //INTCONbits.GIE = 1;
 }
 
 //# Potential EEPROM code below #//

@@ -36,3 +36,24 @@ void all_LEDs (void)
         set_IO(astLEDs, uc, 1);
     }
 }
+
+#define MAX_BLINKS 2
+void flash_LEDs(void)
+{
+    unsigned char uc = 0;
+    while(uc < MAX_BLINKS)
+    {
+        if(TMR0IF)
+        {
+            if(uc%2)
+            {
+                clr_LEDs();
+            }
+            else
+            {
+                all_LEDs();
+            }
+            uc++;
+        }
+    }
+}

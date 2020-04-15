@@ -44,6 +44,7 @@ void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
+void clr_Timer (void);
 void setup (void);
 
 void Set_Output (unsigned char ucPinMinus1, 

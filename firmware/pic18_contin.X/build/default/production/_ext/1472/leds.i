@@ -4977,6 +4977,7 @@ unsigned char Get_Input (unsigned char ucPinMinus1);
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
 extern unsigned short get_LEDs (void);
+extern void flash_LEDs (void);
 # 6 "../leds.c" 2
 
 
@@ -5009,5 +5010,15 @@ void all_LEDs (void)
     for (unsigned char uc = 0; uc < 9; uc++)
     {
         set_IO(astLEDs, uc, 1);
+    }
+}
+
+
+void flash_LEDs(void)
+{
+    unsigned char uc = 0;
+    while(uc < 1)
+    {
+        uc++;
     }
 }

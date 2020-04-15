@@ -3,18 +3,72 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../setup.h: 24: struct gstGPIO{
 [s S303 `*Vuc 1 `uc 1 ]
 [n S303 gstGPIO port pin ]
-"1756 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1756: extern volatile unsigned char LATC __attribute__((address(0xF8B)));
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
+"1868 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1868: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
 "1644
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1644: extern volatile unsigned char LATB __attribute__((address(0xF8A)));
 [v _LATB `Vuc ~T0 @X0 0 e@3978 ]
-"1980
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1980: extern volatile unsigned char LATE __attribute__((address(0xF8D)));
-[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
-"29 ../setup.h
-[; ;../setup.h: 29: void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
-[v _set_IO `(v ~T0 @X0 0 ef3`*S303`uc`uc ]
+"1532
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1532: extern volatile unsigned char LATA __attribute__((address(0xF89)));
+[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
+"2032
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2032: extern volatile unsigned char TRISA __attribute__((address(0xF92)));
+[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
+"2476
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2476: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"2265
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2265:     struct {
+[s S92 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S92 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"2275
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2275:     struct {
+[s S93 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S93 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"2264
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2264: typedef union {
+[u S91 `S92 1 `S93 1 ]
+[n S91 . . . ]
+"2286
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2286: extern volatile TRISBbits_t TRISBbits __attribute__((address(0xF93)));
+[v _TRISBbits `VS91 ~T0 @X0 0 e@3987 ]
+"2698
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2698: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
+[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
+"2931
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2931:     struct {
+[s S110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S110 . TRISE0 TRISE1 TRISE2 . PSPMODE IBOV OBF IBF ]
+"2941
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2941:     struct {
+[s S111 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S111 . RE0 RE1 RE2 ]
+"2930
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2930: typedef union {
+[u S109 `S110 1 `S111 1 ]
+[n S109 . . . ]
+"2947
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 2947: extern volatile TRISEbits_t TRISEbits __attribute__((address(0xF96)));
+[v _TRISEbits `VS109 ~T0 @X0 0 e@3990 ]
+"6506
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 6506: extern volatile unsigned char T0CON __attribute__((address(0xFD5)));
+[v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
+"6429
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 6429: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
+[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
+"4264
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 4264: extern volatile unsigned char T3CON __attribute__((address(0xFB1)));
+[v _T3CON `Vuc ~T0 @X0 0 e@4017 ]
+"446
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 446: extern volatile unsigned char ANSEL __attribute__((address(0xF7E)));
+[v _ANSEL `Vuc ~T0 @X0 0 e@3966 ]
+"508
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 508: extern volatile unsigned char ANSELH __attribute__((address(0xF7F)));
+[v _ANSELH `Vuc ~T0 @X0 0 e@3967 ]
+"41 ../leds.h
+[; ;../leds.h: 41: extern void flash_LEDs (void);
+[v _flash_LEDs `(v ~T0 @X0 0 ef ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -453,146 +507,255 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"10 ../leds.c
-[; ;../leds.c: 10: struct gstGPIO astLEDs[9] = {
-[v _astLEDs `S303 ~T0 @X0 -> 9 `i e ]
-[i _astLEDs
+"9 ../setup.c
+[; ;../setup.c: 9: void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue)
+[v _set_IO `(v ~T0 @X0 1 ef3`*S303`uc`uc ]
+"10
+[; ;../setup.c: 10: {
+{
+[e :U _set_IO ]
+"9
+[; ;../setup.c: 9: void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue)
+[v _IO `*S303 ~T0 @X0 1 r1 ]
+[v _item `uc ~T0 @X0 1 r2 ]
+[v _bValue `uc ~T0 @X0 1 r3 ]
+"10
+[; ;../setup.c: 10: {
+[f ]
+"11
+[; ;../setup.c: 11:     volatile unsigned char *ucLocal;
+[v _ucLocal `*Vuc ~T0 @X0 1 a ]
+"12
+[; ;../setup.c: 12:     ucLocal = IO[item].port;
+[e = _ucLocal . *U + _IO * -> _item `ux -> -> # *U _IO `ui `ux 0 ]
+"13
+[; ;../setup.c: 13:     if (bValue)
+[e $ ! != -> _bValue `i -> 0 `i 305  ]
+"14
+[; ;../setup.c: 14:     {
+{
+"15
+[; ;../setup.c: 15:         *ucLocal |= (1 << IO[item].pin);
+[e =| *U _ucLocal -> << -> 1 `i -> . *U + _IO * -> _item `ux -> -> # *U _IO `ui `ux 1 `i `uc ]
+"16
+[; ;../setup.c: 16:     }
+}
+[e $U 306  ]
+"17
+[; ;../setup.c: 17:     else
+[e :U 305 ]
+"18
+[; ;../setup.c: 18:     {
+{
+"19
+[; ;../setup.c: 19:         *ucLocal &= ~(1 << IO[item].pin);
+[e =& *U _ucLocal -> ~ << -> 1 `i -> . *U + _IO * -> _item `ux -> -> # *U _IO `ui `ux 1 `i `uc ]
+"20
+[; ;../setup.c: 20:     }
+}
+[e :U 306 ]
+"21
+[; ;../setup.c: 21: }
+[e :UE 304 ]
+}
+"24
+[; ;../setup.c: 24: unsigned char get_IO (struct gstGPIO *IO, unsigned char item)
+[v _get_IO `(uc ~T0 @X0 1 ef2`*S303`uc ]
+"25
+[; ;../setup.c: 25: {
+{
+[e :U _get_IO ]
+"24
+[; ;../setup.c: 24: unsigned char get_IO (struct gstGPIO *IO, unsigned char item)
+[v _IO `*S303 ~T0 @X0 1 r1 ]
+[v _item `uc ~T0 @X0 1 r2 ]
+"25
+[; ;../setup.c: 25: {
+[f ]
+"26
+[; ;../setup.c: 26:     return (unsigned char)((*IO[item].port >> IO[item].pin) & 0x01);
+[e ) -> & >> -> *U . *U + _IO * -> _item `ux -> -> # *U _IO `ui `ux 0 `i -> . *U + _IO * -> _item `ux -> -> # *U _IO `ui `ux 1 `i -> 1 `i `uc ]
+[e $UE 307  ]
+"27
+[; ;../setup.c: 27: }
+[e :UE 307 ]
+}
+"29
+[; ;../setup.c: 29: struct gstGPIO astInputs[] = {
+[v _astInputs `S303 ~T0 @X0 -> 9 `i e ]
+[i _astInputs
 :U ..
 :U ..
-&U _LATC
+&U _LATD
 -> -> 0 `i `uc
 ..
 :U ..
-&U _LATC
--> -> 2 `i `uc
-..
-:U ..
-&U _LATC
+&U _LATD
 -> -> 1 `i `uc
 ..
 :U ..
-&U _LATC
+&U _LATD
+-> -> 2 `i `uc
+..
+:U ..
+&U _LATD
+-> -> 3 `i `uc
+..
+:U ..
+&U _LATD
+-> -> 4 `i `uc
+..
+:U ..
+&U _LATD
 -> -> 5 `i `uc
 ..
 :U ..
-&U _LATC
+&U _LATD
 -> -> 6 `i `uc
 ..
 :U ..
-&U _LATC
+&U _LATD
 -> -> 7 `i `uc
 ..
 :U ..
 &U _LATB
--> -> 3 `i `uc
-..
-:U ..
-&U _LATB
--> -> 4 `i `uc
-..
-:U ..
-&U _LATE
 -> -> 0 `i `uc
 ..
 ..
 ]
-"23
-[; ;../leds.c: 23: void clr_LEDs (void)
-[v _clr_LEDs `(v ~T0 @X0 1 ef ]
-"24
-[; ;../leds.c: 24: {
+"41
+[; ;../setup.c: 41: struct gstGPIO astOutputs[] = {
+[v _astOutputs `S303 ~T0 @X0 -> 9 `i e ]
+[i _astOutputs
+:U ..
+:U ..
+&U _LATA
+-> -> 0 `i `uc
+..
+:U ..
+&U _LATA
+-> -> 1 `i `uc
+..
+:U ..
+&U _LATA
+-> -> 2 `i `uc
+..
+:U ..
+&U _LATA
+-> -> 3 `i `uc
+..
+:U ..
+&U _LATA
+-> -> 4 `i `uc
+..
+:U ..
+&U _LATA
+-> -> 5 `i `uc
+..
+:U ..
+&U _LATA
+-> -> 6 `i `uc
+..
+:U ..
+&U _LATA
+-> -> 7 `i `uc
+..
+:U ..
+&U _LATB
+-> -> 1 `i `uc
+..
+..
+]
+"53
+[; ;../setup.c: 53: void IO_setup (void)
+[v _IO_setup `(v ~T0 @X0 1 ef ]
+"54
+[; ;../setup.c: 54: {
 {
-[e :U _clr_LEDs ]
+[e :U _IO_setup ]
 [f ]
-"25
-[; ;../leds.c: 25:     for (unsigned char uc = 0; uc < 9; uc++)
-{
-[v _uc `uc ~T0 @X0 1 a ]
-[e = _uc -> -> 0 `i `uc ]
-[e $ < -> _uc `i -> 9 `i 305  ]
-[e $U 306  ]
-[e :U 305 ]
-"26
-[; ;../leds.c: 26:     {
-{
-"27
-[; ;../leds.c: 27:         set_IO(astLEDs, uc, 0);
-[e ( _set_IO (3 , , &U _astLEDs _uc -> -> 0 `i `uc ]
-"28
-[; ;../leds.c: 28:     }
-}
-[e ++ _uc -> -> 1 `i `uc ]
-[e $ < -> _uc `i -> 9 `i 305  ]
-[e :U 306 ]
-}
-"29
-[; ;../leds.c: 29: }
-[e :UE 304 ]
-}
-"31
-[; ;../leds.c: 31: void all_LEDs (void)
-[v _all_LEDs `(v ~T0 @X0 1 ef ]
-"32
-[; ;../leds.c: 32: {
-{
-[e :U _all_LEDs ]
-[f ]
-"34
-[; ;../leds.c: 34:     for (unsigned char uc = 0; uc < 9; uc++)
-{
-[v _uc `uc ~T0 @X0 1 a ]
-[e = _uc -> -> 0 `i `uc ]
-[e $ < -> _uc `i -> 9 `i 309  ]
-[e $U 310  ]
-[e :U 309 ]
-"35
-[; ;../leds.c: 35:     {
-{
-"36
-[; ;../leds.c: 36:         set_IO(astLEDs, uc, 1);
-[e ( _set_IO (3 , , &U _astLEDs _uc -> -> 1 `i `uc ]
-"37
-[; ;../leds.c: 37:     }
-}
-[e ++ _uc -> -> 1 `i `uc ]
-[e $ < -> _uc `i -> 9 `i 309  ]
-[e :U 310 ]
-}
-"38
-[; ;../leds.c: 38: }
+"55
+[; ;../setup.c: 55:   TRISA = 0x00;
+[e = _TRISA -> -> 0 `i `uc ]
+"56
+[; ;../setup.c: 56:   TRISC = 0x00;
+[e = _TRISC -> -> 0 `i `uc ]
+"57
+[; ;../setup.c: 57:   TRISBbits.RB0 = 1;
+[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+"58
+[; ;../setup.c: 58:   TRISBbits.RB1 = 0;
+[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
+"59
+[; ;../setup.c: 59:   TRISBbits.RB2 = 0;
+[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
+"60
+[; ;../setup.c: 60:   TRISBbits.RB3 = 0;
+[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
+"61
+[; ;../setup.c: 61:   TRISBbits.RB4 = 0;
+[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
+"62
+[; ;../setup.c: 62:   TRISD = 0xFF;
+[e = _TRISD -> -> 255 `i `uc ]
+"63
+[; ;../setup.c: 63:   TRISEbits.RE0 = 0;
+[e = . . _TRISEbits 1 0 -> -> 0 `i `uc ]
+"64
+[; ;../setup.c: 64:   TRISEbits.RE1 = 1;
+[e = . . _TRISEbits 1 1 -> -> 1 `i `uc ]
+"65
+[; ;../setup.c: 65:   TRISEbits.RE2 = 1;
+[e = . . _TRISEbits 1 2 -> -> 1 `i `uc ]
+"66
+[; ;../setup.c: 66: }
 [e :UE 308 ]
 }
-"41
-[; ;../leds.c: 41: void flash_LEDs(void)
-[v _flash_LEDs `(v ~T0 @X0 1 ef ]
-"42
-[; ;../leds.c: 42: {
+"70
+[; ;../setup.c: 70: void Timer_and_Interrupt_setup (void)
+[v _Timer_and_Interrupt_setup `(v ~T0 @X0 1 ef ]
+"71
+[; ;../setup.c: 71: {
 {
-[e :U _flash_LEDs ]
+[e :U _Timer_and_Interrupt_setup ]
 [f ]
-"43
-[; ;../leds.c: 43:     unsigned char uc = 0;
-[v _uc `uc ~T0 @X0 1 a ]
-[e = _uc -> -> 0 `i `uc ]
-"44
-[; ;../leds.c: 44:     while(uc < 1)
-[e $U 313  ]
-[e :U 314 ]
-"45
-[; ;../leds.c: 45:     {
-{
-"46
-[; ;../leds.c: 46:         uc++;
-[e ++ _uc -> -> 1 `i `uc ]
-"47
-[; ;../leds.c: 47:     }
+"74
+[; ;../setup.c: 74:     T0CON = 0b10010101;
+[e = _T0CON -> -> 149 `i `uc ]
+"76
+[; ;../setup.c: 76:     OSCCON = 0b01100111;
+[e = _OSCCON -> -> 103 `i `uc ]
+"80
+[; ;../setup.c: 80:     T3CON = 0b10110101;
+[e = _T3CON -> -> 181 `i `uc ]
+"82
+[; ;../setup.c: 82:     ANSEL = 0x00;
+[e = _ANSEL -> -> 0 `i `uc ]
+"83
+[; ;../setup.c: 83:     ANSELH = 0x00;
+[e = _ANSELH -> -> 0 `i `uc ]
+"84
+[; ;../setup.c: 84: }
+[e :UE 309 ]
 }
-[e :U 313 ]
-"44
-[; ;../leds.c: 44:     while(uc < 1)
-[e $ < -> _uc `i -> 1 `i 314  ]
-[e :U 315 ]
-"48
-[; ;../leds.c: 48: }
-[e :UE 312 ]
+"86
+[; ;../setup.c: 86: void setup(void)
+[v _setup `(v ~T0 @X0 1 ef ]
+"87
+[; ;../setup.c: 87: {
+{
+[e :U _setup ]
+[f ]
+"89
+[; ;../setup.c: 89:     IO_setup();
+[e ( _IO_setup ..  ]
+"90
+[; ;../setup.c: 90:     Timer_and_Interrupt_setup();
+[e ( _Timer_and_Interrupt_setup ..  ]
+"91
+[; ;../setup.c: 91:     flash_LEDs();
+[e ( _flash_LEDs ..  ]
+"93
+[; ;../setup.c: 93: }
+[e :UE 310 ]
 }

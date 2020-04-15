@@ -4977,23 +4977,23 @@ unsigned char Get_Input (unsigned char ucPinMinus1);
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
 extern unsigned short get_LEDs (void);
+extern void flash_LEDs (void);
 # 6 "../setup.c" 2
 
 
 
 void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue)
 {
-    volatile unsigned char **ucLocal;
-    ucLocal = &IO[item].port;
+    volatile unsigned char *ucLocal;
+    ucLocal = IO[item].port;
     if (bValue)
     {
-        ucLocal |= (1 << IO[item].pin);
+        *ucLocal |= (1 << IO[item].pin);
     }
     else
     {
-        ucLocal &= ~(1 << IO[item].pin);
+        *ucLocal &= ~(1 << IO[item].pin);
     }
-    *IO[item].port = ucLocal;
 }
 
 
@@ -5042,6 +5042,7 @@ void IO_setup (void)
 }
 
 
+
 void Timer_and_Interrupt_setup (void)
 {
 
@@ -5056,16 +5057,6 @@ void Timer_and_Interrupt_setup (void)
 
     ANSEL = 0x00;
     ANSELH = 0x00;
-}
-
-
-void flash_LEDs(void)
-{
-    unsigned char uc = 0;
-    while(uc < 1)
-    {
-
-    }
 }
 
 void setup(void)
