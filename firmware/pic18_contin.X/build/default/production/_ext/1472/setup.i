@@ -4962,6 +4962,7 @@ void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
+void clr_Timer (void);
 void setup (void);
 
 void Set_Output (unsigned char ucPinMinus1,
@@ -5047,23 +5048,30 @@ void Timer_and_Interrupt_setup (void)
 {
 
 
+
     T0CON = 0b10010101;
+
+
 
     OSCCON = 0b01100111;
 
 
 
-    T3CON = 0b10110101;
+}
 
-    ANSEL = 0x00;
-    ANSELH = 0x00;
+
+void clr_Timer (void)
+{
+    TMR0H = 0;
+    TMR0L = 0;
 }
 
 void setup(void)
 {
-
+    INTCONbits.GIE = 0;
     IO_setup();
+    clr_Timer();
     Timer_and_Interrupt_setup();
+    INTCONbits.GIE = 1;
     flash_LEDs();
-
 }

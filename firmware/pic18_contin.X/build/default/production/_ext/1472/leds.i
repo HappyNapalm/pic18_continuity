@@ -4962,6 +4962,7 @@ void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
+void clr_Timer (void);
 void setup (void);
 
 void Set_Output (unsigned char ucPinMinus1,
@@ -5017,8 +5018,18 @@ void all_LEDs (void)
 void flash_LEDs(void)
 {
     unsigned char uc = 0;
-    while(uc < 1)
+    clr_Timer();
+    clr_LEDs();
+    while(uc < 9)
     {
-        uc++;
+        set_IO(astLEDs, uc, 1);
+        if(TMR0IF)
+        {
+            clr_LEDs();
+            uc++;
+            clr_Timer();
+            TMR0IF = 0;
+        }
+
     }
 }

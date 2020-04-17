@@ -3,8 +3,8 @@
 [d edition pro ]
 [d chip 18F45K20 ]
 [d frameptr 4065 ]
-"31 D:\git_proj\pic18_continuity\firmware/leds.c
-[v _all_LEDs all_LEDs `(v  1 e 1 0 ]
+"23 D:\git_proj\pic18_continuity\firmware/leds.c
+[v _clr_LEDs clr_LEDs `(v  1 e 1 0 ]
 "41
 [v _flash_LEDs flash_LEDs `(v  1 e 1 0 ]
 "26 D:\git_proj\pic18_continuity\firmware/main.c
@@ -18,6 +18,8 @@
 "70
 [v _Timer_and_Interrupt_setup Timer_and_Interrupt_setup `(v  1 e 1 0 ]
 "86
+[v _clr_Timer clr_Timer `(v  1 e 1 0 ]
+"92
 [v _setup setup `(v  1 e 1 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -43,14 +45,10 @@
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-[s S69 gstGPIO 3 `*.39VEuc 1 port 2 0 `uc 1 pin 1 2 ]
+[s S65 gstGPIO 3 `*.39VEuc 1 port 2 0 `uc 1 pin 1 2 ]
 "10 D:\git_proj\pic18_continuity\firmware/leds.c
-[v _astLEDs astLEDs `[9]S69  1 e 27 0 ]
-"446 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
-[v _ANSEL ANSEL `VEuc  1 e 1 @3966 ]
-"508
-[v _ANSELH ANSELH `VEuc  1 e 1 @3967 ]
-"1532
+[v _astLEDs astLEDs `[9]S65  1 e 27 0 ]
+"1532 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "1644
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
@@ -73,7 +71,7 @@
 [v _LATEbits LATEbits `VES32  1 e 1 @3981 ]
 "2032
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
-[s S77 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S73 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -83,7 +81,7 @@
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "2286
-[s S86 . 1 `uc 1 RB0 1 0 :1:0 
+[s S82 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -92,13 +90,13 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S95 . 1 `S77 1 . 1 0 `S86 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES95  1 e 1 @3987 ]
+[u S91 . 1 `S73 1 . 1 0 `S82 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES91  1 e 1 @3987 ]
 "2476
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "2698
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S118 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S114 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -108,61 +106,95 @@
 `uc 1 IBF 1 0 :1:7 
 ]
 "2947
-[s S127 . 1 `uc 1 RE0 1 0 :1:0 
+[s S123 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 ]
-[u S131 . 1 `S118 1 . 1 0 `S127 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES131  1 e 1 @3990 ]
-"4264
-[v _T3CON T3CON `VEuc  1 e 1 @4017 ]
+[u S127 . 1 `S114 1 . 1 0 `S123 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES127  1 e 1 @3990 ]
 "6429
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
 "6506
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
+"6583
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+"6590
+[v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
+[s S148 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"7049
+[s S157 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S166 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S170 . 1 `S148 1 . 1 0 `S157 1 . 1 0 `S166 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES170  1 e 1 @4082 ]
+"8972
+[v _TMR0IF TMR0IF `VEb  1 e 0 @32658 ]
 "71 D:\git_proj\pic18_continuity\firmware/main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "82
 } 0
-"86 D:\git_proj\pic18_continuity\firmware/setup.c
+"92 D:\git_proj\pic18_continuity\firmware/setup.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"93
+"100
 } 0
 "41 D:\git_proj\pic18_continuity\firmware/leds.c
 [v _flash_LEDs flash_LEDs `(v  1 e 1 0 ]
 {
 "43
-[v flash_LEDs@uc uc `uc  1 a 1 0 ]
-"48
+[v flash_LEDs@uc uc `uc  1 a 1 12 ]
+"58
 } 0
-"70 D:\git_proj\pic18_continuity\firmware/setup.c
-[v _Timer_and_Interrupt_setup Timer_and_Interrupt_setup `(v  1 e 1 0 ]
+"86 D:\git_proj\pic18_continuity\firmware/setup.c
+[v _clr_Timer clr_Timer `(v  1 e 1 0 ]
 {
-"84
+"90
 } 0
-"53
-[v _IO_setup IO_setup `(v  1 e 1 0 ]
+"23 D:\git_proj\pic18_continuity\firmware/leds.c
+[v _clr_LEDs clr_LEDs `(v  1 e 1 0 ]
 {
-"66
-} 0
-"31 D:\git_proj\pic18_continuity\firmware/leds.c
-[v _all_LEDs all_LEDs `(v  1 e 1 0 ]
-{
-"34
-[v all_LEDs@uc uc `uc  1 a 1 11 ]
-"38
+"25
+[v clr_LEDs@uc uc `uc  1 a 1 11 ]
+"29
 } 0
 "9 D:\git_proj\pic18_continuity\firmware/setup.c
 [v _set_IO set_IO `(v  1 e 1 0 ]
 {
 "11
 [v set_IO@ucLocal ucLocal `*.39VEuc  1 a 2 9 ]
-[s S69 gstGPIO 3 `*.39VEuc 1 port 2 0 `uc 1 pin 1 2 ]
+[s S65 gstGPIO 3 `*.39VEuc 1 port 2 0 `uc 1 pin 1 2 ]
 "9
-[v set_IO@IO IO `*.39S69  1 p 2 0 ]
+[v set_IO@IO IO `*.39S65  1 p 2 0 ]
 [v set_IO@item item `uc  1 p 1 2 ]
 [v set_IO@bValue bValue `uc  1 p 1 3 ]
 "21
+} 0
+"70
+[v _Timer_and_Interrupt_setup Timer_and_Interrupt_setup `(v  1 e 1 0 ]
+{
+"83
+} 0
+"53
+[v _IO_setup IO_setup `(v  1 e 1 0 ]
+{
+"66
 } 0

@@ -15,6 +15,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29 ../setup.h
 [; ;../setup.h: 29: void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 [v _set_IO `(v ~T0 @X0 0 ef3`*S303`uc`uc ]
+"47
+[; ;../setup.h: 47: void clr_Timer (void);
+[v _clr_Timer `(v ~T0 @X0 0 ef ]
+"8972 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 8972: extern volatile __bit TMR0IF __attribute__((address(0x7F92)));
+[v _TMR0IF `Vb ~T0 @X0 0 e@32658 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -575,24 +581,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _uc `uc ~T0 @X0 1 a ]
 [e = _uc -> -> 0 `i `uc ]
 "44
-[; ;../leds.c: 44:     while(uc < 1)
+[; ;../leds.c: 44:     clr_Timer();
+[e ( _clr_Timer ..  ]
+"45
+[; ;../leds.c: 45:     clr_LEDs();
+[e ( _clr_LEDs ..  ]
+"46
+[; ;../leds.c: 46:     while(uc < 9)
 [e $U 313  ]
 [e :U 314 ]
-"45
-[; ;../leds.c: 45:     {
-{
-"46
-[; ;../leds.c: 46:         uc++;
-[e ++ _uc -> -> 1 `i `uc ]
 "47
-[; ;../leds.c: 47:     }
+[; ;../leds.c: 47:     {
+{
+"48
+[; ;../leds.c: 48:         set_IO(astLEDs, uc, 1);
+[e ( _set_IO (3 , , &U _astLEDs _uc -> -> 1 `i `uc ]
+"49
+[; ;../leds.c: 49:         if(TMR0IF)
+[e $ ! _TMR0IF 316  ]
+"50
+[; ;../leds.c: 50:         {
+{
+"51
+[; ;../leds.c: 51:             clr_LEDs();
+[e ( _clr_LEDs ..  ]
+"52
+[; ;../leds.c: 52:             uc++;
+[e ++ _uc -> -> 1 `i `uc ]
+"53
+[; ;../leds.c: 53:             clr_Timer();
+[e ( _clr_Timer ..  ]
+"54
+[; ;../leds.c: 54:             TMR0IF = 0;
+[e = _TMR0IF -> -> 0 `i `b ]
+"55
+[; ;../leds.c: 55:         }
+}
+[e :U 316 ]
+"57
+[; ;../leds.c: 57:     }
 }
 [e :U 313 ]
-"44
-[; ;../leds.c: 44:     while(uc < 1)
-[e $ < -> _uc `i -> 1 `i 314  ]
+"46
+[; ;../leds.c: 46:     while(uc < 9)
+[e $ < -> _uc `i -> 9 `i 314  ]
 [e :U 315 ]
-"48
-[; ;../leds.c: 48: }
+"58
+[; ;../leds.c: 58: }
 [e :UE 312 ]
 }

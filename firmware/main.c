@@ -77,6 +77,6 @@ void main (void)
     //while(1)
    //{
         //testing(GetModeSwitch,0);
-        all_LEDs();
+        //all_LEDs();
    //}
 }

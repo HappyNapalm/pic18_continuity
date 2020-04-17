@@ -57,15 +57,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6429
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 6429: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"4264
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 4264: extern volatile unsigned char T3CON __attribute__((address(0xFB1)));
-[v _T3CON `Vuc ~T0 @X0 0 e@4017 ]
-"446
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 446: extern volatile unsigned char ANSEL __attribute__((address(0xF7E)));
-[v _ANSEL `Vuc ~T0 @X0 0 e@3966 ]
-"508
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 508: extern volatile unsigned char ANSELH __attribute__((address(0xF7F)));
-[v _ANSELH `Vuc ~T0 @X0 0 e@3967 ]
+"6590
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 6590: extern volatile unsigned char TMR0H __attribute__((address(0xFD7)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
+"6583
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 6583: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
+"7023
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 7023:     struct {
+[s S297 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S297 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"7033
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 7033:     struct {
+[s S298 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S298 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"7043
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 7043:     struct {
+[s S299 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S299 . . GIEL GIEH ]
+"7022
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 7022: typedef union {
+[u S296 `S297 1 `S298 1 `S299 1 ]
+[n S296 . . . . ]
+"7049
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 7049: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS296 ~T0 @X0 0 e@4082 ]
 "41 ../leds.h
 [; ;../leds.h: 41: extern void flash_LEDs (void);
 [v _flash_LEDs `(v ~T0 @X0 0 ef ]
@@ -719,43 +735,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _Timer_and_Interrupt_setup ]
 [f ]
-"74
-[; ;../setup.c: 74:     T0CON = 0b10010101;
+"75
+[; ;../setup.c: 75:     T0CON = 0b10010101;
 [e = _T0CON -> -> 149 `i `uc ]
-"76
-[; ;../setup.c: 76:     OSCCON = 0b01100111;
+"79
+[; ;../setup.c: 79:     OSCCON = 0b01100111;
 [e = _OSCCON -> -> 103 `i `uc ]
-"80
-[; ;../setup.c: 80:     T3CON = 0b10110101;
-[e = _T3CON -> -> 181 `i `uc ]
-"82
-[; ;../setup.c: 82:     ANSEL = 0x00;
-[e = _ANSEL -> -> 0 `i `uc ]
 "83
-[; ;../setup.c: 83:     ANSELH = 0x00;
-[e = _ANSELH -> -> 0 `i `uc ]
-"84
-[; ;../setup.c: 84: }
+[; ;../setup.c: 83: }
 [e :UE 309 ]
 }
 "86
-[; ;../setup.c: 86: void setup(void)
-[v _setup `(v ~T0 @X0 1 ef ]
+[; ;../setup.c: 86: void clr_Timer (void)
+[v _clr_Timer `(v ~T0 @X0 1 ef ]
 "87
 [; ;../setup.c: 87: {
 {
+[e :U _clr_Timer ]
+[f ]
+"88
+[; ;../setup.c: 88:     TMR0H = 0;
+[e = _TMR0H -> -> 0 `i `uc ]
+"89
+[; ;../setup.c: 89:     TMR0L = 0;
+[e = _TMR0L -> -> 0 `i `uc ]
+"90
+[; ;../setup.c: 90: }
+[e :UE 310 ]
+}
+"92
+[; ;../setup.c: 92: void setup(void)
+[v _setup `(v ~T0 @X0 1 ef ]
+"93
+[; ;../setup.c: 93: {
+{
 [e :U _setup ]
 [f ]
-"89
-[; ;../setup.c: 89:     IO_setup();
+"94
+[; ;../setup.c: 94:     INTCONbits.GIE = 0;
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"95
+[; ;../setup.c: 95:     IO_setup();
 [e ( _IO_setup ..  ]
-"90
-[; ;../setup.c: 90:     Timer_and_Interrupt_setup();
+"96
+[; ;../setup.c: 96:     clr_Timer();
+[e ( _clr_Timer ..  ]
+"97
+[; ;../setup.c: 97:     Timer_and_Interrupt_setup();
 [e ( _Timer_and_Interrupt_setup ..  ]
-"91
-[; ;../setup.c: 91:     flash_LEDs();
+"98
+[; ;../setup.c: 98:     INTCONbits.GIE = 1;
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"99
+[; ;../setup.c: 99:     flash_LEDs();
 [e ( _flash_LEDs ..  ]
-"93
-[; ;../setup.c: 93: }
-[e :UE 310 ]
+"100
+[; ;../setup.c: 100: }
+[e :UE 311 ]
 }
