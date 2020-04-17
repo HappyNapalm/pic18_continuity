@@ -4958,11 +4958,14 @@ struct gstGPIO{
 };
 
 void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
-# 44 "../setup.h"
+
+unsigned char gbTick;
+void heartbeat(void);
+# 47 "../setup.h"
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
-void clr_Timer (void);
+__attribute__((inline)) void clr_Timer (void);
 void setup (void);
 
 void Set_Output (unsigned char ucPinMinus1,
@@ -4978,7 +4981,7 @@ unsigned char Get_Input (unsigned char ucPinMinus1);
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
 extern unsigned short get_LEDs (void);
-extern void flash_LEDs (void);
+extern void walk_LEDs (void);
 # 6 "../leds.c" 2
 
 
@@ -5014,8 +5017,7 @@ void all_LEDs (void)
     }
 }
 
-
-void flash_LEDs(void)
+void walk_LEDs(void)
 {
     unsigned char uc = 0;
     clr_Timer();
@@ -5023,12 +5025,11 @@ void flash_LEDs(void)
     while(uc < 9)
     {
         set_IO(astLEDs, uc, 1);
-        if(TMR0IF)
+        if(gbTick == uc + 1)
         {
             clr_LEDs();
             uc++;
             clr_Timer();
-            TMR0IF = 0;
         }
 
     }

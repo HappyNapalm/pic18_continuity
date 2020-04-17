@@ -28,6 +28,9 @@ struct gstGPIO{
 
 void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 
+unsigned char gbTick;
+void heartbeat(void);
+
 
 //#define In9   LATBbits.LB0
 //#define Out9  LATBbits.LB1
@@ -44,7 +47,7 @@ void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
-void clr_Timer (void);
+inline void clr_Timer (void);
 void setup (void);
 
 void Set_Output (unsigned char ucPinMinus1, 

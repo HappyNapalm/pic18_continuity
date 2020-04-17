@@ -15,9 +15,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1997: extern volatile LATEbits_t LATEbits __attribute__((address(0xF8D)));
 [v _LATEbits `VS82 ~T0 @X0 0 e@3981 ]
 [p mainexit ]
-"48 ../setup.h
-[; ;../setup.h: 48: void setup (void);
+"51 ../setup.h
+[; ;../setup.h: 51: void setup (void);
 [v _setup `(v ~T0 @X0 0 ef ]
+"32
+[; ;../setup.h: 32: void heartbeat(void);
+[v _heartbeat `(v ~T0 @X0 0 ef ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -456,6 +459,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7326
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 7326: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
+"31 ../setup.h
+[; ;../setup.h: 31: unsigned char gbTick;
+[v _gbTick `uc ~T0 @X0 1 e ]
 "17 ../main.c
 [p x FOSC = INTIO67 ]
 "19
@@ -555,7 +561,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "73
 [; ;../main.c: 73:     setup();
 [e ( _setup ..  ]
+"81
+[; ;../main.c: 81:     while(1)
+[e :U 312 ]
 "82
-[; ;../main.c: 82: }
+[; ;../main.c: 82:     {
+{
+"83
+[; ;../main.c: 83:         heartbeat();
+[e ( _heartbeat ..  ]
+"84
+[; ;../main.c: 84:     }
+}
+[e :U 311 ]
+[e $U 312  ]
+[e :U 313 ]
+"86
+[; ;../main.c: 86: }
 [e :UE 310 ]
 }

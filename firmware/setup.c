@@ -82,8 +82,61 @@ void Timer_and_Interrupt_setup (void)
     //T3CON = 0b10110101;
 }
 
+void __interrupt() ISR()
+{
+    if(TMR0IF)
+    {
+        TMR0IF = 0;
+        clr_Timer();
+        //HB = ~HB;
+        gbTick++;
+    }
+}
 
-void clr_Timer (void)
+inline unsigned short get_Time(void)
+{
+    return ((unsigned short)(TMR0H << 8) | TMR0L);
+}
+
+//@TODO make this more applicable to other pins and functions.
+
+#define HB_FREQ 10000
+void heartbeat(void)
+{
+    static unsigned char nbFirst;
+    static unsigned short uwStartTime;
+    static unsigned char ucOverFlow;
+    unsigned short uwCurrentTime = get_Time();
+    if(!nbFirst)
+    {
+        uwStartTime = get_Time();
+        ucOverFlow = gbTick;
+        nbFirst = 1;
+    }
+    else
+    {
+        if(uwCurrentTime < uwStartTime)
+        {
+            if(gbTick > ucOverFlow)
+            {
+                if(((0xFFFF - uwStartTime)+ uwCurrentTime) > HB_FREQ)
+                {
+                    HB = ~HB;
+                    nbFirst = 0;
+                }
+            }
+            
+        }
+        else if(uwCurrentTime - uwStartTime > HB_FREQ)
+        {
+            HB = ~HB;
+            nbFirst = 0;
+        }
+    }
+}
+
+
+inline void clr_Timer (void)
 {
     TMR0H = 0;
     TMR0L = 0;
@@ -94,9 +147,13 @@ void setup(void)
     INTCONbits.GIE = 0;
     IO_setup();
     clr_Timer();
+    HB = 0;
     Timer_and_Interrupt_setup();
     INTCONbits.GIE = 1;
-    flash_LEDs();
+    INTCONbits.PEIE = 1;
+    INTCONbits.TMR0IE = 1;
+    T0CONbits.TMR0ON = 1;
+    walk_LEDs();
 }
 
 //# Potential EEPROM code below #//

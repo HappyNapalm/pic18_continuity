@@ -78,5 +78,9 @@ void main (void)
    //{
         //testing(GetModeSwitch,0);
         //all_LEDs();
+    while(1)
+    {
+        heartbeat();
+    }
    //}
 }

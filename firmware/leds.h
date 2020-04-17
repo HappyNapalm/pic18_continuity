@@ -38,6 +38,6 @@ extern "C" {
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
 extern unsigned short get_LEDs (void);
-extern void flash_LEDs (void);
+extern void walk_LEDs (void);
 
 #endif	/* SETUP_H */

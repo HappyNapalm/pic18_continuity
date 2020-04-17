@@ -37,8 +37,7 @@ void all_LEDs (void)
     }
 }
 
-//#define MAX_BLINKS 2
-void flash_LEDs(void)
+void walk_LEDs(void)
 {
     unsigned char uc = 0;
     clr_Timer();
@@ -46,12 +45,11 @@ void flash_LEDs(void)
     while(uc < MAX_IO)
     {
         set_IO(astLEDs, uc, 1);
-        if(TMR0IF)
+        if(gbTick == uc + 1)
         {
             clr_LEDs();
             uc++;
             clr_Timer();
-            TMR0IF = 0;
         }
         
     }
