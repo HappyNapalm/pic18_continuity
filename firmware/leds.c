@@ -37,29 +37,32 @@ void all_LEDs (void)
     }
 }
 
-#define WALK_PERIOD 12000
+#define WALK_PERIOD 10000
 void walk_LEDs(void)
 {
-    static unsigned short uwStartTime;
-    static unsigned char uc;
-    static unsigned char nbFirst;
-    static unsigned char ucOverFlow;
-    if(!nbFirst)
-    {
-        //clr_LEDs();
-        uwStartTime = get_Time();
-        ucOverFlow = gbTick;
-        nbFirst = 1;
-    }
-    set_IO(astLEDs, uc, 1);
-    if(bTimeUp(uwStartTime,/*ucOverFlow,*/WALK_PERIOD))
-    {
-        clr_LEDs();
-        nbFirst = 0;
-        uc++;
-    }
-    if(uc == MAX_IO)
-    {
-        uc = 0;
-    }
+//    static unsigned short uwStartTime;
+//    static unsigned char uc;
+//    static unsigned char nbFirst;
+//    static unsigned char ucOverFlow;
+//    if(!nbFirst)
+//    {
+//        //clr_LEDs();
+//        uwStartTime = get_Time();
+//        ucOverFlow = gbTick;
+//        nbFirst = 1;
+//        
+//    }
+//    
+//    if(bTimeUp(uwStartTime,/*ucOverFlow,*/WALK_PERIOD))
+//    {
+//        //clr_LEDs();
+//        set_IO(astLEDs, 8, HB);
+//        nbFirst = 0;
+//        uc++;
+//    }
+//    if(uc == MAX_IO)
+//    {
+//        uc = 0;
+//    }
+    set_IO(astLEDs, 8, HB);
 }

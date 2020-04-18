@@ -80,7 +80,7 @@ void main (void)
         //all_LEDs();
     while(1)
     {
-        heartbeat();
+        //heartbeat();
         walk_LEDs();
     }
    //}

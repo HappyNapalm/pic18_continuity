@@ -5055,7 +5055,7 @@ void main (void)
 
     while(1)
     {
-        heartbeat();
+
         walk_LEDs();
     }
 

@@ -5082,6 +5082,7 @@ void __attribute__((picinterrupt(("")))) ISR()
     {
         TMR0IF = 0;
         clr_Timer();
+        LATBbits.LB2 = !LATBbits.LB2;
         gbTick++;
     }
 }
@@ -5105,7 +5106,7 @@ unsigned char bTimeUp(
     {
 
 
-            if(((0x7FFF - StartTime) + CurrentTime) >= Period)
+            if(((0xFFFF - StartTime) + CurrentTime) >= Period)
                 {
                     b = 1;
                 }

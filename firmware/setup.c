@@ -94,6 +94,7 @@ void __interrupt() ISR()
     {
         TMR0IF = 0;
         clr_Timer();
+        HB = !HB;
         gbTick++;
     }
 }
@@ -117,7 +118,7 @@ unsigned char bTimeUp(
     {
 //        if(StartOverFlowCount > gbTick)
 //        {
-            if(((0x7FFF - StartTime) + CurrentTime) >= Period)
+            if(((0xFFFF - StartTime) + CurrentTime) >= Period)
                 {
                     b = 1;
                 }

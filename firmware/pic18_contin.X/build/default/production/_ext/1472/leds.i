@@ -5028,26 +5028,6 @@ void all_LEDs (void)
 
 void walk_LEDs(void)
 {
-    static unsigned short uwStartTime;
-    static unsigned char uc;
-    static unsigned char nbFirst;
-    static unsigned char ucOverFlow;
-    if(!nbFirst)
-    {
-
-        uwStartTime = get_Time();
-        ucOverFlow = gbTick;
-        nbFirst = 1;
-    }
-    set_IO(astLEDs, uc, 1);
-    if(bTimeUp(uwStartTime, 12000))
-    {
-        clr_LEDs();
-        nbFirst = 0;
-        uc++;
-    }
-    if(uc == 9)
-    {
-        uc = 0;
-    }
+# 67 "../leds.c"
+    set_IO(astLEDs, 8, LATBbits.LB2);
 }

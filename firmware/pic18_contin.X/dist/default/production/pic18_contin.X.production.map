@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\pic18_contin.X.production.sym \
   --cmf=dist/default/production\pic18_contin.X.production.cmf -z -Q18F45K20 \
-  -oC:\Users\churc\AppData\Local\Temp\s6ck.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\churc\AppData\Local\Temp\s9s8.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/pic18_contin.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=07Bh-05FFh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0600h-06FFhx122 \
@@ -22,7 +22,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\churc\AppData\Local\Temp\s6ck.o \
+  C:\Users\churc\AppData\Local\Temp\s9s8.o \
   dist/default/production\pic18_contin.X.production.o 
 
 Object code version is 3.11
@@ -35,56 +35,48 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\churc\AppData\Local\Temp\s6ck.o
-                init                                 24       24        4        4       0
+C:\Users\churc\AppData\Local\Temp\s9s8.o
+                init                                 46       46        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
 dist/default/production\pic18_contin.X.production.o
-                intcode                               8        8       1C        4       0
-                temp                                 51       51        1        1       1
-                text12                              3C6      3C6        A      1C0       0
-                text10                              3AE      3AE        E      1C0       0
-                text9                                EC       EC       8A        4       0
-                text8                               1F4      1F4       70        4       0
-                text7                               348      348       1C        4       0
-                text6                               3BC      3BC        A      1C0       0
-                text5                                28       28       C4        4       0
-                text4                               31C      31C       2C        4       0
-                text3                               380      380       1A      1C0       0
-                text2                               2F0      2F0       2C        4       0
-                text1                               176      176       7E        4       0
-                text0                               39A      39A       14      1C0       0
-                cstackCOMRAM                         37       37       10        1       1
+                intcode                               8        8       3E        4       0
+                temp                                 49       49        1        1       1
+                text8                               24A      24A        A       FE       0
+                text6                               1C4      1C4       1C        4       0
+                text5                               240      240        A       FE       0
+                text4                                4A       4A       C4        4       0
+                text3                               198      198       2C        4       0
+                text2                               216      216       1A       FE       0
+                text1                               1FC      1FC       1A       FE       0
+                text0                               230      230       10       FE       0
+                cstackCOMRAM                         37       37        D        1       1
                 dataBANK0                            60       60       1B       60       1
                 dataCOMRAM                            1        1       36        1       1
-                bssCOMRAM                            47       47        A        1       1
-                cinit                               264      264       56        4       0
-                idataBANK0                          364      364       1B        4       0
-                idataCOMRAM                         2BA      2BA       36        4       0
+                bssCOMRAM                            44       44        5        1       1
+                cinit                               10E      10E       54        4       0
+                idataBANK0                          1E0      1E0       1B        4       0
+                idataCOMRAM                         162      162       36        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
-                intcode                               8        8       1C         0
-                init                                 24       24        4         0
+                intcode                               8        8       3E         0
+                init                                 46       46        4         0
                 reset_vec                             0        0        4         0
-                text12                              3C6      3C6        A         0
-                text10                              3AE      3AE        E         0
-                text9                                EC       EC       8A         0
-                text8                               1F4      1F4       70         0
-                text7                               348      348       1C         0
-                text6                               3BC      3BC        A         0
-                text5                                28       28       C4         0
-                text4                               31C      31C       2C         0
-                text3                               380      380       1A         0
-                text2                               2F0      2F0       2C         0
-                text1                               176      176       7E         0
-                text0                               39A      39A       14         0
-                cinit                               264      264       56         0
-                idataBANK0                          364      364       1B         0
-                idataCOMRAM                         2BA      2BA       36         0
+                text8                               24A      24A        A         0
+                text6                               1C4      1C4       1C         0
+                text5                               240      240        A         0
+                text4                                4A       4A       C4         0
+                text3                               198      198       2C         0
+                text2                               216      216       1A         0
+                text1                               1FC      1FC       1A         0
+                text0                               230      230       10         0
+                cinit                               10E      10E       54         0
+                idataBANK0                          1E0      1E0       1B         0
+                idataCOMRAM                         162      162       36         0
 
         CLASS   CONST          
 
@@ -93,10 +85,10 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                temp                                 51       51        1         1
-                cstackCOMRAM                         37       37       10         1
+                temp                                 49       49        1         1
+                cstackCOMRAM                         37       37        D         1
                 dataCOMRAM                            1        1       36         1
-                bssCOMRAM                            47       47        A         1
+                bssCOMRAM                            44       44        5         1
 
         CLASS   ABS1           
 
@@ -134,10 +126,10 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                dataCOMRAM                     000001  000051  000052         1       1  COMRAM  
-                intcode                        000008  000377  00037F         4       0  CODE    
+                dataCOMRAM                     000001  000049  00004A         1       1  COMRAM  
+                intcode                        000008  0001F3  0001FB         4       0  CODE    
                 dataBANK0                      000060  00001B  00007B        60       1  BANK0   
-                text3                          000380  000050  0003D0       1C0       0  CODE    
+                text1                          0001FC  000058  000254        FE       0  CODE    
                 idloc                          200000  000008  200008    200000       0  IDLOC   
                 config                         300000  00000E  30000E    300000       0  CONFIG  
 
@@ -151,15 +143,15 @@ UNUSED ADDRESS RANGES
         BANK3            000300-0003FF              100
         BANK4            000400-0004FF              100
         BANK5            000500-0005FF              100
-        BIGRAM           000052-00005F                E
+        BIGRAM           00004A-00005F               16
                          00007B-0005FF              585
         CODE             000004-000007                4
-                         00037F-00037F                1
-                         0003D0-007FFF             7C30
-        COMRAM           000052-00005F                E
+                         0001FB-0001FB                1
+                         000254-007FFF             7DAC
+        COMRAM           00004A-00005F               16
         CONST            000004-000007                4
-                         00037F-00037F                1
-                         0003D0-007FFF             7C30
+                         0001FB-0001FB                1
+                         000254-007FFF             7DAC
         EEDATA           F00000-F000FF              100
         MEDIUMCONST      000600-007FFF             7A00
         RAM              00007B-0005FF              100
@@ -169,9 +161,8 @@ UNUSED ADDRESS RANGES
 
                                   Symbol Table
 
-?_get_Time                          cstackCOMRAM 000037
 _INTCONbits                         (abs)        000FF2
-_IO_setup                           text7        000348
+_IO_setup                           text6        0001C4
 _ISR                                intcode      000008
 _LATA                               (abs)        000F89
 _LATB                               (abs)        000F8A
@@ -191,7 +182,7 @@ _TRISBbits                          (abs)        000F93
 _TRISC                              (abs)        000F94
 _TRISD                              (abs)        000F95
 _TRISEbits                          (abs)        000F96
-_Timer_and_Interrupt_setup          text6        0003BC
+_Timer_and_Interrupt_setup          text5        000240
 __CFG_FOSC$INTIO67                  (abs)        000000
 __CFG_LVP$OFF                       (abs)        000000
 __CFG_WDTEN$OFF                     (abs)        000000
@@ -226,10 +217,10 @@ __HidataBANK0                       idataBANK0   000000
 __HidataCOMRAM                      idataCOMRAM  000000
 __Hidloc                            idloc        200008
 __Hifardata                         ifardata     000000
-__Hinit                             init         000028
-__Hintcode                          intcode      000024
+__Hinit                             init         00004A
+__Hintcode                          intcode      000046
 __Hintcode_body                     intcode_body 000000
-__Hintcodelo                        intcodelo    000024
+__Hintcodelo                        intcodelo    000046
 __Hintentry                         intentry     000000
 __Hintret                           intret       000000
 __Hintsave_regs                     intsave_regs 000000
@@ -239,7 +230,7 @@ __HnvFARRAM                         nvFARRAM     000000
 __Hnvbit                            nvbit        000000
 __Hnvrram                           nvrram       000000
 __Hparam                            rparam       000000
-__Hpowerup                          powerup      000024
+__Hpowerup                          powerup      000046
 __Hram                              ram          000000
 __Hramtop                           ramtop       000600
 __Hrbit                             rbit         000000
@@ -254,20 +245,16 @@ __Hspace_1                          (abs)        00007B
 __Hspace_2                          (abs)        000000
 __Hstack                            stack        000000
 __Hstruct                           struct       000000
-__Htemp                             temp         000052
+__Htemp                             temp         00004A
 __Htext                             text         000000
 __Htext0                            text0        000000
 __Htext1                            text1        000000
-__Htext10                           text10       000000
-__Htext12                           text12       000000
 __Htext2                            text2        000000
 __Htext3                            text3        000000
 __Htext4                            text4        000000
 __Htext5                            text5        000000
 __Htext6                            text6        000000
-__Htext7                            text7        000000
 __Htext8                            text8        000000
-__Htext9                            text9        000000
 __LRAM                              (abs)        000001
 __Labs1                             abs1         000000
 __Lbank0                            bank0        000000
@@ -299,10 +286,10 @@ __LidataBANK0                       idataBANK0   000000
 __LidataCOMRAM                      idataCOMRAM  000000
 __Lidloc                            idloc        200000
 __Lifardata                         ifardata     000000
-__Linit                             init         000024
+__Linit                             init         000046
 __Lintcode                          intcode      000008
 __Lintcode_body                     intcode_body 000000
-__Lintcodelo                        intcodelo    000024
+__Lintcodelo                        intcodelo    000046
 __Lintentry                         intentry     000000
 __Lintret                           intret       000000
 __Lintsave_regs                     intsave_regs 000000
@@ -312,7 +299,7 @@ __LnvFARRAM                         nvFARRAM     000000
 __Lnvbit                            nvbit        000000
 __Lnvrram                           nvrram       000000
 __Lparam                            rparam       000000
-__Lpowerup                          powerup      000024
+__Lpowerup                          powerup      000046
 __Lram                              ram          000000
 __Lramtop                           ramtop       000600
 __Lrbit                             rbit         000000
@@ -327,20 +314,16 @@ __Lspace_1                          (abs)        000000
 __Lspace_2                          (abs)        000000
 __Lstack                            stack        000000
 __Lstruct                           struct       000000
-__Ltemp                             temp         000051
+__Ltemp                             temp         000049
 __Ltext                             text         000000
 __Ltext0                            text0        000000
 __Ltext1                            text1        000000
-__Ltext10                           text10       000000
-__Ltext12                           text12       000000
 __Ltext2                            text2        000000
 __Ltext3                            text3        000000
 __Ltext4                            text4        000000
 __Ltext5                            text5        000000
 __Ltext6                            text6        000000
-__Ltext7                            text7        000000
 __Ltext8                            text8        000000
-__Ltext9                            text9        000000
 __S0                                (abs)        30000E
 __S1                                (abs)        00007B
 __S2                                (abs)        000000
@@ -351,103 +334,78 @@ ___rparam_used                      (abs)        000001
 ___sp                               stack        000000
 __accesstop                         (abs)        000060
 __activetblptr                      (abs)        000000
-__end_of_IO_setup                   text7        000364
-__end_of_ISR                        intcode      000024
-__end_of_Timer_and_Interrupt_setup  text6        0003C6
-__end_of__initialization            cinit        0002B0
-__end_of_all_LEDs                   text4        000348
-__end_of_bTimeUp                    text9        000176
-__end_of_clr_LEDs                   text2        00031C
-__end_of_clr_Timer                  text12       0003D0
-__end_of_get_Time                   text10       0003BC
-__end_of_heartbeat                  text8        000264
-__end_of_main                       text0        0003AE
-__end_of_set_IO                     text5        0000EC
-__end_of_setup                      text3        00039A
-__end_of_walk_LEDs                  text1        0001F4
-__initialization                    cinit        000264
+__end_of_IO_setup                   text6        0001E0
+__end_of_ISR                        intcode      000046
+__end_of_Timer_and_Interrupt_setup  text5        00024A
+__end_of__initialization            cinit        000158
+__end_of_all_LEDs                   text3        0001C4
+__end_of_clr_Timer                  text8        000254
+__end_of_main                       text0        000240
+__end_of_set_IO                     text4        00010E
+__end_of_setup                      text2        000230
+__end_of_walk_LEDs                  text1        000216
+__initialization                    cinit        00010E
 __mediumconst                       mediumconst  000000
-__pbssCOMRAM                        bssCOMRAM    000047
-__pcinit                            cinit        000264
+__pbssCOMRAM                        bssCOMRAM    000044
+__pcinit                            cinit        00010E
 __pcstackCOMRAM                     cstackCOMRAM 000037
 __pdataBANK0                        dataBANK0    000060
 __pdataCOMRAM                       dataCOMRAM   000001
-__pidataBANK0                       idataBANK0   000364
-__pidataCOMRAM                      idataCOMRAM  0002BA
+__pidataBANK0                       idataBANK0   0001E0
+__pidataCOMRAM                      idataCOMRAM  000162
 __pintcode                          intcode      000008
-__ptext0                            text0        00039A
-__ptext1                            text1        000176
-__ptext10                           text10       0003AE
-__ptext12                           text12       0003C6
-__ptext2                            text2        0002F0
-__ptext3                            text3        000380
-__ptext4                            text4        00031C
-__ptext5                            text5        000028
-__ptext6                            text6        0003BC
-__ptext7                            text7        000348
-__ptext8                            text8        0001F4
-__ptext9                            text9        0000EC
+__ptext0                            text0        000230
+__ptext1                            text1        0001FC
+__ptext2                            text2        000216
+__ptext3                            text3        000198
+__ptext4                            text4        00004A
+__ptext5                            text5        000240
+__ptext6                            text6        0001C4
+__ptext8                            text8        00024A
 __ramtop                            ramtop       000600
 __size_of_IO_setup                  (abs)        000000
 __size_of_ISR                       (abs)        000000
 __size_of_Timer_and_Interrupt_setup (abs)        000000
 __size_of_all_LEDs                  (abs)        000000
-__size_of_bTimeUp                   (abs)        000000
-__size_of_clr_LEDs                  (abs)        000000
 __size_of_clr_Timer                 (abs)        000000
-__size_of_get_Time                  (abs)        000000
-__size_of_heartbeat                 (abs)        000000
 __size_of_main                      (abs)        000000
 __size_of_set_IO                    (abs)        000000
 __size_of_setup                     (abs)        000000
 __size_of_walk_LEDs                 (abs)        000000
 __smallconst                        smallconst   000000
-_all_LEDs                           text4        00031C
+_all_LEDs                           text3        000198
 _astInputs                          dataCOMRAM   000001
 _astLEDs                            dataCOMRAM   00001C
 _astOutputs                         dataBANK0    000060
-_bTimeUp                            text9        0000EC
-_clr_LEDs                           text2        0002F0
-_clr_Timer                          text12       0003C6
-_gbTick                             bssCOMRAM    000050
-_get_Time                           text10       0003AE
-_heartbeat                          text8        0001F4
-_main                               text0        00039A
-_set_IO                             text5        000028
-_setup                              text3        000380
-_walk_LEDs                          text1        000176
-all_LEDs@uc                         cstackCOMRAM 000042
-bTimeUp@CurrentTime                 cstackCOMRAM 000044
-bTimeUp@Period                      cstackCOMRAM 00003D
-bTimeUp@StartTime                   cstackCOMRAM 00003B
-bTimeUp@b                           cstackCOMRAM 000043
-btemp                               temp         000051
-clr_LEDs@uc                         cstackCOMRAM 000042
-end_of_initialization               cinit        0002B0
-heartbeat@nbFirst                   bssCOMRAM    00004F
-heartbeat@ucOverFlow                bssCOMRAM    00004E
-heartbeat@uwStartTime               bssCOMRAM    000049
-int$flags                           temp         000051
+_clr_Timer                          text8        00024A
+_gbTick                             bssCOMRAM    000048
+_main                               text0        000230
+_set_IO                             text4        00004A
+_setup                              text2        000216
+_walk_LEDs                          text1        0001FC
+all_LEDs@uc                         cstackCOMRAM 000043
+btemp                               temp         000049
+end_of_initialization               cinit        000158
+heartbeat@nbFirst                   bssCOMRAM    000047
+heartbeat@ucOverFlow                bssCOMRAM    000046
+heartbeat@uwStartTime               bssCOMRAM    000044
+int$flags                           temp         000049
 intlevel0                           text         000000
 intlevel1                           text         000000
 intlevel2                           text         000000
 intlevel3                           text         000000
-set_IO@IO                           cstackCOMRAM 000037
-set_IO@bValue                       cstackCOMRAM 00003A
-set_IO@item                         cstackCOMRAM 000039
-set_IO@ucLocal                      cstackCOMRAM 000040
+set_IO@IO                           cstackCOMRAM 000038
+set_IO@bValue                       cstackCOMRAM 00003B
+set_IO@item                         cstackCOMRAM 00003A
+set_IO@ucLocal                      cstackCOMRAM 000041
 stackhi                             (abs)        0005FF
 stacklo                             (abs)        00007B
-start                               init         000024
-start_initialization                cinit        000264
-ttemp5                              temp         000052
-ttemp6                              temp         000055
-ttemp7                              temp         000059
-walk_LEDs@nbFirst                   bssCOMRAM    00004C
-walk_LEDs@uc                        bssCOMRAM    00004D
-walk_LEDs@ucOverFlow                bssCOMRAM    00004B
-walk_LEDs@uwStartTime               bssCOMRAM    000047
-wtemp8                              temp         000052
+start                               init         000046
+start_initialization                cinit        00010E
+ttemp5                              temp         00004A
+ttemp6                              temp         00004D
+ttemp7                              temp         000051
+wtemp8                              temp         00004A
 
 
 FUNCTION INFORMATION:
@@ -475,7 +433,6 @@ FUNCTION INFORMATION:
 Total ram usage:        0 bytes
  Hardware stack levels required when called:    5
  This function calls:
-		_heartbeat
 		_setup
 		_walk_LEDs
  This function is called by:
@@ -505,50 +462,17 @@ Total ram usage:        0 bytes
       Totals:         0       0       0       0       0       0       0
 Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    4
+ Hardware stack levels required when called:    3
  This function calls:
-		_bTimeUp
-		_clr_LEDs
-		_get_Time
 		_set_IO
  This function is called by:
 		_main
  This function uses a non-reentrant model
 
 
- *************** function _clr_LEDs *****************
- Defined at:
-		line 23 in file "../leds.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-  uc              1   11[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-      Params:         0       0       0       0       0       0       0
-      Locals:         1       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0
-      Totals:         1       0       0       0       0       0       0
-Total ram usage:        1 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    3
- This function calls:
-		_set_IO
- This function is called by:
-		_walk_LEDs
- This function uses a non-reentrant model
-
-
  *************** function _setup *****************
  Defined at:
-		line 137 in file "../setup.c"
+		line 138 in file "../setup.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -584,7 +508,7 @@ Total ram usage:        0 bytes
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  uc              1   11[COMRAM] unsigned char 
+  uc              1   12[COMRAM] unsigned char 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -612,12 +536,12 @@ Total ram usage:        1 bytes
  Defined at:
 		line 9 in file "../setup.c"
  Parameters:    Size  Location     Type
-  IO              2    0[COMRAM] PTR struct gstGPIO
+  IO              2    1[COMRAM] PTR struct gstGPIO
 		 -> astLEDs(27), 
-  item            1    2[COMRAM] unsigned char 
-  bValue          1    3[COMRAM] unsigned char 
+  item            1    3[COMRAM] unsigned char 
+  bValue          1    4[COMRAM] unsigned char 
  Auto vars:     Size  Location     Type
-  ucLocal         2    9[COMRAM] PTR volatile unsigned ch
+  ucLocal         2   10[COMRAM] PTR volatile unsigned ch
 		 -> LATE(1), LATC(1), LATA(1), LATB(1), 
 		 -> LATD(1), 
  Return value:  Size  Location     Type
@@ -639,9 +563,9 @@ Total ram usage:       11 bytes
  This function calls:
 		Nothing
  This function is called by:
-		_clr_LEDs
 		_all_LEDs
 		_walk_LEDs
+		_clr_LEDs
  This function uses a non-reentrant model
 
 
@@ -705,102 +629,6 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
- *************** function _heartbeat *****************
- Defined at:
-		line 153 in file "../setup.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-      Params:         0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0
-      Temps:          1       0       0       0       0       0       0
-      Totals:         1       0       0       0       0       0       0
-Total ram usage:        1 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    4
- This function calls:
-		_bTimeUp
-		_get_Time
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _bTimeUp *****************
- Defined at:
-		line 107 in file "../setup.c"
- Parameters:    Size  Location     Type
-  StartTime       2    4[COMRAM] unsigned short 
-  Period          2    6[COMRAM] unsigned short 
- Auto vars:     Size  Location     Type
-  CurrentTime     2   13[COMRAM] unsigned short 
-  b               1   12[COMRAM] unsigned char 
- Return value:  Size  Location     Type
-                  1    wreg      unsigned char 
- Registers used:
-		wreg, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-      Params:         4       0       0       0       0       0       0
-      Locals:         3       0       0       0       0       0       0
-      Temps:          4       0       0       0       0       0       0
-      Totals:        11       0       0       0       0       0       0
-Total ram usage:       11 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    3
- This function calls:
-		_get_Time
- This function is called by:
-		_heartbeat
-		_walk_LEDs
- This function uses a non-reentrant model
-
-
- *************** function _get_Time *****************
- Defined at:
-		line 101 in file "../setup.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  2    0[COMRAM] unsigned short 
- Registers used:
-		wreg, status,2
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
-      Params:         2       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0
-      Temps:          2       0       0       0       0       0       0
-      Totals:         4       0       0       0       0       0       0
-Total ram usage:        4 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		Nothing
- This function is called by:
-		_bTimeUp
-		_heartbeat
-		_walk_LEDs
- This function uses a non-reentrant model
-
-
  *************** function _ISR *****************
  Defined at:
 		line 91 in file "../setup.c"
@@ -819,9 +647,9 @@ Total ram usage:        4 bytes
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5
       Params:         0       0       0       0       0       0       0
       Locals:         0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0
-      Totals:         0       0       0       0       0       0       0
-Total ram usage:        0 bytes
+      Temps:          1       0       0       0       0       0       0
+      Totals:         1       0       0       0       0       0       0
+Total ram usage:        1 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    1
  This function calls:
@@ -865,32 +693,28 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 ../main.c
-		_main          		CODE           	039A	0000	21
+		_main          		CODE           	0230	0000	17
 
-../main.c estimated size: 21
+../main.c estimated size: 17
 
 shared
-		__initialization		CODE           	0264	0000	77
+		__initialization		CODE           	010E	0000	75
 
-shared estimated size: 77
+shared estimated size: 75
 
 ../leds.c
-		_clr_LEDs      		CODE           	02F0	0000	45
-		_walk_LEDs     		CODE           	0176	0000	127
-		_all_LEDs      		CODE           	031C	0000	45
+		_walk_LEDs     		CODE           	01FC	0000	27
+		_all_LEDs      		CODE           	0198	0000	45
 
-../leds.c estimated size: 217
+../leds.c estimated size: 72
 
 ../setup.c
-		_get_Time      		CODE           	03AE	0000	15
-		_clr_Timer     		CODE           	03C6	0000	11
-		_ISR           		CODE           	0008	0000	29
-		_IO_setup      		CODE           	0348	0000	29
-		_set_IO        		CODE           	0028	0000	197
-		_bTimeUp       		CODE           	00EC	0000	139
-		_heartbeat     		CODE           	01F4	0000	113
-		_setup         		CODE           	0380	0000	27
-		_Timer_and_Interrupt_setup		CODE           	03BC	0000	11
+		_clr_Timer     		CODE           	024A	0000	11
+		_ISR           		CODE           	0008	0000	63
+		_IO_setup      		CODE           	01C4	0000	29
+		_set_IO        		CODE           	004A	0000	197
+		_setup         		CODE           	0216	0000	27
+		_Timer_and_Interrupt_setup		CODE           	0240	0000	11
 
-../setup.c estimated size: 571
+../setup.c estimated size: 338
 
