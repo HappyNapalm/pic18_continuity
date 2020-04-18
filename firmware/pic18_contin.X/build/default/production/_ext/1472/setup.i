@@ -4961,7 +4961,7 @@ void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 
 unsigned char gbTick;
 void heartbeat(void);
-# 47 "../setup.h"
+# 43 "../setup.h"
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
@@ -4974,6 +4974,14 @@ void Set_Output (unsigned char ucPinMinus1,
 void clr_Outputs (void);
 unsigned char Get_Output (unsigned char ucPinMinus1);
 unsigned char Get_Input (unsigned char ucPinMinus1);
+
+unsigned char bTimeUp(
+                        unsigned short StartTime,
+
+                        unsigned short Period
+                     );
+
+__attribute__((inline)) volatile unsigned short get_Time(void);
 # 5 "../setup.c" 2
 
 # 1 "../leds.h" 1
@@ -5062,20 +5070,71 @@ void Timer_and_Interrupt_setup (void)
 
 }
 
+void clr_Timer (void)
+{
+    TMR0H = 0;
+    TMR0L = 0;
+}
+
 void __attribute__((picinterrupt(("")))) ISR()
 {
     if(TMR0IF)
     {
         TMR0IF = 0;
         clr_Timer();
-
         gbTick++;
     }
 }
 
-__attribute__((inline)) unsigned short get_Time(void)
+__attribute__((inline)) volatile unsigned short get_Time(void)
 {
     return ((unsigned short)(TMR0H << 8) | TMR0L);
+}
+
+
+unsigned char bTimeUp(
+                        unsigned short StartTime,
+
+                        unsigned short Period
+                     )
+{
+    unsigned char b = 0;
+    unsigned short CurrentTime = get_Time();
+
+    if (CurrentTime < StartTime)
+    {
+
+
+            if(((0x7FFF - StartTime) + CurrentTime) >= Period)
+                {
+                    b = 1;
+                }
+
+    }
+    else if (CurrentTime - StartTime >= Period)
+    {
+        b = 1;
+    }
+    return b;
+}
+
+
+
+
+
+void setup(void)
+{
+    INTCONbits.GIE = 0;
+    IO_setup();
+
+    LATBbits.LB2 = 0;
+    Timer_and_Interrupt_setup();
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.TMR0IE = 1;
+    T0CONbits.TMR0ON = 1;
+    all_LEDs();
+
 }
 
 
@@ -5084,7 +5143,7 @@ void heartbeat(void)
     static unsigned char nbFirst;
     static unsigned short uwStartTime;
     static unsigned char ucOverFlow;
-    unsigned short uwCurrentTime = get_Time();
+
     if(!nbFirst)
     {
         uwStartTime = get_Time();
@@ -5093,43 +5152,9 @@ void heartbeat(void)
     }
     else
     {
-        if(uwCurrentTime < uwStartTime)
+        if(bTimeUp(uwStartTime, 10000))
         {
-            if(gbTick > ucOverFlow)
-            {
-                if(((0xFFFF - uwStartTime)+ uwCurrentTime) > 10000)
-                {
-                    LATBbits.LB2 = ~LATBbits.LB2;
-                    nbFirst = 0;
-                }
-            }
-
-        }
-        else if(uwCurrentTime - uwStartTime > 10000)
-        {
-            LATBbits.LB2 = ~LATBbits.LB2;
-            nbFirst = 0;
+            LATBbits.LB2 = !LATBbits.LB2;
         }
     }
-}
-
-
-__attribute__((inline)) void clr_Timer (void)
-{
-    TMR0H = 0;
-    TMR0L = 0;
-}
-
-void setup(void)
-{
-    INTCONbits.GIE = 0;
-    IO_setup();
-    clr_Timer();
-    LATBbits.LB2 = 0;
-    Timer_and_Interrupt_setup();
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    INTCONbits.TMR0IE = 1;
-    T0CONbits.TMR0ON = 1;
-    walk_LEDs();
 }

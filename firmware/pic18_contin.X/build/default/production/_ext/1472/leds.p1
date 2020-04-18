@@ -15,10 +15,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "29 ../setup.h
 [; ;../setup.h: 29: void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 [v _set_IO `(v ~T0 @X0 0 ef3`*S303`uc`uc ]
-[v F3001 `(v ~T0 @X0 1 tf ]
-"50
-[; ;../setup.h: 50: __attribute__((inline)) void clr_Timer (void);
-[v _clr_Timer `TF3001 ~T0 @X0 0 e ]
+[v F3015 `(Vus ~T0 @X0 1 tf ]
+"62
+[; ;../setup.h: 62: __attribute__((inline)) volatile unsigned short get_Time(void);
+[v _get_Time `VTF3015 ~T0 @X0 0 e ]
+"56
+[; ;../setup.h: 56: unsigned char bTimeUp(
+[v _bTimeUp `(uc ~T0 @X0 0 ef2`us`us ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -569,62 +572,81 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../leds.c: 38: }
 [e :UE 308 ]
 }
-"40
-[; ;../leds.c: 40: void walk_LEDs(void)
-[v _walk_LEDs `(v ~T0 @X0 1 ef ]
 "41
-[; ;../leds.c: 41: {
+[; ;../leds.c: 41: void walk_LEDs(void)
+[v _walk_LEDs `(v ~T0 @X0 1 ef ]
+"42
+[; ;../leds.c: 42: {
 {
 [e :U _walk_LEDs ]
 [f ]
-"42
-[; ;../leds.c: 42:     unsigned char uc = 0;
-[v _uc `uc ~T0 @X0 1 a ]
-[e = _uc -> -> 0 `i `uc ]
 "43
-[; ;../leds.c: 43:     clr_Timer();
-[e ( _clr_Timer ..  ]
+[; ;../leds.c: 43:     static unsigned short uwStartTime;
+[v F3026 `us ~T0 @X0 1 s uwStartTime ]
 "44
-[; ;../leds.c: 44:     clr_LEDs();
-[e ( _clr_LEDs ..  ]
+[; ;../leds.c: 44:     static unsigned char uc;
+[v F3027 `uc ~T0 @X0 1 s uc ]
 "45
-[; ;../leds.c: 45:     while(uc < 9)
-[e $U 313  ]
-[e :U 314 ]
+[; ;../leds.c: 45:     static unsigned char nbFirst;
+[v F3028 `uc ~T0 @X0 1 s nbFirst ]
 "46
-[; ;../leds.c: 46:     {
-{
+[; ;../leds.c: 46:     static unsigned char ucOverFlow;
+[v F3029 `uc ~T0 @X0 1 s ucOverFlow ]
 "47
-[; ;../leds.c: 47:         set_IO(astLEDs, uc, 1);
-[e ( _set_IO (3 , , &U _astLEDs _uc -> -> 1 `i `uc ]
+[; ;../leds.c: 47:     if(!nbFirst)
+[e $ ! ! != -> F3028 `i -> 0 `i 313  ]
 "48
-[; ;../leds.c: 48:         if(gbTick == uc + 1)
-[e $ ! == -> _gbTick `i + -> _uc `i -> 1 `i 316  ]
-"49
-[; ;../leds.c: 49:         {
+[; ;../leds.c: 48:     {
 {
 "50
-[; ;../leds.c: 50:             clr_LEDs();
-[e ( _clr_LEDs ..  ]
+[; ;../leds.c: 50:         uwStartTime = get_Time();
+[e = F3026 ( _get_Time ..  ]
 "51
-[; ;../leds.c: 51:             uc++;
-[e ++ _uc -> -> 1 `i `uc ]
+[; ;../leds.c: 51:         ucOverFlow = gbTick;
+[e = F3029 _gbTick ]
 "52
-[; ;../leds.c: 52:             clr_Timer();
-[e ( _clr_Timer ..  ]
+[; ;../leds.c: 52:         nbFirst = 1;
+[e = F3028 -> -> 1 `i `uc ]
 "53
-[; ;../leds.c: 53:         }
-}
-[e :U 316 ]
-"55
-[; ;../leds.c: 55:     }
+[; ;../leds.c: 53:     }
 }
 [e :U 313 ]
-"45
-[; ;../leds.c: 45:     while(uc < 9)
-[e $ < -> _uc `i -> 9 `i 314  ]
-[e :U 315 ]
+"54
+[; ;../leds.c: 54:     set_IO(astLEDs, uc, 1);
+[e ( _set_IO (3 , , &U _astLEDs F3027 -> -> 1 `i `uc ]
+"55
+[; ;../leds.c: 55:     if(bTimeUp(uwStartTime, 12000))
+[e $ ! != -> ( _bTimeUp (2 , F3026 -> -> 12000 `i `us `i -> 0 `i 314  ]
 "56
-[; ;../leds.c: 56: }
+[; ;../leds.c: 56:     {
+{
+"57
+[; ;../leds.c: 57:         clr_LEDs();
+[e ( _clr_LEDs ..  ]
+"58
+[; ;../leds.c: 58:         nbFirst = 0;
+[e = F3028 -> -> 0 `i `uc ]
+"59
+[; ;../leds.c: 59:         uc++;
+[e ++ F3027 -> -> 1 `i `uc ]
+"60
+[; ;../leds.c: 60:     }
+}
+[e :U 314 ]
+"61
+[; ;../leds.c: 61:     if(uc == 9)
+[e $ ! == -> F3027 `i -> 9 `i 315  ]
+"62
+[; ;../leds.c: 62:     {
+{
+"63
+[; ;../leds.c: 63:         uc = 0;
+[e = F3027 -> -> 0 `i `uc ]
+"64
+[; ;../leds.c: 64:     }
+}
+[e :U 315 ]
+"65
+[; ;../leds.c: 65: }
 [e :UE 312 ]
 }

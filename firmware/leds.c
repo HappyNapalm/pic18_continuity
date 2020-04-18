@@ -37,20 +37,29 @@ void all_LEDs (void)
     }
 }
 
+#define WALK_PERIOD 12000
 void walk_LEDs(void)
 {
-    unsigned char uc = 0;
-    clr_Timer();
-    clr_LEDs();
-    while(uc < MAX_IO)
+    static unsigned short uwStartTime;
+    static unsigned char uc;
+    static unsigned char nbFirst;
+    static unsigned char ucOverFlow;
+    if(!nbFirst)
     {
-        set_IO(astLEDs, uc, 1);
-        if(gbTick == uc + 1)
-        {
-            clr_LEDs();
-            uc++;
-            clr_Timer();
-        }
-        
+        //clr_LEDs();
+        uwStartTime = get_Time();
+        ucOverFlow = gbTick;
+        nbFirst = 1;
+    }
+    set_IO(astLEDs, uc, 1);
+    if(bTimeUp(uwStartTime,/*ucOverFlow,*/WALK_PERIOD))
+    {
+        clr_LEDs();
+        nbFirst = 0;
+        uc++;
+    }
+    if(uc == MAX_IO)
+    {
+        uc = 0;
     }
 }

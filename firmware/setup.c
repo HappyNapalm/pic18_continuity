@@ -82,31 +82,80 @@ void Timer_and_Interrupt_setup (void)
     //T3CON = 0b10110101;
 }
 
+void clr_Timer (void)
+{
+    TMR0H = 0;
+    TMR0L = 0;
+}
+
 void __interrupt() ISR()
 {
     if(TMR0IF)
     {
         TMR0IF = 0;
         clr_Timer();
-        //HB = ~HB;
         gbTick++;
     }
 }
 
-inline unsigned short get_Time(void)
+inline volatile unsigned short get_Time(void)
 {
     return ((unsigned short)(TMR0H << 8) | TMR0L);
 }
 
+//@About: Checks with the free running timer
+unsigned char bTimeUp(
+                        unsigned short StartTime,
+                        /*unsigned char StartOverFlowCount,*/
+                        unsigned short Period
+                     )
+{
+    unsigned char b = 0;
+    unsigned short CurrentTime = get_Time();
+    
+    if (CurrentTime < StartTime)
+    {
+//        if(StartOverFlowCount > gbTick)
+//        {
+            if(((0x7FFF - StartTime) + CurrentTime) >= Period)
+                {
+                    b = 1;
+                }
+//        }
+    }
+    else if (CurrentTime - StartTime >= Period)
+    {
+        b = 1;
+    }
+    return b;
+}
+
 //@TODO make this more applicable to other pins and functions.
 
-#define HB_FREQ 10000
+
+
+void setup(void)
+{
+    INTCONbits.GIE = 0;
+    IO_setup();
+    //clr_Timer();
+    HB = 0;
+    Timer_and_Interrupt_setup();
+    INTCONbits.GIE = 1;
+    INTCONbits.PEIE = 1;
+    INTCONbits.TMR0IE = 1;
+    T0CONbits.TMR0ON = 1;
+    all_LEDs();
+    
+}
+
+#define HB_PERIOD 10000
 void heartbeat(void)
 {
     static unsigned char nbFirst;
     static unsigned short uwStartTime;
     static unsigned char ucOverFlow;
-    unsigned short uwCurrentTime = get_Time();
+    //unsigned short uwCurrentTime = get_Time();
     if(!nbFirst)
     {
         uwStartTime = get_Time();
@@ -115,45 +164,11 @@ void heartbeat(void)
     }
     else
     {
-        if(uwCurrentTime < uwStartTime)
+        if(bTimeUp(uwStartTime,/*ucOverFlow,*/HB_PERIOD))
         {
-            if(gbTick > ucOverFlow)
-            {
-                if(((0xFFFF - uwStartTime)+ uwCurrentTime) > HB_FREQ)
-                {
-                    HB = ~HB;
-                    nbFirst = 0;
-                }
-            }
-            
-        }
-        else if(uwCurrentTime - uwStartTime > HB_FREQ)
-        {
-            HB = ~HB;
-            nbFirst = 0;
+            HB = !HB;
         }
     }
-}
-
-
-inline void clr_Timer (void)
-{
-    TMR0H = 0;
-    TMR0L = 0;
-}
-
-void setup(void)
-{
-    INTCONbits.GIE = 0;
-    IO_setup();
-    clr_Timer();
-    HB = 0;
-    Timer_and_Interrupt_setup();
-    INTCONbits.GIE = 1;
-    INTCONbits.PEIE = 1;
-    INTCONbits.TMR0IE = 1;
-    T0CONbits.TMR0ON = 1;
-    walk_LEDs();
 }
 
 //# Potential EEPROM code below #//

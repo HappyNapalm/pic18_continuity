@@ -4969,7 +4969,7 @@ void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 
 unsigned char gbTick;
 void heartbeat(void);
-# 47 "../setup.h"
+# 43 "../setup.h"
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
@@ -4982,6 +4982,14 @@ void Set_Output (unsigned char ucPinMinus1,
 void clr_Outputs (void);
 unsigned char Get_Output (unsigned char ucPinMinus1);
 unsigned char Get_Input (unsigned char ucPinMinus1);
+
+unsigned char bTimeUp(
+                        unsigned short StartTime,
+
+                        unsigned short Period
+                     );
+
+__attribute__((inline)) volatile unsigned short get_Time(void);
 # 13 "../main.c" 2
 
 # 1 "../leds.h" 1
@@ -5048,6 +5056,7 @@ void main (void)
     while(1)
     {
         heartbeat();
+        walk_LEDs();
     }
 
 }

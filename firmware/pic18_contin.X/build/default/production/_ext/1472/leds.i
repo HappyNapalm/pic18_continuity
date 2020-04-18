@@ -4961,7 +4961,7 @@ void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 
 unsigned char gbTick;
 void heartbeat(void);
-# 47 "../setup.h"
+# 43 "../setup.h"
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
@@ -4974,6 +4974,14 @@ void Set_Output (unsigned char ucPinMinus1,
 void clr_Outputs (void);
 unsigned char Get_Output (unsigned char ucPinMinus1);
 unsigned char Get_Input (unsigned char ucPinMinus1);
+
+unsigned char bTimeUp(
+                        unsigned short StartTime,
+
+                        unsigned short Period
+                     );
+
+__attribute__((inline)) volatile unsigned short get_Time(void);
 # 5 "../leds.c" 2
 
 # 1 "../leds.h" 1
@@ -5017,20 +5025,29 @@ void all_LEDs (void)
     }
 }
 
+
 void walk_LEDs(void)
 {
-    unsigned char uc = 0;
-    clr_Timer();
-    clr_LEDs();
-    while(uc < 9)
+    static unsigned short uwStartTime;
+    static unsigned char uc;
+    static unsigned char nbFirst;
+    static unsigned char ucOverFlow;
+    if(!nbFirst)
     {
-        set_IO(astLEDs, uc, 1);
-        if(gbTick == uc + 1)
-        {
-            clr_LEDs();
-            uc++;
-            clr_Timer();
-        }
 
+        uwStartTime = get_Time();
+        ucOverFlow = gbTick;
+        nbFirst = 1;
+    }
+    set_IO(astLEDs, uc, 1);
+    if(bTimeUp(uwStartTime, 12000))
+    {
+        clr_LEDs();
+        nbFirst = 0;
+        uc++;
+    }
+    if(uc == 9)
+    {
+        uc = 0;
     }
 }

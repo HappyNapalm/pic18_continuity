@@ -32,11 +32,7 @@ unsigned char gbTick;
 void heartbeat(void);
 
 
-//#define In9   LATBbits.LB0
-//#define Out9  LATBbits.LB1
-
 #define HB    LATBbits.LB2
-
 
 #define ETH   LATEbits.LE1
 #define DB9   LATEbits.LE2
@@ -57,6 +53,13 @@ void clr_Outputs (void);
 unsigned char Get_Output (unsigned char ucPinMinus1);
 unsigned char Get_Input (unsigned char ucPinMinus1);
 
+unsigned char bTimeUp(
+                        unsigned short StartTime,
+                        /*unsigned char StartOverFlowCount,*/
+                        unsigned short Period
+                     );
+
+inline volatile unsigned short get_Time(void);
 //void start_up(void);
 
 
