@@ -65,8 +65,7 @@ void IO_setup (void)
   TRISEbits.RE2 = 1;      //Switch 1B
 }
 
-//TODO review the timers. Create a ms timer.
-//Make this setup more modular
+
 void Timer_and_Interrupt_setup (void)
 {
     //Let this timer run as a free running timer
@@ -130,10 +129,6 @@ unsigned char bTimeUp(
     }
     return b;
 }
-
-//@TODO make this more applicable to other pins and functions.
-
-
 
 void setup(void)
 {
