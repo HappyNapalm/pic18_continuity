@@ -4960,8 +4960,11 @@ struct gstGPIO{
 void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 
 unsigned char gbTick;
+unsigned char guc_3_Tick;
+unsigned char gucTestBit;
 void heartbeat(void);
-# 43 "../setup.h"
+void testing(unsigned char TargetBit);
+# 46 "../setup.h"
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
@@ -4985,16 +4988,7 @@ __attribute__((inline)) volatile unsigned short get_Time(void);
 # 5 "../leds.c" 2
 
 # 1 "../leds.h" 1
-# 38 "../leds.h"
-extern void clr_LEDs (void);
-extern void all_LEDs (void);
-extern unsigned short get_LEDs (void);
-extern void walk_LEDs (void);
-# 6 "../leds.c" 2
-
-
-
-
+# 35 "../leds.h"
 struct gstGPIO astLEDs[9] = {
     { &LATC, 0 },
     { &LATC, 2 },
@@ -5006,6 +5000,17 @@ struct gstGPIO astLEDs[9] = {
     { &LATB, 4 },
     { &LATE, 0 },
 };
+
+
+
+extern void clr_LEDs (void);
+extern void all_LEDs (void);
+extern unsigned short get_LEDs (void);
+extern void walk_LEDs (void);
+# 6 "../leds.c" 2
+
+
+
 
 
 void clr_LEDs (void)
@@ -5028,6 +5033,6 @@ void all_LEDs (void)
 
 void walk_LEDs(void)
 {
-# 67 "../leds.c"
+# 55 "../leds.c"
     set_IO(astLEDs, 8, LATBbits.LB2);
 }

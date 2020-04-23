@@ -4968,8 +4968,11 @@ struct gstGPIO{
 void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 
 unsigned char gbTick;
+unsigned char guc_3_Tick;
+unsigned char gucTestBit;
 void heartbeat(void);
-# 43 "../setup.h"
+void testing(unsigned char TargetBit);
+# 46 "../setup.h"
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
@@ -4993,7 +4996,21 @@ __attribute__((inline)) volatile unsigned short get_Time(void);
 # 13 "../main.c" 2
 
 # 1 "../leds.h" 1
-# 38 "../leds.h"
+# 35 "../leds.h"
+struct gstGPIO astLEDs[9] = {
+    { &LATC, 0 },
+    { &LATC, 2 },
+    { &LATC, 1 },
+    { &LATC, 5 },
+    { &LATC, 6 },
+    { &LATC, 7 },
+    { &LATB, 3 },
+    { &LATB, 4 },
+    { &LATE, 0 },
+};
+
+
+
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
 extern unsigned short get_LEDs (void);
@@ -5025,18 +5042,7 @@ unsigned char GetModeSwitch (void)
 {
     return LATEbits.LE1 | (LATEbits.LE2 << 1);
 }
-
-void testing (unsigned char ModeSwitch, unsigned char ucTargetBit)
-{
- if(ModeSwitch)
- {
-
- }
-    if (ModeSwitch)
- b2_Compare(ucTargetBit);
-
-}
-
+# 67 "../main.c"
 void dis_Results()
 {
 
@@ -5046,6 +5052,7 @@ void dis_Results()
 void main (void)
 {
     setup();
+    clr_LEDs();
 
 
 
@@ -5056,7 +5063,12 @@ void main (void)
     while(1)
     {
 
-        walk_LEDs();
+
+        testing(gucTestBit);
+        if(gucTestBit >= 9)
+        {
+            gucTestBit = 0;
+        }
     }
 
 }

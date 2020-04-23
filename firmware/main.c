@@ -51,16 +51,18 @@ unsigned char GetModeSwitch (void)
     return ETH | (DB9 << 1);
 }
 
-void testing (unsigned char ModeSwitch, unsigned char ucTargetBit)
-{
-	if(ModeSwitch)
-	{
-		//wiggle 9th bit
-	}
-    if (ModeSwitch)
-	b2_Compare(ucTargetBit);
-	
-}
+//void testing (unsigned char ModeSwitch, unsigned char ucTargetBit)
+//{
+////	if(ModeSwitch)
+////	{
+////		//wiggle 9th bit
+////	}
+////    if (ModeSwitch)
+////	b2_Compare(ucTargetBit);
+//    
+//	
+//}
+
 
 void dis_Results()
 {
@@ -71,6 +73,7 @@ void dis_Results()
 void main (void)
 {
     setup();
+    clr_LEDs();
 //    flash();
     //clr_LEDs();
     //start_up();
@@ -81,7 +84,12 @@ void main (void)
     while(1)
     {
         //heartbeat();
-        walk_LEDs();
+        //walk_LEDs();
+        testing(gucTestBit);
+        if(gucTestBit >= MAX_IO)
+        {
+            gucTestBit = 0;
+        }
     }
    //}
 }
