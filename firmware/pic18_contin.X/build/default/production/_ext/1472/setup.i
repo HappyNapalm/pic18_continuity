@@ -5083,7 +5083,7 @@ void Timer_and_Interrupt_setup (void)
     OSCCON = 0b01100111;
 
 
-    T3CON = 0b00110101;
+    T3CON = 0b00000101;
 }
 
 void clr_Timer (void)

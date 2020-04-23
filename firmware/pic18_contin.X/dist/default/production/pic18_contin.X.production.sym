@@ -1,6 +1,6 @@
 set_IO@bValue 3B 0 COMRAM 1
-_all_LEDs 2C0 0 CODE 0
-_clr_LEDs 2EC 0 CODE 0
+_all_LEDs 2EE 0 CODE 0
+_clr_LEDs 31A 0 CODE 0
 __S0 30000E 0 ABS 0
 __S1 7B 0 ABS 0
 __S2 0 0 ABS 0
@@ -11,13 +11,13 @@ _LATA F89 0 ABS 0
 _LATB F8A 0 ABS 0
 _LATC F8B 0 ABS 0
 _LATE F8D 0 ABS 0
-_main 318 0 CODE 0
+_main 2C0 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 51 0 COMRAM 1
 start 5E 0 CODE 0
-__end_of_clr_Timer 3B8 0 CODE 0
+__end_of_clr_Timer 3BC 0 CODE 0
 _TMR0H FD7 0 ABS 0
-__end_of_clr_Timer3 3AE 0 CODE 0
+__end_of_clr_Timer3 3B2 0 CODE 0
 _TMR3H FB3 0 ABS 0
 _TMR0L FD6 0 ABS 0
 _TMR3L FB2 0 ABS 0
@@ -38,7 +38,7 @@ ttemp7 59 0 COMRAM 1
 wtemp8 52 0 COMRAM 1
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
-__end_of_clr_LEDs 318 0 CODE 0
+__end_of_clr_LEDs 346 0 CODE 0
 __size_of_all_LEDs 0 0 ABS 0
 __CFG_FOSC$INTIO67 0 0 ABS 0
 __Hbigram 0 0 ABS 0
@@ -56,7 +56,7 @@ __Lbss 0 0 RAM 1
 ___param_bank 0 0 ABS 0
 __Hnvrram 0 0 COMRAM 1
 __Lnvrram 0 0 COMRAM 1
-_setup 342 0 CODE 0
+_setup 346 0 CODE 0
 int$flags 51 0 COMRAM 1
 __end_of_ISR 5E 0 CODE 0
 __end_of_testing 1E4 0 CODE 0
@@ -91,7 +91,7 @@ __size_of_clr_Timer 0 0 ABS 0
 _OSCCON FD3 0 ABS 0
 __Habs1 0 0 ABS 0
 __Labs1 0 0 ABS 0
-_IO_setup 35E 0 CODE 0
+_IO_setup 362 0 CODE 0
 __size_of_clr_Timer3 0 0 ABS 0
 __HnvFARRAM 0 0 FARRAM 0
 __LnvFARRAM 0 0 FARRAM 0
@@ -112,12 +112,12 @@ stacklo 7B 0 ABS 0
 __Hrbit 0 0 COMRAM 1
 __Lrbit 0 0 COMRAM 1
 __Hinit 62 0 CODE 0
-__end_of_IO_setup 37A 0 CODE 0
+__end_of_IO_setup 37E 0 CODE 0
 __Linit 5E 0 CODE 0
 __Hintcodelo 5E 0 CODE 0
 __Lintcodelo 5E 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main 342 0 CODE 0
+__end_of_main 2EE 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
@@ -125,7 +125,7 @@ __HdataBANK0 0 0 ABS 0
 __LdataBANK0 0 0 ABS 0
 __pdataBANK0 60 0 BANK0 1
 end_of_initialization 230 0 CODE 0
-_clr_Timer 3AE 0 CODE 0
+_clr_Timer 3B2 0 CODE 0
 __size_of_ISR 0 0 ABS 0
 __end_of_set_IO 126 0 CODE 0
 _TRISBbits F93 0 ABS 0
@@ -133,7 +133,7 @@ _TRISEbits F96 0 ABS 0
 _T0CONbits FD5 0 ABS 0
 _T3CONbits FB1 0 ABS 0
 _guc_3_Tick 4F 0 COMRAM 1
-_Timer_and_Interrupt_setup 396 0 CODE 0
+_Timer_and_Interrupt_setup 39A 0 CODE 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -152,7 +152,7 @@ __Lbank4 0 0 ABS 0
 set_IO@ucLocal 41 0 COMRAM 1
 __Hbank5 0 0 ABS 0
 __Lbank5 0 0 ABS 0
-_clr_Timer3 3A4 0 CODE 0
+_clr_Timer3 3A8 0 CODE 0
 __Hpowerup 5E 0 CODE 0
 __Lpowerup 5E 0 CODE 0
 __Htext0 0 0 ABS 0
@@ -160,7 +160,7 @@ __Ltext0 0 0 ABS 0
 heartbeat@uwStartTime 47 0 COMRAM 1
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 318 0 CODE 0
+__ptext0 2C0 0 CODE 0
 __Htext2 0 0 ABS 0
 __Ltext2 0 0 ABS 0
 __ptext1 18C 0 CODE 0
@@ -172,22 +172,22 @@ __Ltext4 0 0 ABS 0
 __ptext3 126 0 CODE 0
 __Htext5 0 0 ABS 0
 __Ltext5 0 0 ABS 0
-__ptext4 342 0 CODE 0
+__ptext4 346 0 CODE 0
 __Htext6 0 0 ABS 0
 __Ltext6 0 0 ABS 0
-__ptext5 2C0 0 CODE 0
+__ptext5 2EE 0 CODE 0
 __Htext7 0 0 ABS 0
 __Ltext7 0 0 ABS 0
-__ptext6 396 0 CODE 0
+__ptext6 39A 0 CODE 0
 __HbssCOMRAM 0 0 ABS 0
 __LbssCOMRAM 0 0 ABS 0
 __Htext8 0 0 ABS 0
 __Ltext8 0 0 ABS 0
-__ptext7 35E 0 CODE 0
+__ptext7 362 0 CODE 0
 __pbssCOMRAM 47 0 COMRAM 1
 __Htext9 0 0 ABS 0
 __Ltext9 0 0 ABS 0
-__ptext8 2EC 0 CODE 0
+__ptext8 31A 0 CODE 0
 _astInputs 60 0 BANK0 1
 __ptext9 62 0 CODE 0
 __Hclrtext 0 0 ABS 0
@@ -240,15 +240,15 @@ __size_of_IO_setup 0 0 ABS 0
 __size_of_testing 0 0 ABS 0
 __HidataBANK0 0 0 ABS 0
 __LidataBANK0 0 0 ABS 0
-__pidataBANK0 37A 0 CODE 0
+__pidataBANK0 37E 0 CODE 0
 compare_IO@TargetBit 45 0 COMRAM 1
 __size_of_clr_LEDs 0 0 ABS 0
 __Htext11 0 0 ABS 0
 __Ltext11 0 0 ABS 0
-__ptext11 3A4 0 CODE 0
+__ptext11 3A8 0 CODE 0
 __Htext12 0 0 ABS 0
 __Ltext12 0 0 ABS 0
-__ptext12 3AE 0 CODE 0
+__ptext12 3B2 0 CODE 0
 ___inthi_sp 0 0 STACK 2
 testing@ucLocalTicks 4A 0 COMRAM 1
 __size_of_set_IO 0 0 ABS 0
@@ -258,7 +258,7 @@ _INTCONbits FF2 0 ABS 0
 __HidataCOMRAM 0 0 ABS 0
 __LidataCOMRAM 0 0 ABS 0
 __pidataCOMRAM 28A 0 CODE 0
-__end_of_setup 35E 0 CODE 0
+__end_of_setup 362 0 CODE 0
 __smallconst 0 0 SMALLCONST 0
 __Hreset_vec 4 0 CODE 0
 __Lreset_vec 0 0 CODE 0
@@ -268,7 +268,7 @@ __accesstop 60 0 ABS 0
 __Hintcode_body 0 0 ABS 0
 __Lintcode_body 0 0 ABS 0
 intlevel0 0 0 CODE 0
-__end_of_all_LEDs 2EC 0 CODE 0
+__end_of_all_LEDs 31A 0 CODE 0
 intlevel1 0 0 CODE 0
 heartbeat@nbFirst 4D 0 COMRAM 1
 intlevel2 0 0 CODE 0
@@ -282,21 +282,21 @@ heartbeat@ucOverFlow 4C 0 COMRAM 1
 _astOutputs 1 0 COMRAM 1
 __initialization 1E4 0 CODE 0
 __activetblptr 0 0 ABS 0
-__end_of_Timer_and_Interrupt_setup 3A4 0 CODE 0
+__end_of_Timer_and_Interrupt_setup 3A8 0 CODE 0
 testing@b 4B 0 COMRAM 1
 __CFG_LVP$OFF 0 0 ABS 0
 %segments
 reset_vec 0 3 CODE 0 0
-intcode 8 394 CODE 8 0
+intcode 8 398 CODE 8 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
 dataCOMRAM 1 51 COMRAM 1 1
 dataBANK0 60 7A BANK0 60 1
-text6 396 3B7 CODE 396 0
+text6 39A 3BB CODE 39A 0
 %locals
 dist/default/production\pic18_contin.X.production.o
 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
-C:\Users\churc\AppData\Local\Temp\s9r4.s
+C:\Users\churc\AppData\Local\Temp\s5fo.s
 1201 1E4 0 CODE 0
 1203 1E4 0 CODE 0
 1206 1E4 0 CODE 0
@@ -340,13 +340,14 @@ C:\Users\churc\AppData\Local\Temp\s9r4.s
 1308 234 0 CODE 0
 1309 236 0 CODE 0
 ../main.c
-73 318 0 CODE 0
-75 318 0 CODE 0
-76 31C 0 CODE 0
-84 320 0 CODE 0
-88 320 0 CODE 0
-89 326 0 CODE 0
-91 336 0 CODE 0
+73 2C0 0 CODE 0
+75 2C0 0 CODE 0
+76 2C4 0 CODE 0
+84 2C8 0 CODE 0
+88 2C8 0 CODE 0
+89 2CE 0 CODE 0
+91 2DE 0 CODE 0
+92 2E2 0 CODE 0
 ../setup.c
 193 18C 0 CODE 0
 198 18E 0 CODE 0
@@ -372,50 +373,50 @@ C:\Users\churc\AppData\Local\Temp\s9r4.s
 26 126 0 CODE 0
 27 18A 0 CODE 0
 ../setup.c
-146 342 0 CODE 0
-148 342 0 CODE 0
-149 344 0 CODE 0
-151 348 0 CODE 0
-152 34A 0 CODE 0
-153 34E 0 CODE 0
-154 350 0 CODE 0
-155 352 0 CODE 0
-156 354 0 CODE 0
-157 356 0 CODE 0
-158 358 0 CODE 0
-161 35C 0 CODE 0
+146 346 0 CODE 0
+148 346 0 CODE 0
+149 348 0 CODE 0
+151 34C 0 CODE 0
+152 34E 0 CODE 0
+153 352 0 CODE 0
+154 354 0 CODE 0
+155 356 0 CODE 0
+156 358 0 CODE 0
+157 35A 0 CODE 0
+158 35C 0 CODE 0
+161 360 0 CODE 0
 ../leds.c
-19 2C0 0 CODE 0
-22 2C0 0 CODE 0
-24 2C4 0 CODE 0
-25 2D8 0 CODE 0
-26 2EA 0 CODE 0
+19 2EE 0 CODE 0
+22 2EE 0 CODE 0
+24 2F2 0 CODE 0
+25 306 0 CODE 0
+26 318 0 CODE 0
 ../setup.c
-69 396 0 CODE 0
-74 396 0 CODE 0
-78 39A 0 CODE 0
-81 39E 0 CODE 0
-82 3A2 0 CODE 0
+69 39A 0 CODE 0
+74 39A 0 CODE 0
+78 39E 0 CODE 0
+81 3A2 0 CODE 0
+82 3A6 0 CODE 0
 ../setup.c
-53 35E 0 CODE 0
-55 35E 0 CODE 0
-56 362 0 CODE 0
-57 366 0 CODE 0
-58 368 0 CODE 0
-59 36A 0 CODE 0
-60 36C 0 CODE 0
-61 36E 0 CODE 0
-62 370 0 CODE 0
-63 372 0 CODE 0
-64 374 0 CODE 0
-65 376 0 CODE 0
-66 378 0 CODE 0
+53 362 0 CODE 0
+55 362 0 CODE 0
+56 366 0 CODE 0
+57 36A 0 CODE 0
+58 36C 0 CODE 0
+59 36E 0 CODE 0
+60 370 0 CODE 0
+61 372 0 CODE 0
+62 374 0 CODE 0
+63 376 0 CODE 0
+64 378 0 CODE 0
+65 37A 0 CODE 0
+66 37C 0 CODE 0
 ../leds.c
-11 2EC 0 CODE 0
-13 2EC 0 CODE 0
-15 2F0 0 CODE 0
-16 304 0 CODE 0
-17 316 0 CODE 0
+11 31A 0 CODE 0
+13 31A 0 CODE 0
+15 31E 0 CODE 0
+16 332 0 CODE 0
+17 344 0 CODE 0
 ../setup.c
 9 62 0 CODE 0
 12 62 0 CODE 0
@@ -424,8 +425,8 @@ C:\Users\churc\AppData\Local\Temp\s9r4.s
 16 D6 0 CODE 0
 19 DA 0 CODE 0
 21 124 0 CODE 0
-C:\Users\churc\AppData\Local\Temp\s9r4.s
-2679 8 0 CODE 0
+C:\Users\churc\AppData\Local\Temp\s5fo.s
+2684 8 0 CODE 0
 ../setup.c
 96 8 0 CODE 0
 98 A 0 CODE 0
@@ -440,12 +441,12 @@ C:\Users\churc\AppData\Local\Temp\s9r4.s
 110 58 0 CODE 0
 112 5A 0 CODE 0
 ../setup.c
-90 3A4 0 CODE 0
-92 3A4 0 CODE 0
-93 3A8 0 CODE 0
-94 3AC 0 CODE 0
+90 3A8 0 CODE 0
+92 3A8 0 CODE 0
+93 3AC 0 CODE 0
+94 3B0 0 CODE 0
 ../setup.c
-84 3AE 0 CODE 0
-86 3AE 0 CODE 0
-87 3B2 0 CODE 0
-88 3B6 0 CODE 0
+84 3B2 0 CODE 0
+86 3B2 0 CODE 0
+87 3B6 0 CODE 0
+88 3BA 0 CODE 0

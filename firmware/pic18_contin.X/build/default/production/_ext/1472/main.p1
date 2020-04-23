@@ -604,8 +604,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 88:         testing(gucTestBit);
 [e ( _testing (1 _gucTestBit ]
 "89
-[; ;../main.c: 89:         if(gucTestBit >= 9)
-[e $ ! >= -> _gucTestBit `i -> 9 `i 311  ]
+[; ;../main.c: 89:         if(gucTestBit > 9)
+[e $ ! > -> _gucTestBit `i -> 9 `i 311  ]
 "90
 [; ;../main.c: 90:         {
 {
@@ -613,16 +613,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 91:             gucTestBit = 0;
 [e = _gucTestBit -> -> 0 `i `uc ]
 "92
-[; ;../main.c: 92:         }
+[; ;../main.c: 92:             clr_LEDs();
+[e ( _clr_LEDs ..  ]
+"93
+[; ;../main.c: 93:         }
 }
 [e :U 311 ]
-"93
-[; ;../main.c: 93:     }
+"94
+[; ;../main.c: 94:     }
 }
 [e :U 308 ]
 [e $U 309  ]
 [e :U 310 ]
-"95
-[; ;../main.c: 95: }
+"96
+[; ;../main.c: 96: }
 [e :UE 307 ]
 }

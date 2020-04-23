@@ -86,9 +86,10 @@ void main (void)
         //heartbeat();
         //walk_LEDs();
         testing(gucTestBit);
-        if(gucTestBit >= MAX_IO)
+        if(gucTestBit > MAX_IO)
         {
             gucTestBit = 0;
+            clr_LEDs();
         }
     }
    //}

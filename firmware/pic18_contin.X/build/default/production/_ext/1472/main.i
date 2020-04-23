@@ -5065,9 +5065,10 @@ void main (void)
 
 
         testing(gucTestBit);
-        if(gucTestBit >= 9)
+        if(gucTestBit > 9)
         {
             gucTestBit = 0;
+            clr_LEDs();
         }
     }
 

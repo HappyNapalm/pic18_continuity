@@ -877,8 +877,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../setup.c: 78:     OSCCON = 0b01100111;
 [e = _OSCCON -> -> 103 `i `uc ]
 "81
-[; ;../setup.c: 81:     T3CON = 0b00110101;
-[e = _T3CON -> -> 53 `i `uc ]
+[; ;../setup.c: 81:     T3CON = 0b00000101;
+[e = _T3CON -> -> 5 `i `uc ]
 "82
 [; ;../setup.c: 82: }
 [e :UE 309 ]
