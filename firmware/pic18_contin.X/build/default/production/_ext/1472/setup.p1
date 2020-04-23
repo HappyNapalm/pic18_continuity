@@ -12,9 +12,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1980
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1980: extern volatile unsigned char LATE __attribute__((address(0xF8D)));
 [v _LATE `Vuc ~T0 @X0 0 e@3981 ]
-"1868
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1868: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
-[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
+"1184
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1184: extern volatile unsigned char PORTD __attribute__((address(0xF83)));
+[v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
+"788
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 788: extern volatile unsigned char PORTB __attribute__((address(0xF81)));
+[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
 "1532
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1532: extern volatile unsigned char LATA __attribute__((address(0xF89)));
 [v _LATA `Vuc ~T0 @X0 0 e@3977 ]
@@ -734,39 +737,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _astInputs
 :U ..
 :U ..
-&U _LATD
+&U _PORTD
 -> -> 0 `i `uc
 ..
 :U ..
-&U _LATD
+&U _PORTD
 -> -> 1 `i `uc
 ..
 :U ..
-&U _LATD
+&U _PORTD
 -> -> 2 `i `uc
 ..
 :U ..
-&U _LATD
+&U _PORTD
 -> -> 3 `i `uc
 ..
 :U ..
-&U _LATD
+&U _PORTD
 -> -> 4 `i `uc
 ..
 :U ..
-&U _LATD
+&U _PORTD
 -> -> 5 `i `uc
 ..
 :U ..
-&U _LATD
+&U _PORTD
 -> -> 6 `i `uc
 ..
 :U ..
-&U _LATD
+&U _PORTD
 -> -> 7 `i `uc
 ..
 :U ..
-&U _LATB
+&U _PORTB
 -> -> 0 `i `uc
 ..
 ..
@@ -1188,8 +1191,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _bInput `uc ~T0 @X0 1 a ]
 [e = _bInput ( _get_IO (2 , &U _astInputs _TargetBit ]
 "189
-[; ;../setup.c: 189:     set_IO(astLEDs,TargetBit,(bOutput == bInput==0));
-[e ( _set_IO (3 , , &U _astLEDs _TargetBit -> -> == -> == -> _bOutput `i -> _bInput `i `i -> 0 `i `i `uc ]
+[; ;../setup.c: 189:     set_IO(astLEDs,TargetBit,(bOutput == bInput==1));
+[e ( _set_IO (3 , , &U _astLEDs _TargetBit -> -> == -> == -> _bOutput `i -> _bInput `i `i -> 1 `i `i `uc ]
 "191
 [; ;../setup.c: 191: }
 [e :UE 326 ]

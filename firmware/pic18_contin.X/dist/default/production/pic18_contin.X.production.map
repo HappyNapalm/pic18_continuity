@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.10\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\pic18_contin.X.production.sym \
   --cmf=dist/default/production\pic18_contin.X.production.cmf -z -Q18F45K20 \
-  -oC:\Users\churc\AppData\Local\Temp\s5rc.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\churc\AppData\Local\Temp\s9r4.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/pic18_contin.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=07Bh-05FFh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0600h-06FFhx122 \
@@ -22,7 +22,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\churc\AppData\Local\Temp\s5rc.o \
+  C:\Users\churc\AppData\Local\Temp\s9r4.o \
   dist/default/production\pic18_contin.X.production.o 
 
 Object code version is 3.11
@@ -35,7 +35,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\churc\AppData\Local\Temp\s5rc.o
+C:\Users\churc\AppData\Local\Temp\s9r4.o
                 init                                 5E       5E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -176,10 +176,11 @@ _LATA                               (abs)        000F89
 _LATB                               (abs)        000F8A
 _LATBbits                           (abs)        000F8A
 _LATC                               (abs)        000F8B
-_LATD                               (abs)        000F8C
 _LATE                               (abs)        000F8D
 _LATEbits                           (abs)        000F8D
 _OSCCON                             (abs)        000FD3
+_PORTB                              (abs)        000F81
+_PORTD                              (abs)        000F83
 _T0CON                              (abs)        000FD5
 _T0CONbits                          (abs)        000FD5
 _T3CON                              (abs)        000FB1
@@ -748,8 +749,8 @@ Total ram usage:        1 bytes
   bValue          1    4[COMRAM] unsigned char 
  Auto vars:     Size  Location     Type
   ucLocal         2   10[COMRAM] PTR volatile unsigned ch
-		 -> LATA(1), LATD(1), LATE(1), LATB(1), 
-		 -> LATC(1), 
+		 -> LATA(1), PORTB(1), PORTD(1), LATE(1), 
+		 -> LATB(1), LATC(1), 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:

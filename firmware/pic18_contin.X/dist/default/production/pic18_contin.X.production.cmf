@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\churc\AppData\Local\Temp\s5rc.o
+$C:\Users\churc\AppData\Local\Temp\s9r4.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 5E 5E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -80,7 +80,7 @@ MEDIUMCONST 600-7FFF 1
 %LINETAB
 $dist/default/production\pic18_contin.X.production.o
 8 intcode CODE >96:D:\git_proj\pic18_continuity\firmware/setup.c
-8 intcode CODE >2677:C:\Users\churc\AppData\Local\Temp\s5rc.s
+8 intcode CODE >2679:C:\Users\churc\AppData\Local\Temp\s9r4.s
 A intcode CODE >98:D:\git_proj\pic18_continuity\firmware/setup.c
 18 intcode CODE >100:D:\git_proj\pic18_continuity\firmware/setup.c
 1A intcode CODE >101:D:\git_proj\pic18_continuity\firmware/setup.c
@@ -175,48 +175,48 @@ DA text9 CODE >19:D:\git_proj\pic18_continuity\firmware/setup.c
 320 text0 CODE >88:D:\git_proj\pic18_continuity\firmware/main.c
 326 text0 CODE >89:D:\git_proj\pic18_continuity\firmware/main.c
 336 text0 CODE >91:D:\git_proj\pic18_continuity\firmware/main.c
-1E4 cinit CODE >1199:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1E4 cinit CODE >1201:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1E4 cinit CODE >1204:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1E4 cinit CODE >1257:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1E6 cinit CODE >1258:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1E8 cinit CODE >1259:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1EA cinit CODE >1260:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1EC cinit CODE >1261:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1EE cinit CODE >1262:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1F0 cinit CODE >1263:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1F4 cinit CODE >1264:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1F8 cinit CODE >1265:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1F8 cinit CODE >1266:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1FA cinit CODE >1267:C:\Users\churc\AppData\Local\Temp\s5rc.s
-1FE cinit CODE >1268:C:\Users\churc\AppData\Local\Temp\s5rc.s
-200 cinit CODE >1269:C:\Users\churc\AppData\Local\Temp\s5rc.s
-202 cinit CODE >1270:C:\Users\churc\AppData\Local\Temp\s5rc.s
-204 cinit CODE >1274:C:\Users\churc\AppData\Local\Temp\s5rc.s
-206 cinit CODE >1275:C:\Users\churc\AppData\Local\Temp\s5rc.s
-208 cinit CODE >1276:C:\Users\churc\AppData\Local\Temp\s5rc.s
-20A cinit CODE >1277:C:\Users\churc\AppData\Local\Temp\s5rc.s
-20C cinit CODE >1278:C:\Users\churc\AppData\Local\Temp\s5rc.s
-20E cinit CODE >1279:C:\Users\churc\AppData\Local\Temp\s5rc.s
-210 cinit CODE >1280:C:\Users\churc\AppData\Local\Temp\s5rc.s
-214 cinit CODE >1281:C:\Users\churc\AppData\Local\Temp\s5rc.s
-218 cinit CODE >1282:C:\Users\churc\AppData\Local\Temp\s5rc.s
-218 cinit CODE >1283:C:\Users\churc\AppData\Local\Temp\s5rc.s
-21A cinit CODE >1284:C:\Users\churc\AppData\Local\Temp\s5rc.s
-21E cinit CODE >1285:C:\Users\churc\AppData\Local\Temp\s5rc.s
-220 cinit CODE >1286:C:\Users\churc\AppData\Local\Temp\s5rc.s
-222 cinit CODE >1287:C:\Users\churc\AppData\Local\Temp\s5rc.s
-224 cinit CODE >1291:C:\Users\churc\AppData\Local\Temp\s5rc.s
-228 cinit CODE >1292:C:\Users\churc\AppData\Local\Temp\s5rc.s
-22A cinit CODE >1293:C:\Users\churc\AppData\Local\Temp\s5rc.s
-22A cinit CODE >1294:C:\Users\churc\AppData\Local\Temp\s5rc.s
-22C cinit CODE >1295:C:\Users\churc\AppData\Local\Temp\s5rc.s
-22E cinit CODE >1296:C:\Users\churc\AppData\Local\Temp\s5rc.s
-230 cinit CODE >1302:C:\Users\churc\AppData\Local\Temp\s5rc.s
-230 cinit CODE >1304:C:\Users\churc\AppData\Local\Temp\s5rc.s
-232 cinit CODE >1305:C:\Users\churc\AppData\Local\Temp\s5rc.s
-234 cinit CODE >1306:C:\Users\churc\AppData\Local\Temp\s5rc.s
-236 cinit CODE >1307:C:\Users\churc\AppData\Local\Temp\s5rc.s
+1E4 cinit CODE >1201:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1E4 cinit CODE >1203:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1E4 cinit CODE >1206:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1E4 cinit CODE >1259:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1E6 cinit CODE >1260:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1E8 cinit CODE >1261:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1EA cinit CODE >1262:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1EC cinit CODE >1263:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1EE cinit CODE >1264:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1F0 cinit CODE >1265:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1F4 cinit CODE >1266:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1F8 cinit CODE >1267:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1F8 cinit CODE >1268:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1FA cinit CODE >1269:C:\Users\churc\AppData\Local\Temp\s9r4.s
+1FE cinit CODE >1270:C:\Users\churc\AppData\Local\Temp\s9r4.s
+200 cinit CODE >1271:C:\Users\churc\AppData\Local\Temp\s9r4.s
+202 cinit CODE >1272:C:\Users\churc\AppData\Local\Temp\s9r4.s
+204 cinit CODE >1276:C:\Users\churc\AppData\Local\Temp\s9r4.s
+206 cinit CODE >1277:C:\Users\churc\AppData\Local\Temp\s9r4.s
+208 cinit CODE >1278:C:\Users\churc\AppData\Local\Temp\s9r4.s
+20A cinit CODE >1279:C:\Users\churc\AppData\Local\Temp\s9r4.s
+20C cinit CODE >1280:C:\Users\churc\AppData\Local\Temp\s9r4.s
+20E cinit CODE >1281:C:\Users\churc\AppData\Local\Temp\s9r4.s
+210 cinit CODE >1282:C:\Users\churc\AppData\Local\Temp\s9r4.s
+214 cinit CODE >1283:C:\Users\churc\AppData\Local\Temp\s9r4.s
+218 cinit CODE >1284:C:\Users\churc\AppData\Local\Temp\s9r4.s
+218 cinit CODE >1285:C:\Users\churc\AppData\Local\Temp\s9r4.s
+21A cinit CODE >1286:C:\Users\churc\AppData\Local\Temp\s9r4.s
+21E cinit CODE >1287:C:\Users\churc\AppData\Local\Temp\s9r4.s
+220 cinit CODE >1288:C:\Users\churc\AppData\Local\Temp\s9r4.s
+222 cinit CODE >1289:C:\Users\churc\AppData\Local\Temp\s9r4.s
+224 cinit CODE >1293:C:\Users\churc\AppData\Local\Temp\s9r4.s
+228 cinit CODE >1294:C:\Users\churc\AppData\Local\Temp\s9r4.s
+22A cinit CODE >1295:C:\Users\churc\AppData\Local\Temp\s9r4.s
+22A cinit CODE >1296:C:\Users\churc\AppData\Local\Temp\s9r4.s
+22C cinit CODE >1297:C:\Users\churc\AppData\Local\Temp\s9r4.s
+22E cinit CODE >1298:C:\Users\churc\AppData\Local\Temp\s9r4.s
+230 cinit CODE >1304:C:\Users\churc\AppData\Local\Temp\s9r4.s
+230 cinit CODE >1306:C:\Users\churc\AppData\Local\Temp\s9r4.s
+232 cinit CODE >1307:C:\Users\churc\AppData\Local\Temp\s9r4.s
+234 cinit CODE >1308:C:\Users\churc\AppData\Local\Temp\s9r4.s
+236 cinit CODE >1309:C:\Users\churc\AppData\Local\Temp\s9r4.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -236,7 +236,7 @@ __Hspace_1 7B 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 __HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production\pic18_contin.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\pic18_contin.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\churc\AppData\Local\Temp\s5rc.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\churc\AppData\Local\Temp\s9r4.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\pic18_contin.X.production.o
 heartbeat@uwStartTime 47 0 COMRAM 1 bssCOMRAM dist/default/production\pic18_contin.X.production.o
 __size_of_all_LEDs 0 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
@@ -244,12 +244,11 @@ __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\pic18_contin.X
 _LATA F89 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 _LATB F8A 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 _LATC F8B 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
-_LATD F8C 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 _LATE F8D 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\churc\AppData\Local\Temp\s5rc.o
+___sp 0 0 STACK 2 stack C:\Users\churc\AppData\Local\Temp\s9r4.o
 _main 318 0 CODE 0 text0 dist/default/production\pic18_contin.X.production.o
 btemp 51 0 COMRAM 1 temp dist/default/production\pic18_contin.X.production.o
-start 5E 0 CODE 0 init C:\Users\churc\AppData\Local\Temp\s5rc.o
+start 5E 0 CODE 0 init C:\Users\churc\AppData\Local\Temp\s9r4.o
 __size_of_main 0 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 __size_of_IO_setup 0 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
@@ -265,11 +264,11 @@ ttemp6 55 0 COMRAM 1 temp dist/default/production\pic18_contin.X.production.o
 ttemp7 59 0 COMRAM 1 temp dist/default/production\pic18_contin.X.production.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\pic18_contin.X.production.o
 __size_of_clr_Timer3 0 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\churc\AppData\Local\Temp\s5rc.o
-intlevel0 0 0 CODE 0 text C:\Users\churc\AppData\Local\Temp\s5rc.o
-intlevel1 0 0 CODE 0 text C:\Users\churc\AppData\Local\Temp\s5rc.o
-intlevel2 0 0 CODE 0 text C:\Users\churc\AppData\Local\Temp\s5rc.o
-intlevel3 0 0 CODE 0 text C:\Users\churc\AppData\Local\Temp\s5rc.o
+__accesstop 60 0 ABS 0 - C:\Users\churc\AppData\Local\Temp\s9r4.o
+intlevel0 0 0 CODE 0 text C:\Users\churc\AppData\Local\Temp\s9r4.o
+intlevel1 0 0 CODE 0 text C:\Users\churc\AppData\Local\Temp\s9r4.o
+intlevel2 0 0 CODE 0 text C:\Users\churc\AppData\Local\Temp\s9r4.o
+intlevel3 0 0 CODE 0 text C:\Users\churc\AppData\Local\Temp\s9r4.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\pic18_contin.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\pic18_contin.X.production.o
 wtemp8 52 0 COMRAM 1 temp dist/default/production\pic18_contin.X.production.o
@@ -283,8 +282,8 @@ compare_IO@TargetBit 45 0 COMRAM 1 cstackCOMRAM dist/default/production\pic18_co
 _all_LEDs 2C0 0 CODE 0 text5 dist/default/production\pic18_contin.X.production.o
 __CFG_FOSC$INTIO67 0 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 _IO_setup 35E 0 CODE 0 text7 dist/default/production\pic18_contin.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\churc\AppData\Local\Temp\s5rc.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\churc\AppData\Local\Temp\s5rc.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\churc\AppData\Local\Temp\s9r4.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\churc\AppData\Local\Temp\s9r4.o
 __end_of_all_LEDs 2EC 0 CODE 0 text5 dist/default/production\pic18_contin.X.production.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/production\pic18_contin.X.production.o
 heartbeat@ucOverFlow 4C 0 COMRAM 1 bssCOMRAM dist/default/production\pic18_contin.X.production.o
@@ -339,7 +338,7 @@ __Htext8 0 0 ABS 0 text8 dist/default/production\pic18_contin.X.production.o
 __Htext9 0 0 ABS 0 text9 dist/default/production\pic18_contin.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\pic18_contin.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\pic18_contin.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\churc\AppData\Local\Temp\s5rc.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\churc\AppData\Local\Temp\s9r4.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\pic18_contin.X.production.o
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production\pic18_contin.X.production.o
 __size_of_testing 0 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
@@ -430,8 +429,8 @@ __Lfarbss 0 0 FARRAM 0 farbss dist/default/production\pic18_contin.X.production.
 _set_IO 62 0 CODE 0 text9 dist/default/production\pic18_contin.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\pic18_contin.X.production.o
 _compare_IO 23A 0 CODE 0 text2 dist/default/production\pic18_contin.X.production.o
-stackhi 5FF 0 ABS 0 - C:\Users\churc\AppData\Local\Temp\s5rc.o
-stacklo 7B 0 ABS 0 - C:\Users\churc\AppData\Local\Temp\s5rc.o
+stackhi 5FF 0 ABS 0 - C:\Users\churc\AppData\Local\Temp\s9r4.o
+stacklo 7B 0 ABS 0 - C:\Users\churc\AppData\Local\Temp\s9r4.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\pic18_contin.X.production.o
 _clr_Timer3 3A4 0 CODE 0 text11 dist/default/production\pic18_contin.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\pic18_contin.X.production.o
@@ -465,7 +464,7 @@ __ptext9 62 0 CODE 0 text9 dist/default/production\pic18_contin.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production\pic18_contin.X.production.o
 __Ltext11 0 0 ABS 0 text11 dist/default/production\pic18_contin.X.production.o
 __Ltext12 0 0 ABS 0 text12 dist/default/production\pic18_contin.X.production.o
-__ramtop 600 0 RAM 0 ramtop C:\Users\churc\AppData\Local\Temp\s5rc.o
+__ramtop 600 0 RAM 0 ramtop C:\Users\churc\AppData\Local\Temp\s9r4.o
 get_IO@IO 38 0 COMRAM 1 cstackCOMRAM dist/default/production\pic18_contin.X.production.o
 __Lpowerup 5E 0 CODE 0 powerup dist/default/production\pic18_contin.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\pic18_contin.X.production.o
@@ -485,6 +484,8 @@ _T3CONbits FB1 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 __end_of_main 342 0 CODE 0 text0 dist/default/production\pic18_contin.X.production.o
 __pintcode 8 0 CODE 0 intcode dist/default/production\pic18_contin.X.production.o
 set_IO@ucLocal 41 0 COMRAM 1 cstackCOMRAM dist/default/production\pic18_contin.X.production.o
+_PORTB F81 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
+_PORTD F83 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 _T0CON FD5 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 _T3CON FB1 0 ABS 0 - dist/default/production\pic18_contin.X.production.o
 _TMR0H FD7 0 ABS 0 - dist/default/production\pic18_contin.X.production.o

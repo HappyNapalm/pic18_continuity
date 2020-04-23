@@ -27,15 +27,15 @@ unsigned char get_IO (struct gstGPIO *IO, unsigned char item)
 }
 
 struct gstGPIO astInputs[] = {
-    {&LATD, 0},
-    {&LATD, 1},
-    {&LATD, 2},
-    {&LATD, 3},
-    {&LATD, 4},
-    {&LATD, 5},
-    {&LATD, 6},
-    {&LATD, 7},
-    {&LATB, 0},
+    {&PORTD, 0},
+    {&PORTD, 1},
+    {&PORTD, 2},
+    {&PORTD, 3},
+    {&PORTD, 4},
+    {&PORTD, 5},
+    {&PORTD, 6},
+    {&PORTD, 7},
+    {&PORTB, 0},
 };
 
 struct gstGPIO astOutputs[] = {
@@ -186,7 +186,7 @@ void compare_IO(unsigned char TargetBit)
 {
     unsigned char bOutput = get_IO(astOutputs,TargetBit);
     unsigned char bInput  = get_IO(astInputs ,TargetBit);
-    set_IO(astLEDs,TargetBit,(bOutput == bInput==0));
+    set_IO(astLEDs,TargetBit,(bOutput == bInput==1));
     
 }
 
