@@ -4960,8 +4960,11 @@ struct gstGPIO{
 void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 
 unsigned char gbTick;
+unsigned char guc_3_Tick;
+unsigned char gucTestBit;
 void heartbeat(void);
-# 43 "../setup.h"
+void testing(unsigned char TargetBit);
+# 46 "../setup.h"
 void IO_setup (void);
 
 void Timer_and_Interrupt_setup (void);
@@ -4985,7 +4988,21 @@ __attribute__((inline)) volatile unsigned short get_Time(void);
 # 5 "../setup.c" 2
 
 # 1 "../leds.h" 1
-# 38 "../leds.h"
+# 35 "../leds.h"
+struct gstGPIO astLEDs[9] = {
+    { &LATC, 0 },
+    { &LATC, 2 },
+    { &LATC, 1 },
+    { &LATC, 5 },
+    { &LATC, 6 },
+    { &LATC, 7 },
+    { &LATB, 3 },
+    { &LATB, 4 },
+    { &LATE, 0 },
+};
+
+
+
 extern void clr_LEDs (void);
 extern void all_LEDs (void);
 extern unsigned short get_LEDs (void);
@@ -5015,15 +5032,15 @@ unsigned char get_IO (struct gstGPIO *IO, unsigned char item)
 }
 
 struct gstGPIO astInputs[] = {
-    {&LATD, 0},
-    {&LATD, 1},
-    {&LATD, 2},
-    {&LATD, 3},
-    {&LATD, 4},
-    {&LATD, 5},
-    {&LATD, 6},
-    {&LATD, 7},
-    {&LATB, 0},
+    {&PORTD, 0},
+    {&PORTD, 1},
+    {&PORTD, 2},
+    {&PORTD, 3},
+    {&PORTD, 4},
+    {&PORTD, 5},
+    {&PORTD, 6},
+    {&PORTD, 7},
+    {&PORTB, 0},
 };
 
 struct gstGPIO astOutputs[] = {
@@ -5054,7 +5071,6 @@ void IO_setup (void)
 }
 
 
-
 void Timer_and_Interrupt_setup (void)
 {
 
@@ -5067,7 +5083,7 @@ void Timer_and_Interrupt_setup (void)
     OSCCON = 0b01100111;
 
 
-
+    T3CON = 0b00000101;
 }
 
 void clr_Timer (void)
@@ -5076,13 +5092,27 @@ void clr_Timer (void)
     TMR0L = 0;
 }
 
+void clr_Timer3 (void)
+{
+    TMR3H = 0;
+    TMR3L = 0;
+}
+
 void __attribute__((picinterrupt(("")))) ISR()
 {
     if(TMR0IF)
     {
         TMR0IF = 0;
         clr_Timer();
+        LATBbits.LB2 = !LATBbits.LB2;
         gbTick++;
+    }
+    if(TMR3IF)
+    {
+        TMR3IF = 0;
+        clr_Timer3();
+        guc_3_Tick++;
+        gucTestBit++;
     }
 }
 
@@ -5105,7 +5135,7 @@ unsigned char bTimeUp(
     {
 
 
-            if(((0x7FFF - StartTime) + CurrentTime) >= Period)
+            if(((0xFFFF - StartTime) + CurrentTime) >= Period)
                 {
                     b = 1;
                 }
@@ -5118,10 +5148,6 @@ unsigned char bTimeUp(
     return b;
 }
 
-
-
-
-
 void setup(void)
 {
     INTCONbits.GIE = 0;
@@ -5133,7 +5159,9 @@ void setup(void)
     INTCONbits.PEIE = 1;
     INTCONbits.TMR0IE = 1;
     T0CONbits.TMR0ON = 1;
+    T3CONbits.TMR3ON = 0;
     all_LEDs();
+
 
 }
 
@@ -5157,4 +5185,34 @@ void heartbeat(void)
             LATBbits.LB2 = !LATBbits.LB2;
         }
     }
+}
+
+void compare_IO(unsigned char TargetBit)
+{
+    unsigned char bOutput = get_IO(astOutputs,TargetBit);
+    unsigned char bInput = get_IO(astInputs ,TargetBit);
+    set_IO(astLEDs,TargetBit,(bOutput == bInput==1));
+
+}
+
+void testing(unsigned char TargetBit)
+{
+    static unsigned char b;
+    static unsigned char ucLocalTicks;
+    static unsigned char nbFirst;
+    if(!nbFirst)
+    {
+        b = 1;
+        nbFirst = 1;
+        ucLocalTicks = guc_3_Tick;
+        T3CONbits.TMR3ON = 1;
+    }
+    if(ucLocalTicks != guc_3_Tick)
+    {
+        T3CONbits.TMR3ON = 0;
+        b = 0;
+        nbFirst = 0;
+    }
+    set_IO(astOutputs,TargetBit,b);
+    compare_IO(TargetBit);
 }

@@ -2,8 +2,14 @@
 Repo for testing continuity
 
 ## TODO
-* Assemble boards to verify designs
-* Hammer out the firmware
+* Hammer out the firmware.
+** Set timer 3 up as the IO test timer. Make it 8 bits.
+
+##License
+* Free for non commerical use.
+* Remakes and spin offs must give credit to this project.
+
+~Assemble boards to verify designs~
 
 ~Verify RJ45~
 

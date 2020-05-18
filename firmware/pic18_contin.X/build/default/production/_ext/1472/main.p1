@@ -1,5 +1,18 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"1986 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
+"24 ../setup.h
+[; ;../setup.h: 24: struct gstGPIO{
+[s S303 `*Vuc 1 `uc 1 ]
+[n S303 gstGPIO port pin ]
+"1756 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1756: extern volatile unsigned char LATC __attribute__((address(0xF8B)));
+[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
+"1644
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1644: extern volatile unsigned char LATB __attribute__((address(0xF8A)));
+[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
+"1980
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1980: extern volatile unsigned char LATE __attribute__((address(0xF8D)));
+[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
+"1986
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1986:     struct {
 [s S83 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S83 . LATE0 LATE1 LATE2 ]
@@ -15,15 +28,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 1997: extern volatile LATEbits_t LATEbits __attribute__((address(0xF8D)));
 [v _LATEbits `VS82 ~T0 @X0 0 e@3981 ]
 [p mainexit ]
-"47 ../setup.h
-[; ;../setup.h: 47: void setup (void);
+"50 ../setup.h
+[; ;../setup.h: 50: void setup (void);
 [v _setup `(v ~T0 @X0 0 ef ]
-"32
-[; ;../setup.h: 32: void heartbeat(void);
-[v _heartbeat `(v ~T0 @X0 0 ef ]
-"41 ../leds.h
-[; ;../leds.h: 41: extern void walk_LEDs (void);
-[v _walk_LEDs `(v ~T0 @X0 0 ef ]
+"49 ../leds.h
+[; ;../leds.h: 49: extern void clr_LEDs (void);
+[v _clr_LEDs `(v ~T0 @X0 0 ef ]
+"35 ../setup.h
+[; ;../setup.h: 35: void testing(unsigned char TargetBit);
+[v _testing `(v ~T0 @X0 0 ef1`uc ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.10\pic\include\pic18f45k20.h: 54: __asm("SSPMSK equ 0F77h");
 [; <" SSPMSK equ 0F77h ;# ">
@@ -465,6 +478,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 "31 ../setup.h
 [; ;../setup.h: 31: unsigned char gbTick;
 [v _gbTick `uc ~T0 @X0 1 e ]
+"32
+[; ;../setup.h: 32: unsigned char guc_3_Tick;
+[v _guc_3_Tick `uc ~T0 @X0 1 e ]
+"33
+[; ;../setup.h: 33: unsigned char gucTestBit;
+[v _gucTestBit `uc ~T0 @X0 1 e ]
+"35 ../leds.h
+[; ;../leds.h: 35: struct gstGPIO astLEDs[9] = {
+[v _astLEDs `S303 ~T0 @X0 -> 9 `i e ]
+[i _astLEDs
+:U ..
+:U ..
+&U _LATC
+-> -> 0 `i `uc
+..
+:U ..
+&U _LATC
+-> -> 2 `i `uc
+..
+:U ..
+&U _LATC
+-> -> 1 `i `uc
+..
+:U ..
+&U _LATC
+-> -> 5 `i `uc
+..
+:U ..
+&U _LATC
+-> -> 6 `i `uc
+..
+:U ..
+&U _LATC
+-> -> 7 `i `uc
+..
+:U ..
+&U _LATB
+-> -> 3 `i `uc
+..
+:U ..
+&U _LATB
+-> -> 4 `i `uc
+..
+:U ..
+&U _LATE
+-> -> 0 `i `uc
+..
+..
+]
 "17 ../main.c
 [p x FOSC = INTIO67 ]
 "19
@@ -505,84 +567,65 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../main.c: 52: }
 [e :UE 305 ]
 }
-"54
-[; ;../main.c: 54: void testing (unsigned char ModeSwitch, unsigned char ucTargetBit)
-[v _testing `(v ~T0 @X0 1 ef2`uc`uc ]
-"55
-[; ;../main.c: 55: {
-{
-[e :U _testing ]
-"54
-[; ;../main.c: 54: void testing (unsigned char ModeSwitch, unsigned char ucTargetBit)
-[v _ModeSwitch `uc ~T0 @X0 1 r1 ]
-[v _ucTargetBit `uc ~T0 @X0 1 r2 ]
-"55
-[; ;../main.c: 55: {
-[f ]
-"56
-[; ;../main.c: 56:  if(ModeSwitch)
-[e $ ! != -> _ModeSwitch `i -> 0 `i 307  ]
-"57
-[; ;../main.c: 57:  {
-{
-"59
-[; ;../main.c: 59:  }
-}
-[e :U 307 ]
-"60
-[; ;../main.c: 60:     if (ModeSwitch)
-[e $ ! != -> _ModeSwitch `i -> 0 `i 308  ]
-"61
-[; ;../main.c: 61:  b2_Compare(ucTargetBit);
-[e ( _b2_Compare (1 _ucTargetBit ]
-[e :U 308 ]
-"63
-[; ;../main.c: 63: }
-[e :UE 306 ]
-}
-"65
-[; ;../main.c: 65: void dis_Results()
+"67
+[; ;../main.c: 67: void dis_Results()
 [v _dis_Results `(v ~T0 @X0 1 ef ]
-"66
-[; ;../main.c: 66: {
+"68
+[; ;../main.c: 68: {
 {
 [e :U _dis_Results ]
 [f ]
-"68
-[; ;../main.c: 68: }
-[e :UE 309 ]
+"70
+[; ;../main.c: 70: }
+[e :UE 306 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"71
-[; ;../main.c: 71: void main (void)
+"73
+[; ;../main.c: 73: void main (void)
 [v _main `(v ~T0 @X0 1 ef ]
-"72
-[; ;../main.c: 72: {
+"74
+[; ;../main.c: 74: {
 {
 [e :U _main ]
 [f ]
-"73
-[; ;../main.c: 73:     setup();
+"75
+[; ;../main.c: 75:     setup();
 [e ( _setup ..  ]
-"81
-[; ;../main.c: 81:     while(1)
-[e :U 312 ]
-"82
-[; ;../main.c: 82:     {
-{
-"83
-[; ;../main.c: 83:         heartbeat();
-[e ( _heartbeat ..  ]
+"76
+[; ;../main.c: 76:     clr_LEDs();
+[e ( _clr_LEDs ..  ]
 "84
-[; ;../main.c: 84:         walk_LEDs();
-[e ( _walk_LEDs ..  ]
+[; ;../main.c: 84:     while(1)
+[e :U 309 ]
 "85
-[; ;../main.c: 85:     }
+[; ;../main.c: 85:     {
+{
+"88
+[; ;../main.c: 88:         testing(gucTestBit);
+[e ( _testing (1 _gucTestBit ]
+"89
+[; ;../main.c: 89:         if(gucTestBit > 9)
+[e $ ! > -> _gucTestBit `i -> 9 `i 311  ]
+"90
+[; ;../main.c: 90:         {
+{
+"91
+[; ;../main.c: 91:             gucTestBit = 0;
+[e = _gucTestBit -> -> 0 `i `uc ]
+"92
+[; ;../main.c: 92:             clr_LEDs();
+[e ( _clr_LEDs ..  ]
+"93
+[; ;../main.c: 93:         }
 }
 [e :U 311 ]
-[e $U 312  ]
-[e :U 313 ]
-"87
-[; ;../main.c: 87: }
-[e :UE 310 ]
+"94
+[; ;../main.c: 94:     }
+}
+[e :U 308 ]
+[e $U 309  ]
+[e :U 310 ]
+"96
+[; ;../main.c: 96: }
+[e :UE 307 ]
 }

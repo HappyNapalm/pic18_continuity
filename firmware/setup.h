@@ -29,7 +29,10 @@ struct gstGPIO{
 void set_IO (struct gstGPIO *IO, unsigned char item,unsigned char bValue);
 
 unsigned char gbTick;
+unsigned char guc_3_Tick;
+unsigned char gucTestBit;
 void heartbeat(void);
+void testing(unsigned char TargetBit);
 
 
 #define HB    LATBbits.LB2

@@ -360,6 +360,25 @@ Wire Wire Line
 Wire Wire Line
 	2000 3300 2150 3300
 $Comp
+L Device:R_US R3
+U 1 1 5E534EAE
+P 2750 3450
+F 0 "R3" H 2818 3496 50  0000 L CNN
+F 1 "R_US" H 2818 3405 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric" V 2790 3440 50  0001 C CNN
+F 3 "~" H 2750 3450 50  0001 C CNN
+	1    2750 3450
+	1    0    0    -1  
+$EndComp
+Text GLabel 2450 3600 0    50   Input ~ 0
+GND
+Wire Wire Line
+	2450 3600 2750 3600
+Wire Wire Line
+	2750 3300 2750 3100
+Wire Wire Line
+	2750 3100 2000 3100
+$Comp
 L pspice:CAP C1
 U 1 1 5E53E1CC
 P 1800 4950
@@ -1018,5 +1037,4 @@ Text GLabel 8850 3850 1    50   Input ~ 0
 In9
 Wire Wire Line
 	8850 3850 8850 3950
-NoConn ~ 2000 3100
 $EndSCHEMATC
