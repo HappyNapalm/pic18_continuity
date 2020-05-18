@@ -3,7 +3,8 @@ Repo for testing continuity
 
 ## TODO
 * Hammer out the firmware.
-** Set timer 3 up as the IO test timer. Make it 8 bits.
+* Set timer 3 up as the IO test timer. Make it 8 bits.
+* Make footprint for push button.
 
 ##License
 * Free for non commerical use.
