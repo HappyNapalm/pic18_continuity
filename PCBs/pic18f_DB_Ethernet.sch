@@ -343,23 +343,6 @@ Text GLabel 1300 3200 0    50   Input ~ 0
 Wire Wire Line
 	1300 3200 1600 3200
 $Comp
-L Device:R_US R1
-U 1 1 5E53276D
-P 2150 3450
-F 0 "R1" H 2218 3496 50  0000 L CNN
-F 1 "R_US" H 2218 3405 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 2190 3440 50  0001 C CNN
-F 3 "~" H 2150 3450 50  0001 C CNN
-	1    2150 3450
-	1    0    0    -1  
-$EndComp
-Text GLabel 1850 3600 0    50   Input ~ 0
-GND
-Wire Wire Line
-	1850 3600 2150 3600
-Wire Wire Line
-	2000 3300 2150 3300
-$Comp
 L pspice:CAP C1
 U 1 1 5E53E1CC
 P 1800 4950
@@ -772,13 +755,8 @@ Wire Wire Line
 	6250 2550 6150 2550
 Text GLabel 2100 4100 2    50   Input ~ 0
 SW0
-Wire Wire Line
-	2100 4100 2050 4100
 Text GLabel 2250 3300 2    50   Input ~ 0
 SW1
-Wire Wire Line
-	2250 3300 2150 3300
-Connection ~ 2150 3300
 $Comp
 L Switch:SW_DPDT_x2 SW2
 U 2 1 5E647F5E
@@ -857,7 +835,7 @@ U 1 1 5EC2D370
 P 1800 4100
 F 0 "SW3" H 1800 4385 50  0000 C CNN
 F 1 "SW_Push" H 1800 4294 50  0000 C CNN
-F 2 "" H 1800 4300 50  0001 C CNN
+F 2 "SPST_Button_FSM2JRT:SPST_Button_FSM2JRT" H 1800 4300 50  0001 C CNN
 F 3 "~" H 1800 4300 50  0001 C CNN
 	1    1800 4100
 	1    0    0    -1  
@@ -866,24 +844,6 @@ Text GLabel 1300 4100 0    50   Input ~ 0
 3v3
 Wire Wire Line
 	1300 4100 1600 4100
-$Comp
-L Device:R_US R2
-U 1 1 5EC43D14
-P 2050 4250
-F 0 "R2" H 2118 4296 50  0000 L CNN
-F 1 "R_US" H 2118 4205 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric" V 2090 4240 50  0001 C CNN
-F 3 "~" H 2050 4250 50  0001 C CNN
-	1    2050 4250
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1750 4400 2050 4400
-Text GLabel 1750 4400 0    50   Input ~ 0
-GND
-Connection ~ 2050 4100
-Wire Wire Line
-	2050 4100 2000 4100
 $Comp
 L pic18f_DB_Ethernet-rescue:R_Pack04-Device RN4
 U 1 1 5EC52ABA
@@ -982,41 +942,69 @@ Wire Wire Line
 Wire Wire Line
 	9050 4550 8950 4550
 Connection ~ 8950 4550
-Text GLabel 7550 3850 1    50   Input ~ 0
+Text GLabel 7850 3850 1    50   Input ~ 0
 In1
 Wire Wire Line
-	7550 3850 7550 3950
-Text GLabel 7650 3850 1    50   Input ~ 0
-In2
+	7850 3850 7850 3950
 Text GLabel 7750 3850 1    50   Input ~ 0
+In2
+Text GLabel 7650 3850 1    50   Input ~ 0
 In3
-Text GLabel 7850 3850 1    50   Input ~ 0
+Text GLabel 7550 3850 1    50   Input ~ 0
 In4
 Wire Wire Line
-	7850 3850 7850 3950
-Wire Wire Line
-	7750 3850 7750 3950
+	7550 3850 7550 3950
 Wire Wire Line
 	7650 3850 7650 3950
-Text GLabel 8500 3850 1    50   Input ~ 0
+Wire Wire Line
+	7750 3850 7750 3950
+Text GLabel 8200 3850 1    50   Input ~ 0
 In8
 Wire Wire Line
-	8500 3850 8500 3950
-Text GLabel 8400 3850 1    50   Input ~ 0
-In7
+	8200 3850 8200 3950
 Text GLabel 8300 3850 1    50   Input ~ 0
+In7
+Text GLabel 8400 3850 1    50   Input ~ 0
 In6
-Text GLabel 8200 3850 1    50   Input ~ 0
+Text GLabel 8500 3850 1    50   Input ~ 0
 In5
 Wire Wire Line
-	8200 3850 8200 3950
-Wire Wire Line
-	8300 3850 8300 3950
+	8500 3850 8500 3950
 Wire Wire Line
 	8400 3850 8400 3950
-Text GLabel 8850 3850 1    50   Input ~ 0
+Wire Wire Line
+	8300 3850 8300 3950
+Text GLabel 9150 3850 1    50   Input ~ 0
 In9
 Wire Wire Line
-	8850 3850 8850 3950
+	9150 3850 9150 3950
 NoConn ~ 2000 3100
+Wire Wire Line
+	2000 3300 2250 3300
+Text GLabel 10700 2000 2    50   Input ~ 0
+SW1
+Wire Wire Line
+	10450 2000 10700 2000
+Wire Wire Line
+	10450 2000 10450 2350
+Wire Wire Line
+	10450 2750 10450 2850
+Wire Wire Line
+	10550 2850 10550 3150
+Wire Wire Line
+	10550 3150 10250 3150
+Wire Wire Line
+	10450 2850 10550 2850
+Connection ~ 10250 3150
+Wire Wire Line
+	2000 4100 2100 4100
+Text GLabel 9050 3850 1    50   Input ~ 0
+SW0
+Wire Wire Line
+	9050 3950 9050 3850
+Wire Wire Line
+	9150 4350 9150 4550
+Wire Wire Line
+	9150 4550 9050 4550
+Connection ~ 9050 4550
 $EndSCHEMATC

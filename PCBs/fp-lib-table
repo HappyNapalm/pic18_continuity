@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name SPST_Button_FSM2JRT)(type KiCad)(uri ${KIPRJMOD}/SPST_Button_FSM2JRT.pretty)(options "")(descr ""))
+)
